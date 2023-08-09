@@ -1,0 +1,29 @@
+{"level":"warning","msg":"(Open(): conecpg.go) Banco de dados conectado, porém inválido! Tentando criar base diogo01teste"}
+{"level":"info","msg":"(Open(): conecpg.go) DB diogo01teste conectado!"}
+{"level":"info","msg":"AddTabela(): gerarbanco.go Tabela adicionada: hashtabela"}
+{"level":"info","msg":"AddTabela(): gerarbanco.go Tabela adicionada: tbloutra"}
+{"level":"info","msg":"AddTabela(): gerarbanco.go Tabela adicionada: esquemasdb"}
+{"level":"info","msg":"ExecTabelas(): listasesqtbl.go (GO) Carregando lista de tabelas"}
+{"level":"info","msg":"ExecAddEsquemas(): adlistaesquema.go (GO) Carregando lista de esquemas"}
+{"level":"info","msg":"LogEsquemas(): lesquema.go Esquema 0 \u0026{0 {1 ep000}}"}
+{"level":"info","msg":"LogEsquemas(): lesquema.go Esquema 1 \u0026{1 {3 ep001}}"}
+{"level":"info","msg":"LogEsquemas(): lesquema.go Esquema 2 \u0026{1 {2 ep001}}"}
+{"level":"info","msg":"LogEsquemas(): lesquema.go Esquema 3 \u0026{1 {4 ep001}}"}
+{"level":"info","msg":"LogTabelas(): ltabela.go Tabela 0 \u0026{{Password SNH 1} [0x12865ea0 0x12865ec0] [] {0x501820}}"}
+{"level":"info","msg":"LogTabelas(): ltabela.go Tabela 1 \u0026{{tbProduto PRO 4} [0x12865f00 0x12865f20 0x12865f40 0x12865f80] [] {0x501820}}"}
+{"level":"info","msg":"LogTabelas(): ltabela.go Tabela 2 \u0026{{tbMarca MAR 2} [0x12865fc0 0x12865fe0] [0x128327b0] {0x501820}}"}
+{"level":"info","msg":"LogTabelas(): ltabela.go Tabela 3 \u0026{{tbUnidade UND 2} [0x12936060 0x12936080] [] {0x5053e0}}"}
+{"level":"info","msg":"LogTabelas(): ltabela.go Tabela 4 \u0026{{tbCliente CLI 3} [0x129360c0 0x129360e0 0x12936100] [0x12832840 0x12832870] {0x501820}}"}
+{"level":"info","msg":"LogTabelas(): ltabela.go Tabela 5 \u0026{{Itens ITE 4} [0x129361a0 0x129361c0] [0x128328d0 0x12832900] {0x501820}}"}
+{"level":"info","msg":"(GetEsquemaSimplificado(): montartabelas.go) Tipo: ShShare - Descri.: ep000 - Empresa: 0"}
+{"level":"info","msg":"(GetEsquemaSimplificado(): montartabelas.go) Tipo: ShCliente - Descri.: ep001 - Empresa: 1"}
+{"level":"info","msg":"(GetEsquemaSimplificado(): montartabelas.go) Tipo: ShEstoque - Descri.: ep001 - Empresa: 1"}
+{"level":"info","msg":"(GetEsquemaSimplificado(): montartabelas.go) Tipo: ShMovimento - Descri.: ep001 - Empresa: 1"}
+{"level":"info","msg":"atTabela(): gerartbl.go Table: Itens Esquema: {4 ep001}"}
+{"level":"info","msg":"atTabela(): gerartbl.go Table: tbMarca Esquema: {2 ep001}"}
+{"level":"info","msg":"atTabela(): gerartbl.go Table: Password Esquema: {1 ep000}"}
+{"level":"info","msg":"atTabela(): gerartbl.go Table: tbCliente Esquema: {3 ep001}"}
+{"level":"info","msg":"atTabela(): gerartbl.go Table: tbUnidade Esquema: {2 ep001}"}
+{"level":"info","msg":"atTabela(): gerartbl.go Table: tbProduto Esquema: {4 ep001}"}
+{"level":"info","msg":"(Close(): conecpg.go) DB diogo01teste desconectado!"}
+{"level":"info","msg":"(main()) Tabelas atualizadas com sucesso!\n\nTempo percorrido: 219.0019ms","time":"2020-11-02T21:57:37-02:00"}
