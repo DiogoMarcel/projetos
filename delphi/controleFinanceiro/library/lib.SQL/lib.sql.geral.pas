@@ -1,0 +1,180 @@
+unit lib.sql.geral;
+
+interface
+
+uses
+  dialogs,
+  consts.SQLs,
+  System.SysUtils,
+  lib.sql.interfaces;
+
+type
+  TSQLGeral = class(TInterfacedObject, iSQLDefinicao, iSQLResultado)
+  private
+    FSQLEnum: TSQLEnum;
+
+    function PegarSQLFrameConta: string;
+    function PegarSQLFrameSaldoPortador: string;
+    function PegarSQLConsultaGradeConta: string;
+    function PegarSQLGradeSaldoPortador: string;
+    function PegarSQLSaldoDetalhadoPortador: string;
+    function PegarSQLSaldoDetalhadoPortadorGrafico: string;
+
+  public
+    function SetEnumSQL(_ASQLEnum: TSQLEnum): iSQLResultado;
+    function PegarSQL: string;
+
+    class function New: iSQLDefinicao;
+  end;
+
+implementation
+
+{ TSQLGeral }
+
+function TSQLGeral.PegarSQL: string;
+begin
+  case FSQLEnum of
+    sqlFrameConta                    : Result := PegarSQLFrameConta;
+    sqlFrameSaldoPortador            : Result := PegarSQLFrameSaldoPortador;
+    sqlConsultaGradeConta            : Result := PegarSQLConsultaGradeConta;
+    sqlConsultaGradeSaldoPortador    : Result := PegarSQLGradeSaldoPortador;
+    sqlSaldoDetalhadoPortador        : Result := PegarSQLSaldoDetalhadoPortador;
+    sqlSaldoDetalhadoPortadorGrafico : Result := PegarSQLSaldoDetalhadoPortadorGrafico;
+    else
+      raise Exception.Create('SQL Inválido para a classe Geral!');
+  end;
+end;
+
+class function TSQLGeral.New: iSQLDefinicao;
+begin
+  Result := Self.Create;
+end;
+
+function TSQLGeral.SetEnumSQL(_ASQLEnum: TSQLEnum): iSQLResultado;
+begin
+  Result := Self;
+
+  FSQLEnum := _ASQLEnum;
+end;
+
+function TSQLGeral.PegarSQLFrameConta: string;
+begin
+  Result := 'SELECT C.IDCONTA                                           '+
+            '      ,C.DESCRICAO                                         '+
+            '      ,C.VALOR                                             '+
+            '      ,C.CONTAANUAL                                        '+
+            '      ,C.PERTENCEAFOLHA                                    '+
+            '      ,C.DEBITACARTAO                                      '+
+            '      ,C.DEBITOAUTO                                        '+
+            '      ,C.PAGAMENTOMANUAL                                   '+
+            '      ,COALESCE(C.ID_MEMBROFAMILIA, 0) AS ID_MEMBROFAMILIA '+
+            '      ,:pValorTotal as VALORTOTAL                          '+
+            '      ,:pNome as NOME                                      '+
+            ' FROM CONTA C                                              '+
+            ' WHERE C.TIPOCONTA = :pTipoConta                           '+
+            '   AND COALESCE(C.ID_MEMBROFAMILIA, 0)= :pMembroFamilia    '+
+            ' ORDER BY COALESCE(C.ID_MEMBROFAMILIA, 0) DESC             '+
+            '         ,C.IDCONTA                                        ';
+end;
+
+function TSQLGeral.PegarSQLFrameSaldoPortador: string;
+begin
+  Result := 'SELECT	M.IDMEMBROFAMILIA                                                               '+
+            '      ,M.NOME AS MEMBRO                                                                '+
+            '      ,P.NOMEPORTADOR                                                                  '+
+            '      ,CAST(                                                                           '+
+            '      COALESCE(P.AGENCIA, '''')                                                        '+
+            '      || CASE WHEN COALESCE(P.NUMEROCONTA, '''') <> '''' THEN '' / '' ELSE '''' END || '+
+            '      COALESCE(P.NUMEROCONTA, '''')                                                    '+
+            '      || CASE WHEN COALESCE(P.DIGITOCONTA, '''') <> '''' THEN ''-'' ELSE '''' END ||   '+
+            '      COALESCE(P.DIGITOCONTA, '''') AS VARCHAR(50)) AS CONTA                           '+
+            '      ,T.DESCRICAOTIPOCONTA                                                            '+
+            '      ,S.VALOR                                                                         '+
+            '      ,COALESCE(S.RESERVADO OR S.CONTACAPITAL, FALSE) AS RESERVADOCAPITAL              '+
+            '      ,P.IMGPORTADOR                                                                   '+
+            '      ,:pSaldoGeral as SALDOGERAL                                                      '+
+            ' FROM SALDOPORTADOR S                                                                  '+
+            ' JOIN PORTADOR P ON S.ID_PORTADOR = P.IDPORTADOR                                       '+
+            ' JOIN MEMBROFAMILIA M ON P.ID_MEMBROFAMILIA = M.IDMEMBROFAMILIA                        '+
+            ' JOIN TIPOCONTAPORTADOR T ON T.TIPOCONTA = P.TIPOCONTA                                 '+
+            ' WHERE M.IDMEMBROFAMILIA = :PIDMEMBROFAMILIA                                           '+
+            ' ORDER BY M.IDMEMBROFAMILIA DESC                                                       '+
+            '   ,COALESCE(S.RESERVADO, FALSE)                                                       '+
+            '   ,COALESCE(S.CONTACAPITAL, FALSE)                                                    '+
+            '   ,P.IDPORTADOR                                                                       ';
+end;
+
+function TSQLGeral.PegarSQLGradeSaldoPortador: string;
+begin
+  Result := 'SELECT SUM(S.VALOR) AS VALORTOTAL                               '+
+            '      ,M.IDMEMBROFAMILIA                                        '+
+            '      ,M.NOME                                                   '+
+            ' FROM SALDOPORTADOR S                                           '+
+            ' JOIN PORTADOR P ON S.ID_PORTADOR = P.IDPORTADOR                '+
+            ' JOIN MEMBROFAMILIA M ON P.ID_MEMBROFAMILIA = M.IDMEMBROFAMILIA '+
+            ' WHERE NOT COALESCE(S.RESERVADO, FALSE)                         '+
+            '   AND NOT COALESCE(S.CONTACAPITAL, FALSE)                      '+
+            ' GROUP BY M.IDMEMBROFAMILIA                                     ';
+end;
+
+function TSQLGeral.PegarSQLSaldoDetalhadoPortador: string;
+begin
+  Result := 'SELECT IDSALDODETALHADOPORTADOR                         '+
+            '       ,CAST( TRIM(TO_CHAR(DATAALTERACAO, ''TMMonth'')) '+
+            '              || '' / '' ||                             '+
+            '              TRIM(TO_CHAR(DATAALTERACAO, ''YYYY''))    '+
+            '        AS VARCHAR(30)) AS DATAALTERACAO                '+
+            '       ,SALDOTOTAL                                      '+
+            '       ,SALDODISPONIVEL                                 '+
+            '       ,DIFERENCA                                       '+
+            '       ,ACUMULADO                                       '+
+            ' FROM SALDODETALHADOPORTADOR                            '+
+            ' ORDER BY 1 DESC                                        ';
+end;
+
+function TSQLGeral.PegarSQLSaldoDetalhadoPortadorGrafico: string;
+begin
+  Result := 'SELECT DATAALTERACAO                                                                      '+
+            '      ,SALDOTOTAL                                                                         '+
+            'FROM (                                                                                    '+
+            '  SELECT SDP.IDSALDODETALHADOPORTADOR                                                     '+
+            '        ,CAST(TRIM(TO_CHAR(SDP.DATAALTERACAO, ''TMMonth'')) || '' / ''                    '+
+            '           || TRIM(TO_CHAR(SDP.DATAALTERACAO, ''YYYY'')) AS VARCHAR(30)) AS DATAALTERACAO '+
+            '        ,SALDOTOTAL                                                                       '+
+            '  FROM SALDODETALHADOPORTADOR SDP                                                         '+
+            '  JOIN (                                                                                  '+
+            '    SELECT MAX(DATAALTERACAO) AS DATAALTERACAO                                            '+
+            '          ,MAX(IDSALDODETALHADOPORTADOR) AS IDSALDODETALHADOPORTADOR                      '+
+            '    FROM SALDODETALHADOPORTADOR                                                           '+
+            '    GROUP BY EXTRACT(MONTH FROM DATAALTERACAO)                                            '+
+            '            ,EXTRACT(YEAR FROM DATAALTERACAO)                                             '+
+            '    ORDER BY EXTRACT(YEAR FROM DATAALTERACAO) DESC                                        '+
+            '            ,EXTRACT(MONTH FROM DATAALTERACAO) DESC                                       '+
+            '  ) AS SUBSDP ON SUBSDP.DATAALTERACAO=SDP.DATAALTERACAO                                   '+
+            '             AND SUBSDP.IDSALDODETALHADOPORTADOR=SDP.IDSALDODETALHADOPORTADOR             '+
+            '  ORDER BY SDP.IDSALDODETALHADOPORTADOR DESC                                              '+
+            '  LIMIT 13                                                                                '+
+            ') SB ORDER BY SB.IDSALDODETALHADOPORTADOR                                                 ';
+end;
+
+function TSQLGeral.PegarSQLConsultaGradeConta: string;
+begin
+  Result := ' SELECT SUM(                                                         '+
+            '           CASE WHEN ((COALESCE(C.DEBITACARTAO, FALSE))              '+
+            '                       OR                                            '+
+            '                      (COALESCE(C.CONTAANUAL, FALSE)))               '+
+            '                THEN 0.0                                             '+
+            '                ELSE COALESCE(C.VALOR, 0) END                        '+
+            '        ) AS VALORTOTAL                                              '+
+            '       ,COALESCE(C.ID_MEMBROFAMILIA, 0) AS ID_MEMBROFAMILIA          '+
+            '       ,COALESCE(M.NOME, ''Compartilhado'') AS NOME                  '+
+            '       ,C.TIPOCONTA                                                  '+
+            ' FROM CONTA C                                                        '+
+            ' LEFT JOIN MEMBROFAMILIA M ON C.ID_MEMBROFAMILIA = M.IDMEMBROFAMILIA '+
+            ' WHERE C.TIPOCONTA= :pTipoConta                                      '+
+            ' GROUP BY C.ID_MEMBROFAMILIA                                         '+
+            '         ,M.NOME                                                     '+
+            '         ,C.TIPOCONTA                                                ';
+end;
+
+end.
