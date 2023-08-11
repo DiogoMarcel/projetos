@@ -1,0 +1,9 @@
+host:localhost
+dbName:diogo01
+port:5432
+user:postgres
+password:postgres
+owner:postgres
+encoding:SQL_ASCII
+tableSpace:pg_default
+template:template0
