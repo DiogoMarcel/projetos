@@ -392,15 +392,12 @@ var
 begin
   inherited;
 
-
   formCalcular := TformCalcular.Create(Application);
   try
     formCalcular.ShowModal;
   finally
     FreeAndNil(formCalcular);
   end;
-
-
 end;
 
 procedure TformCadastroTemplate.dbgConsultaDrawColumnCell(Sender: TObject;

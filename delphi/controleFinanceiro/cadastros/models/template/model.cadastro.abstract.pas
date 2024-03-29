@@ -42,6 +42,7 @@ type
     function MontarSQLLista: string;
     function SetRecOnFormShow(_ARecOnFormShow: TRecOnFormShow): iCadastros;
     function AjustarGrid: iCadastros;
+    procedure ExcluirRegistroAtual;
 
     {function UpdateDataSet: iCadastros;}
     {function AjustarMemTable: iCadastros;}
@@ -61,6 +62,7 @@ type
     function ModelBeforePost: boolean; virtual;
     function PegarSQLWhereCadastro: string; virtual;
     function PegarEnumSQLGrade: TSQLEnum; virtual;
+    procedure ExcluirRegistrosAuxiliares; virtual;
 
     {Abstract}
     procedure SetTituloTela(_AProcTitulo: TTituloCadastro); virtual; abstract;
@@ -168,6 +170,7 @@ end;}
 function TModelCadAbstractTofolo.ModelBeforePost: boolean; begin Result := True; end;
 function TModelCadAbstractTofolo.PegarSQLWhereCadastro: string; begin Result := ''; end;
 function TModelCadAbstractTofolo.PegarEnumSQLGrade: TSQLEnum; begin Result := sqlNull end;
+procedure TModelCadAbstractTofolo.ExcluirRegistrosAuxiliares; begin {} end;
 procedure TModelCadAbstractTofolo.AtualizarParamsQueryGrade; begin {} end;
 procedure TModelCadAbstractTofolo.AtualizarParamsQueryLista; begin {} end;
 {$ENDREGION}
@@ -565,20 +568,27 @@ begin
   FRecOnFormShow.ProcAtualizarConsultaGrade;
 end;
 
+procedure TModelCadAbstractTofolo.ExcluirRegistroAtual;
+const
+  MAX_ERRORS = 0;
+begin
+  ExcluirRegistrosAuxiliares;
+
+  PegarCDSCadastro.Delete;
+
+  if PegarCDSCadastro.ApplyUpdates(MAX_ERRORS) = MAX_ERRORS then
+    TLibMessages.New.Informar('Registro excluído com sucesso!');
+
+  FRecOnFormShow.ProcAtualizarConsultaGrade;
+end;
+
 function TModelCadAbstractTofolo.ExcluirCadastro: iCadastros;
 begin
   if (not PegarCDSCadastro.Active) or (PegarCDSCadastro.IsEmpty) then
     raise Exception.Create('Nenhum registro encontrado para excluir!');
 
   if (TLibMessages.New.Confirmar('Tem certeza que deseja excluir o registro?')) then
-  begin
-    PegarCDSCadastro.Delete;
-    PegarCDSCadastro.ApplyUpdates(0);
-
-    FRecOnFormShow.ProcAtualizarConsultaGrade;
-
-    TLibMessages.New.Informar('Registro excluído com sucesso!');
-  end;
+    ExcluirRegistroAtual;
 end;
 {$ENDREGION}
 

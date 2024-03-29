@@ -211,6 +211,10 @@ begin
   AEnumValue := GetEnumValue(ATypeInfo, AComponentName);
 
   Result := TTypeCadastros(AEnumValue);
+
+
+
+
 end;
 
 end.

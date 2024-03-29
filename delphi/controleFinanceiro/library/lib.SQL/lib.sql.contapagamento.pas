@@ -13,6 +13,7 @@ type
     FSQLEnum: TSQLEnum;
 
     function PegarSQLUpdateBaixaEfetuada: string;
+    function PegarSQLExcluirRegistroAuxiliarContaPagamentos: string;
 
   public
     function SetEnumSQL(_ASQLEnum: TSQLEnum): iSQLResultado;
@@ -29,6 +30,7 @@ function TSQLContaPagamentos.PegarSQL: string;
 begin
   case FSQLEnum of
     sqlContaPgtoUpdateBaixaEfetuada : Result := PegarSQLUpdateBaixaEfetuada;
+    sqlContaPgtoExcRegAuxContaPagamentos : Result := PegarSQLExcluirRegistroAuxiliarContaPagamentos;
     else
       raise Exception.Create('SQL Inválido para a classe Conta Pagamentos!');
   end;
@@ -51,6 +53,12 @@ begin
   Result := ' UPDATE CONTAPAGAMENTOS                       '+
             ' SET DATABAIXA= :pDATABAIXA                   '+
             ' WHERE IDCONTAPAGAMENTOS= :pIDCONTAPAGAMENTOS ';
+end;
+
+function TSQLContaPagamentos.PegarSQLExcluirRegistroAuxiliarContaPagamentos: string;
+begin
+  Result := ' DELETE FROM PUBLIC.CONTAPAGAMENTOS '+
+            ' WHERE ID_CONTA= :pID_CONTA';
 end;
 
 end.

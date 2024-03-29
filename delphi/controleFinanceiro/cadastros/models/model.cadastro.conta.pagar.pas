@@ -20,6 +20,7 @@ type
     procedure AtualizarParamsQueryLista; override;
     procedure AtualizarParamsQueryGrade; override;
     function ModelBeforePost: boolean; override;
+    procedure ExcluirRegistrosAuxiliares; override;
 
   public
     class function ObterInstancia: iCadastros; override;
@@ -30,6 +31,9 @@ implementation
 
 uses
   lib.helper.querys,
+  lib.DAO.comandosTransacao,
+  lib.sql.contapagamento,
+  consts.SQLs,
   consts.views.forms;
 
 var
@@ -65,6 +69,17 @@ procedure TCadastroContaPagar.AtualizarParamsQueryLista;
 begin
   inherited;
   PegarQCadastro.SetParamString('pTipoConta', 'P');
+end;
+
+procedure TCadastroContaPagar.ExcluirRegistrosAuxiliares;
+begin
+  inherited;
+  TdmCmdTransacao.New
+    .AddCommand(TSQLContaPagamentos.New
+                  .SetEnumSQL(sqlContaPgtoExcRegAuxContaPagamentos)
+                    .PegarSQL)
+    .SetParamInteger('pID_CONTA', PegarCDSCadastro.FieldByName('IDCONTA').AsInteger)
+    .Executar;
 end;
 
 function TCadastroContaPagar.PegarFormCadastro: TFormClass;

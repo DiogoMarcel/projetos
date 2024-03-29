@@ -26,6 +26,7 @@ type
 
     {Conta Pagamentos - Comandos}
     ,sqlContaPgtoUpdateBaixaEfetuada
+    ,sqlContaPgtoExcRegAuxContaPagamentos
 
     {Aluguel}
     ,sqlAluguelHistorico
