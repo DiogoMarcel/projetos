@@ -120,7 +120,6 @@ end;
 procedure TForm1.AdicionarCalculoNaListaComposite;
 begin
   Memo1.Lines.Add(Format('Calcular -> %s', [ComboBox1.Text]));
-
   FPacoteCalculo.AdicionarCalculo(PegarCalculo);
 end;
 

@@ -32,8 +32,8 @@ type
 
     function AdicionarCalculo(_ACalculo: ICalculo): TPacoteCalculo;
     function LimparLista: TPacoteCalculo;
+    function ListaIsEmpty: boolean;
   end;
-
 
 implementation
 
@@ -82,6 +82,11 @@ begin
   Result := Self;
 
   FCalculos.Clear;
+end;
+
+function TPacoteCalculo.ListaIsEmpty: boolean;
+begin
+  Result := FCalculos.Count = 0;
 end;
 
 end.

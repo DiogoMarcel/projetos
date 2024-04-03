@@ -1,4 +1,4 @@
-program estudoCalculoFolha;
+program estudoCalculoFolhaInterfaces;
 
 uses
   Vcl.Forms,
@@ -9,7 +9,8 @@ uses
   dp.leaf.mensal in 'src\composite\dp.leaf.mensal.pas',
   dp.leaf.ferias in 'src\composite\dp.leaf.ferias.pas',
   dp.leaf.rescisao in 'src\composite\dp.leaf.rescisao.pas',
-  dp.leaf.decSalario in 'src\composite\dp.leaf.decSalario.pas';
+  dp.leaf.decSalario in 'src\composite\dp.leaf.decSalario.pas',
+  dp.leaf.abstract in 'src\composite\dp.leaf.abstract.pas';
 
 {$R *.res}
 
