@@ -1,5 +1,0 @@
-inherited viewCadastroVersoes: TviewCadastroVersoes
-  Caption = 'viewCadastroVersoes'
-  PixelsPerInch = 96
-  TextHeight = 13
-end
