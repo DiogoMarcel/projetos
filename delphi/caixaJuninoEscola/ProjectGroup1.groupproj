@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D488400D-D297-466A-A2D2-434C801B60CE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="caixaJunino.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Lancamento_Caixa_Escola17.06.23\old\lancamentoCaixa.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\gitHub\Delphi\FinancasZeroUm\componentesExternos\componentesMDS.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="caixaJunino">
+        <MSBuild Projects="caixaJunino.dproj"/>
+    </Target>
+    <Target Name="caixaJunino:Clean">
+        <MSBuild Projects="caixaJunino.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="caixaJunino:Make">
+        <MSBuild Projects="caixaJunino.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="lancamentoCaixa">
+        <MSBuild Projects="..\Lancamento_Caixa_Escola17.06.23\old\lancamentoCaixa.dproj"/>
+    </Target>
+    <Target Name="lancamentoCaixa:Clean">
+        <MSBuild Projects="..\Lancamento_Caixa_Escola17.06.23\old\lancamentoCaixa.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="lancamentoCaixa:Make">
+        <MSBuild Projects="..\Lancamento_Caixa_Escola17.06.23\old\lancamentoCaixa.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="componentesMDS">
+        <MSBuild Projects="..\..\gitHub\Delphi\FinancasZeroUm\componentesExternos\componentesMDS.dproj"/>
+    </Target>
+    <Target Name="componentesMDS:Clean">
+        <MSBuild Projects="..\..\gitHub\Delphi\FinancasZeroUm\componentesExternos\componentesMDS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="componentesMDS:Make">
+        <MSBuild Projects="..\..\gitHub\Delphi\FinancasZeroUm\componentesExternos\componentesMDS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="caixaJunino;lancamentoCaixa;componentesMDS"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="caixaJunino:Clean;lancamentoCaixa:Clean;componentesMDS:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="caixaJunino:Make;lancamentoCaixa:Make;componentesMDS:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

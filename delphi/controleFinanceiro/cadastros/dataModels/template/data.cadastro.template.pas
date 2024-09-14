@@ -25,6 +25,8 @@ type
 
     procedure qCadastroAfterPost(DataSet: TDataSet);
     procedure qCadastroAfterDelete(DataSet: TDataSet);
+    procedure dspCadastroAfterApplyUpdates(Sender: TObject;
+      var OwnerData: OleVariant);
   private
     FNotificaObserver: TNotificaObserver;
   public
@@ -45,6 +47,9 @@ type
 
 implementation
 
+uses
+  Dialogs;
+
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
@@ -52,6 +57,13 @@ implementation
 { TdataCadastroTemplate }
 
 function TdataCadastroTemplate.PegarMTCadastro: TFDMemTable; begin Result := mtDados; end;
+
+procedure TdataCadastroTemplate.dspCadastroAfterApplyUpdates(
+  Sender: TObject; var OwnerData: OleVariant);
+begin
+  //
+  showMessage('aqui');
+end;
 
 function TdataCadastroTemplate.PegarCDSCadastro: TClientDataSet;      begin Result := cdsCadastro; end;
 function TdataCadastroTemplate.PegarCDSConsultaGrade: TClientDataSet; begin Result := cdsConsultaGrade; end;

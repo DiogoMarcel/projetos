@@ -7,9 +7,8 @@ inherited formSaldoDetalhadoPortador: TformSaldoDetalhadoPortador
   ClientWidth = 823
   Visible = False
   OnDestroy = FormDestroy
-  ExplicitWidth = 829
-  ExplicitHeight = 699
-  PixelsPerInch = 96
+  ExplicitWidth = 837
+  ExplicitHeight = 705
   TextHeight = 21
   inherited pGeral: TPanel
     AlignWithMargins = True
@@ -19,14 +18,15 @@ inherited formSaldoDetalhadoPortador: TformSaldoDetalhadoPortador
     Margins.Left = 0
     Margins.Right = 0
     Margins.Bottom = 0
+    BorderStyle = bsSingle
     ExplicitTop = 3
-    ExplicitWidth = 823
-    ExplicitHeight = 667
+    ExplicitWidth = 821
+    ExplicitHeight = 663
     object clSaldos: TControlList
       Left = 0
       Top = 30
-      Width = 819
-      Height = 633
+      Width = 815
+      Height = 629
       Align = alClient
       BorderStyle = bsNone
       Color = clBtnFace
@@ -38,7 +38,8 @@ inherited formSaldoDetalhadoPortador: TformSaldoDetalhadoPortador
       ParentColor = False
       TabOrder = 0
       OnBeforeDrawItem = clSaldosBeforeDrawItem
-      ExplicitHeight = 490
+      ExplicitWidth = 813
+      ExplicitHeight = 625
       object dbtData: TDBText
         AlignWithMargins = True
         Left = 5
@@ -96,7 +97,7 @@ inherited formSaldoDetalhadoPortador: TformSaldoDetalhadoPortador
         AlignWithMargins = True
         Left = 695
         Top = 3
-        Width = 119
+        Width = 115
         Height = 24
         Margins.Left = 0
         Margins.Right = 5
@@ -185,11 +186,12 @@ inherited formSaldoDetalhadoPortador: TformSaldoDetalhadoPortador
     object pCabecalho: TPanel
       Left = 0
       Top = 0
-      Width = 819
+      Width = 815
       Height = 30
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitWidth = 813
       object lData: TLabel
         AlignWithMargins = True
         Left = 5
@@ -281,7 +283,7 @@ inherited formSaldoDetalhadoPortador: TformSaldoDetalhadoPortador
         AlignWithMargins = True
         Left = 623
         Top = 0
-        Width = 191
+        Width = 187
         Height = 30
         Margins.Left = 0
         Margins.Top = 0

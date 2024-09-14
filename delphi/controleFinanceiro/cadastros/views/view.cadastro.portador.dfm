@@ -1,12 +1,53 @@
 inherited formCadPortador: TformCadPortador
   Caption = 'formCadPortador'
-  PixelsPerInch = 96
+  ClientHeight = 577
+  ClientWidth = 828
   TextHeight = 13
   inherited pGeral: TPanel
+    Width = 828
+    Height = 577
     inherited cpCadastros: TCardPanel
+      inherited cConsulta: TCard
+        inherited cpConsultas: TCardPanel
+          inherited cConsultaLista: TCard
+            ExplicitWidth = 826
+            ExplicitHeight = 425
+          end
+        end
+        inherited pConsulta: TPanel
+          inherited sbExcluirCadastro: TSpeedButton
+            ExplicitLeft = 673
+          end
+          inherited sbIncluirCadastro: TSpeedButton
+            ExplicitLeft = 361
+          end
+          inherited sbEditarCadastro: TSpeedButton
+            ExplicitLeft = 517
+          end
+        end
+      end
       inherited cCadastro: TCard
+        ExplicitWidth = 822
+        ExplicitHeight = 519
+        inherited pRodapeBotoesCad: TPanel
+          Top = 451
+          Width = 822
+          ExplicitTop = 451
+          ExplicitWidth = 822
+          inherited sbCancelarCadastro: TSpeedButton
+            Left = 657
+            ExplicitLeft = 657
+          end
+          inherited sbSalvarCadastro: TSpeedButton
+            Left = 477
+            ExplicitLeft = 477
+          end
+        end
         inherited pCadastro: TPanel
-          ExplicitTop = -3
+          Width = 822
+          Height = 451
+          ExplicitWidth = 822
+          ExplicitHeight = 451
           object tIdPortador: TDBText
             Left = 195
             Top = 32
@@ -163,8 +204,11 @@ inherited formCadPortador: TformCadPortador
     end
     inherited pCabecalhoGeral: TPanel
       inherited lTitulo: TLabel
-        Width = 780
+        Width = 776
         Height = 39
+      end
+      inherited sbSair: TSpeedButton
+        ExplicitLeft = 783
       end
     end
   end

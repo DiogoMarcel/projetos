@@ -1,0 +1,9 @@
+inherited viewCadastroVersoes: TviewCadastroVersoes
+  Caption = 'viewCadastroVersoes'
+  ClientHeight = 425
+  ClientWidth = 754
+  ExplicitWidth = 770
+  ExplicitHeight = 464
+  PixelsPerInch = 96
+  TextHeight = 13
+end

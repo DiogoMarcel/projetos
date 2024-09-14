@@ -19,6 +19,7 @@ type
     function PegarSQLGradeSaldoPortador: string;
     function PegarSQLSaldoDetalhadoPortador: string;
     function PegarSQLSaldoDetalhadoPortadorGrafico: string;
+    function PegarSQLSaldoExtrato: string;
 
   public
     function SetEnumSQL(_ASQLEnum: TSQLEnum): iSQLResultado;
@@ -40,6 +41,7 @@ begin
     sqlConsultaGradeSaldoPortador    : Result := PegarSQLGradeSaldoPortador;
     sqlSaldoDetalhadoPortador        : Result := PegarSQLSaldoDetalhadoPortador;
     sqlSaldoDetalhadoPortadorGrafico : Result := PegarSQLSaldoDetalhadoPortadorGrafico;
+    sqlSaldoExtrato                  : Result := PegarSQLSaldoExtrato;
     else
       raise Exception.Create('SQL Inválido para a classe Geral!');
   end;
@@ -175,6 +177,21 @@ begin
             ' GROUP BY C.ID_MEMBROFAMILIA                                         '+
             '         ,M.NOME                                                     '+
             '         ,C.TIPOCONTA                                                ';
+end;
+
+function TSQLGeral.PegarSQLSaldoExtrato: string;
+begin
+  Result := 'SELECT SE.IDSALDOEXTRATO                                              '+
+            '     , CAST(TRIM(TO_CHAR(SE.DATALANCAMENTO, ''DD''))      ||'' - ''|| '+
+            '            TRIM(TO_CHAR(SE.DATALANCAMENTO, ''TMMonth'')) ||'' - ''|| '+
+            '            TRIM(TO_CHAR(SE.DATALANCAMENTO, ''YYYY'')) AS VARCHAR(30) '+
+            '       ) AS DATALANCAMENTO                                            '+
+            '     , SE.DESCRICAO                                                   '+
+            '     , SE.TIPOSALDO                                                   '+
+            '     , SE.VALOR                                                       '+
+            '     , SE.SALDO                                                       '+
+            ' FROM SALDOEXTRATO SE                                                 '+
+            ' ORDER BY SE.IDSALDOEXTRATO DESC                                      ';
 end;
 
 end.

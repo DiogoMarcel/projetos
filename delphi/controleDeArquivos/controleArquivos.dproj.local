@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/11/15 10:59:34.385,=F:\Projetos\gitHub\projetos\delphi\Unit1.pas</Transaction>
+    <Transaction>2023/11/15 11:01:11.148,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.main.dfm=F:\Projetos\gitHub\projetos\delphi\Unit1.dfm</Transaction>
+    <Transaction>2023/11/15 11:01:11.148,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.main.pas=F:\Projetos\gitHub\projetos\delphi\Unit1.pas</Transaction>
+    <Transaction>2023/11/15 11:01:23.789,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\controleArquivos.dproj=F:\Projetos\gitHub\projetos\delphi\Project1.dproj</Transaction>
+    <Transaction>2023/11/15 11:15:36.135,=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\Unit2.pas</Transaction>
+    <Transaction>2023/11/15 11:15:56.154,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.default.dfm=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\Unit2.dfm</Transaction>
+    <Transaction>2023/11/15 11:15:56.154,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.default.pas=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\Unit2.pas</Transaction>
+    <Transaction>2023/11/15 11:16:13.530,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.default.others.dfm=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.default.dfm</Transaction>
+    <Transaction>2023/11/15 11:16:13.530,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.default.others.pas=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.default.pas</Transaction>
+    <Transaction>2023/11/15 11:27:15.426,=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\Unit3.pas</Transaction>
+    <Transaction>2023/11/15 11:27:37.643,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.cadastro.versoes.pas=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\Unit3.pas</Transaction>
+    <Transaction>2023/11/15 11:27:37.643,F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\view.cadastro.versoes.dfm=F:\Projetos\gitHub\projetos\delphi\controleDeArquivos\Unit3.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

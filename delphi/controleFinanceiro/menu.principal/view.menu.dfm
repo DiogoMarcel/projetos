@@ -4,20 +4,18 @@ object formMenu: TformMenu
   Caption = 'Finances'
   ClientHeight = 601
   ClientWidth = 968
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   FormStyle = fsMDIForm
-  OldCreateOrder = False
   Position = poMainFormCenter
   WindowState = wsMaximized
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 13
   object svMenu: TSplitView
     Left = 0
@@ -28,6 +26,7 @@ object formMenu: TformMenu
     OpenedWidth = 150
     Placement = svpLeft
     TabOrder = 0
+    ExplicitHeight = 597
     object cbMenu: TCategoryButtons
       Left = 0
       Top = 0
@@ -87,6 +86,9 @@ object formMenu: TformMenu
             end
             item
               Action = relSaldoDetalhadoGrafico
+            end
+            item
+              Action = relSaldoExtrato
             end>
         end
         item
@@ -101,6 +103,7 @@ object formMenu: TformMenu
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
+      ExplicitHeight = 597
     end
   end
   inline frameMenu: TframeMenu
@@ -117,36 +120,7 @@ object formMenu: TformMenu
     ParentFont = False
     TabOrder = 1
     ExplicitLeft = 150
-    ExplicitHeight = 601
-    inherited pResumo: TPanel
-      inherited lResumo: TLabel
-        Width = 397
-        Height = 29
-      end
-    end
-    inherited pAdicionais: TPanel
-      inherited lAdicionais: TLabel
-        Width = 397
-      end
-      inherited pSaldoGeralMembros: TPanel
-        inherited lValorSaldoGeral: TLabel
-          Left = 239
-          Width = 155
-          Height = 24
-        end
-      end
-    end
-    inherited clContaPagamentos: TControlList
-      inherited dbtSINAL: TDBText
-        Height = 21
-      end
-    end
-    inherited pContaPagamentos: TPanel
-      inherited lContaPagamentos: TLabel
-        Width = 397
-        Height = 28
-      end
-    end
+    ExplicitHeight = 597
   end
   object aListaAcoes: TActionList
     Left = 656
@@ -241,6 +215,11 @@ object formMenu: TformMenu
       Category = 'Aluguel'
       Caption = 'aAbrirAluguel'
       OnExecute = aAbrirAluguelExecute
+    end
+    object relSaldoExtrato: TAction
+      Category = 'Relat'#243'rios'
+      Caption = 'Saldo - Extrato'
+      OnExecute = aAbrirRelatoriosExecute
     end
   end
 end

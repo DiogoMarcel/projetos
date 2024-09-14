@@ -1,11 +1,72 @@
 inherited formCadSaldoFGTS: TformCadSaldoFGTS
-  PixelsPerInch = 96
+  ExplicitWidth = 840
+  ExplicitHeight = 608
   TextHeight = 13
   inherited pGeral: TPanel
+    ExplicitWidth = 824
+    ExplicitHeight = 569
     inherited cpCadastros: TCardPanel
-      ActiveCard = cCadastro
+      Width = 826
+      Height = 528
+      ExplicitWidth = 824
+      ExplicitHeight = 524
+      inherited cConsulta: TCard
+        Width = 826
+        Height = 528
+        ExplicitWidth = 824
+        ExplicitHeight = 524
+        inherited cpConsultas: TCardPanel
+          Width = 826
+          Height = 425
+          ExplicitWidth = 824
+          ExplicitHeight = 421
+          inherited cConsultaLista: TCard
+            Width = 826
+            Height = 425
+          end
+          inherited cConsultaGrade: TCard
+            Width = 826
+            Height = 425
+            ExplicitWidth = 824
+            ExplicitHeight = 421
+          end
+        end
+        inherited pCabecalhoConsulta: TPanel
+          Width = 826
+          ExplicitWidth = 824
+        end
+        inherited pConsulta: TPanel
+          Top = 460
+          Width = 826
+          ExplicitTop = 456
+          ExplicitWidth = 824
+          inherited sbExcluirCadastro: TSpeedButton
+            Left = 673
+          end
+          inherited sbIncluirCadastro: TSpeedButton
+            Left = 361
+          end
+          inherited sbEditarCadastro: TSpeedButton
+            Left = 517
+          end
+        end
+      end
       inherited cCadastro: TCard
+        Width = 820
+        Height = 515
+        ExplicitWidth = 824
+        ExplicitHeight = 523
+        inherited pRodapeBotoesCad: TPanel
+          Top = 447
+          Width = 820
+          ExplicitTop = 455
+          ExplicitWidth = 824
+        end
         inherited pCadastro: TPanel
+          Width = 820
+          Height = 447
+          ExplicitWidth = 824
+          ExplicitHeight = 455
           object tIdSaldoFGTS: TDBText
             Left = 195
             Top = 32
@@ -96,6 +157,17 @@ inherited formCadSaldoFGTS: TformCadSaldoFGTS
             TabOrder = 3
           end
         end
+      end
+    end
+    inherited pCabecalhoGeral: TPanel
+      Width = 826
+      ExplicitWidth = 824
+      inherited lTitulo: TLabel
+        Width = 774
+        Height = 39
+      end
+      inherited sbSair: TSpeedButton
+        Left = 783
       end
     end
   end

@@ -132,7 +132,9 @@ uses
   data.aluguel.lancamento in 'alugueis\dataModel\data.aluguel.lancamento.pas' {dataAluguel: TDataModule},
   lib.sql.alugueis in 'library\lib.SQL\lib.sql.alugueis.pas',
   view.calcular in 'cadastros\views\view.calcular\view.calcular.pas' {formCalcular},
-  view.aluguel.editor in 'alugueis\views\view.aluguel.editor.pas' {formAluguelEditor};
+  view.aluguel.editor in 'alugueis\views\view.aluguel.editor.pas' {formAluguelEditor},
+  view.relatorio.saldoextrato in 'relatorios\views\view.relatorio.saldoextrato.pas' {formSaldoExtrato},
+  model.relatorio.saldoextrato in 'relatorios\models\model.relatorio.saldoextrato.pas' {dmSaldoExtrato: TDataModule};
 
 {$R *.res}
 
@@ -142,8 +144,8 @@ begin
     ReportMemoryLeaksOnShutdown := True;
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Silver');
   Application.Title := 'Controle Financeiro';
-  TStyleManager.TrySetStyle('Obsidian');
   if TfLoginView.ConectarAoSistema then
     Application.CreateForm(TformMenu, formMenu);
   Application.Run;

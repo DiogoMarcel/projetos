@@ -14,6 +14,8 @@ type
 
     function PegarSQLUpdateBaixaEfetuada: string;
     function PegarSQLExcluirRegistroAuxiliarContaPagamentos: string;
+    function PegarSQLContaPgtoUpdateSaldoExtrato: string;
+    function PegarSQLContaPgtoInsertSaldoExtratoConta: string;
 
   public
     function SetEnumSQL(_ASQLEnum: TSQLEnum): iSQLResultado;
@@ -31,6 +33,8 @@ begin
   case FSQLEnum of
     sqlContaPgtoUpdateBaixaEfetuada : Result := PegarSQLUpdateBaixaEfetuada;
     sqlContaPgtoExcRegAuxContaPagamentos : Result := PegarSQLExcluirRegistroAuxiliarContaPagamentos;
+    sqlContaPgtoUpdateSaldoExtrato : Result := PegarSQLContaPgtoUpdateSaldoExtrato;
+    sqlContaPgtoInsertSaldoExtratoConta : Result := PegarSQLContaPgtoInsertSaldoExtratoConta;
     else
       raise Exception.Create('SQL Inválido para a classe Conta Pagamentos!');
   end;
@@ -59,6 +63,31 @@ function TSQLContaPagamentos.PegarSQLExcluirRegistroAuxiliarContaPagamentos: str
 begin
   Result := ' DELETE FROM PUBLIC.CONTAPAGAMENTOS '+
             ' WHERE ID_CONTA= :pID_CONTA';
+end;
+
+function TSQLContaPagamentos.PegarSQLContaPgtoUpdateSaldoExtrato: string;
+begin
+  Result := ' INSERT INTO SALDOEXTRATO(  TIPOSALDO,   VALOR,   SALDO,   DESCRICAO) '+
+                             ' VALUES (:pTIPOSALDO, :pVALOR, :pSALDO, :pDESCRICAO) ';
+end;
+
+function TSQLContaPagamentos.PegarSQLContaPgtoInsertSaldoExtratoConta: string;
+begin
+  Result := ' INSERT INTO SALDOEXTRATO(  TIPOSALDO,   VALOR,   SALDO,   DESCRICAO, ID_CONTA) '+
+            '  SELECT TIPOCONTA                        '+
+            '        ,VALOR                            '+
+            '        ,((CASE WHEN TIPOCONTA=''R''      '+
+            '                THEN VALOR                '+
+            '                ELSE VALOR*(-1) END) +    '+
+            '          (SELECT SALDO                   '+
+            '             FROM public.saldoextrato     '+
+            '            ORDER BY IDSALDOEXTRATO DESC  '+
+            '            LIMIT 1)                      '+
+            '        ) SALDO                           '+
+            '        ,DESCRICAO                        '+
+            '        ,IDCONTA                          '+
+            '  FROM public.conta                       '+
+            '  WHERE IDCONTA= :pIDCONTA                ';
 end;
 
 end.

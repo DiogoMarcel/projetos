@@ -1,5 +1,4 @@
 object dataCadastroTemplate: TdataCadastroTemplate
-  OldCreateOrder = False
   Height = 131
   Width = 524
   object mtDados: TFDMemTable
@@ -32,6 +31,7 @@ object dataCadastroTemplate: TdataCadastroTemplate
   object dspCadastro: TDataSetProvider
     DataSet = qCadastro
     Options = [poAllowCommandText, poUseQuoteChar]
+    AfterApplyUpdates = dspCadastroAfterApplyUpdates
     Left = 336
     Top = 24
   end

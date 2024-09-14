@@ -1,8 +1,8 @@
 inherited formCadastroTemplate: TformCadastroTemplate
   BorderStyle = bsSizeable
   Caption = ''
-  ClientHeight = 585
-  ClientWidth = 832
+  ClientHeight = 573
+  ClientWidth = 826
   UseDockManager = True
   Font.Color = clHighlightText
   Font.Height = -11
@@ -13,56 +13,69 @@ inherited formCadastroTemplate: TformCadastroTemplate
   OnClose = FormClose
   OnDestroy = FormDestroy
   OnShow = FormShow
-  ExplicitWidth = 848
-  ExplicitHeight = 624
-  PixelsPerInch = 96
+  ExplicitWidth = 842
+  ExplicitHeight = 612
   TextHeight = 13
   inherited pGeral: TPanel
-    Width = 832
-    Height = 585
+    Width = 826
+    Height = 573
     BevelKind = bkNone
-    ExplicitWidth = 832
-    ExplicitHeight = 585
+    ExplicitWidth = 826
+    ExplicitHeight = 573
     object cpCadastros: TCardPanel
       Left = 0
       Top = 45
-      Width = 832
-      Height = 540
+      Width = 828
+      Height = 532
       Align = alClient
       ActiveCard = cConsulta
       BevelOuter = bvNone
       Caption = 'cpCadastros'
       TabOrder = 0
       OnCardChange = cpCadastrosCardChange
+      ExplicitWidth = 826
+      ExplicitHeight = 528
       object cConsulta: TCard
         Left = 0
         Top = 0
-        Width = 832
-        Height = 540
+        Width = 828
+        Height = 532
         Margins.Top = 20
         Caption = 'cConsulta'
         CardIndex = 0
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
         ParentColor = True
+        ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 826
+        ExplicitHeight = 528
         object cpConsultas: TCardPanel
           Left = 0
           Top = 35
-          Width = 832
-          Height = 437
+          Width = 828
+          Height = 429
           Align = alClient
           ActiveCard = cConsultaGrade
           BevelOuter = bvNone
           Caption = 'cpConsultas'
           TabOrder = 0
+          ExplicitWidth = 826
+          ExplicitHeight = 425
           object cConsultaLista: TCard
             Left = 0
             Top = 0
-            Width = 832
-            Height = 437
+            Width = 828
+            Height = 429
             Margins.Top = 15
             Caption = 'cConsultaLista'
             CardIndex = 0
             TabOrder = 0
+            ExplicitWidth = 832
+            ExplicitHeight = 437
             object dbgConsulta: TDBGrid
               Left = 0
               Top = 33
@@ -116,22 +129,25 @@ inherited formCadastroTemplate: TformCadastroTemplate
           object cConsultaGrade: TCard
             Left = 0
             Top = 0
-            Width = 832
-            Height = 437
+            Width = 828
+            Height = 429
             Caption = 'cConsultaGrade'
             CardIndex = 1
             TabOrder = 1
+            ExplicitWidth = 826
+            ExplicitHeight = 425
           end
         end
         object pCabecalhoConsulta: TPanel
           Left = 0
           Top = 0
-          Width = 832
+          Width = 828
           Height = 35
           Margins.Top = 10
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 826
           object sbVisualizarConsulta: TSpeedButton
             AlignWithMargins = True
             Left = 1
@@ -152,15 +168,17 @@ inherited formCadastroTemplate: TformCadastroTemplate
         end
         object pConsulta: TPanel
           Left = 0
-          Top = 472
-          Width = 832
+          Top = 464
+          Width = 828
           Height = 68
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 2
+          ExplicitTop = 460
+          ExplicitWidth = 826
           object sbExcluirCadastro: TSpeedButton
             AlignWithMargins = True
-            Left = 679
+            Left = 675
             Top = 3
             Width = 150
             Height = 62
@@ -170,7 +188,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             ImageIndex = 14
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlightText
+            Font.Color = clWindowText
             Font.Height = -17
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -183,7 +201,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
           end
           object sbIncluirCadastro: TSpeedButton
             AlignWithMargins = True
-            Left = 367
+            Left = 363
             Top = 3
             Width = 150
             Height = 62
@@ -193,7 +211,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             ImageIndex = 15
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlightText
+            Font.Color = clWindowText
             Font.Height = -17
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -205,7 +223,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
           end
           object sbEditarCadastro: TSpeedButton
             AlignWithMargins = True
-            Left = 523
+            Left = 519
             Top = 3
             Width = 150
             Height = 62
@@ -215,7 +233,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             ImageIndex = 13
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlightText
+            Font.Color = clWindowText
             Font.Height = -17
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -231,8 +249,8 @@ inherited formCadastroTemplate: TformCadastroTemplate
         AlignWithMargins = True
         Left = 3
         Top = 10
-        Width = 826
-        Height = 527
+        Width = 822
+        Height = 519
         Margins.Top = 10
         Caption = 'cCadastro'
         CardIndex = 1
@@ -243,6 +261,8 @@ inherited formCadastroTemplate: TformCadastroTemplate
         Font.Style = []
         ParentFont = False
         TabOrder = 1
+        ExplicitWidth = 826
+        ExplicitHeight = 527
         object pRodapeBotoesCad: TPanel
           Left = 0
           Top = 459
@@ -265,7 +285,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             ImageIndex = 1
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlightText
+            Font.Color = clWindowText
             Font.Height = -17
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -287,7 +307,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             ImageIndex = 0
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlightText
+            Font.Color = clWindowText
             Font.Height = -17
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -311,18 +331,19 @@ inherited formCadastroTemplate: TformCadastroTemplate
     object pCabecalhoGeral: TPanel
       Left = 0
       Top = 0
-      Width = 832
+      Width = 828
       Height = 45
       Margins.Top = 20
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitWidth = 826
       object lTitulo: TLabel
         AlignWithMargins = True
         Left = 3
         Top = 3
-        Width = 780
-        Height = 39
+        Width = 50
+        Height = 23
         Align = alClient
         Alignment = taCenter
         Caption = 'lTitulo'
@@ -334,12 +355,10 @@ inherited formCadastroTemplate: TformCadastroTemplate
         ParentFont = False
         Layout = tlCenter
         OnMouseDown = lTituloMouseDown
-        ExplicitWidth = 50
-        ExplicitHeight = 23
       end
       object sbSair: TSpeedButton
         AlignWithMargins = True
-        Left = 789
+        Left = 785
         Top = 0
         Width = 40
         Height = 45

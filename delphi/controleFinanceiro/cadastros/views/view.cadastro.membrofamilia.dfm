@@ -1,11 +1,18 @@
 inherited formCadMembroFamilia: TformCadMembroFamilia
-  PixelsPerInch = 96
   TextHeight = 13
   inherited pGeral: TPanel
     inherited cpCadastros: TCardPanel
       ActiveCard = cCadastro
       inherited cCadastro: TCard
+        ExplicitWidth = 824
+        ExplicitHeight = 523
+        inherited pRodapeBotoesCad: TPanel
+          ExplicitTop = 455
+          ExplicitWidth = 824
+        end
         inherited pCadastro: TPanel
+          ExplicitWidth = 824
+          ExplicitHeight = 455
           object tIdMembroFamilia: TDBText
             Left = 195
             Top = 32

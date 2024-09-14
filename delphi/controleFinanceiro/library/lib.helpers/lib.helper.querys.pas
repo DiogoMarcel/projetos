@@ -41,7 +41,7 @@ begin
   if (Self.SQL.Text.IsEmpty) then
     Exit;
 
-  //ShowMessage(Self.SQL.Text);
+//  ShowMessage(Self.SQL.Text);
 
   Self.Active := True;
 end;

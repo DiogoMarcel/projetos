@@ -23,10 +23,16 @@ type
 implementation
 
 uses
+  view.relatorio.saldoextrato,
   view.relatorio.saldodetalhadoportador.grafico,
   view.relatorio.saldodetalhadoportador;
 
 { TAbrirRelatoriosFactory }
+
+const
+  RELATORIO_SALDO_DETALHADO = 'relSaldoDetalhado';
+  RELATORIO_SALDO_DETALHADO_GRAFICO = 'relSaldoDetalhadoGrafico';
+  RELATORIO_SALDO_EXTRATO = 'relSaldoExtrato';
 
 class function TAbrirRelatoriosFactory.New: iAbrirRelatorios;
 begin
@@ -35,14 +41,12 @@ end;
 
 procedure TAbrirRelatoriosFactory.AbrirRelatorio(_AAction: TAction);
 begin
-  if String(_AAction.Name).Equals('relSaldoDetalhado') then
-  begin
-    TformSaldoDetalhadoPortador.AbrirRelatorio;
-  end
-  else if String(_AAction.Name).Equals('relSaldoDetalhadoGrafico') then
-  begin
-    TformSaldoDetalhadoPortadorGrafico.AbrirRelatorio;
-  end;
+  if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHADO) then
+    TformSaldoDetalhadoPortador.AbrirRelatorio
+  else if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHADO_GRAFICO) then
+    TformSaldoDetalhadoPortadorGrafico.AbrirRelatorio
+  else if String(_AAction.Name).Equals(RELATORIO_SALDO_EXTRATO) then
+    TformSaldoExtrato.AbrirRelatorio;
 end;
 
 end.

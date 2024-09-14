@@ -56,6 +56,7 @@ type
     procedure SetIControllerCadastros;      override;
     procedure AbrirConsultasLookup;         override;
     function MontarGradeConsulta: boolean;  override;
+    procedure ExecutarAfterPostNaView;      override;
 
   public
     { Public declarations }
@@ -70,6 +71,8 @@ uses
   System.StrUtils,
   lib.sql.lookup,
   consts.SQLs,
+  lib.sql.contapagamento,
+  lib.DAO.comandosTransacao,
   data.cadastro.template.interfaces,
   data.cadastro.template.factory,
   controller.cadastro,
@@ -135,6 +138,25 @@ procedure TformCadSaldoPortador.EditMaskMDS1KeyPress(Sender: TObject;
 begin
   inherited;
   //
+end;
+
+procedure TformCadSaldoPortador.ExecutarAfterPostNaView;
+begin
+
+  TdmCmdTransacao.New
+    .AddCommand(
+      TSQLContaPagamentos.New
+          .SetEnumSQL(sqlContaPgtoUpdateSaldoExtrato)
+          .PegarSQL()
+        )
+      .SetParamString('pTIPOSALDO', '=')
+      .SetParamFloat('pVALOR', 0.0)
+      .SetParamFloat('pSALDO', 0.0)
+      .SetParamString('pDESCRICAO', 'AFTER')
+        .Executar;
+
+
+  inherited;
 end;
 
 procedure TformCadSaldoPortador.FormCreate(Sender: TObject);

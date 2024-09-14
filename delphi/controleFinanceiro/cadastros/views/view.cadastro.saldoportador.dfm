@@ -1,9 +1,14 @@
 inherited formCadSaldoPortador: TformCadSaldoPortador
-  PixelsPerInch = 96
+  ExplicitWidth = 840
+  ExplicitHeight = 608
   TextHeight = 13
   inherited pGeral: TPanel
     inherited cpCadastros: TCardPanel
+      Width = 826
+      Height = 528
       inherited cConsulta: TCard
+        Width = 826
+        Height = 528
         inherited cpConsultas: TCardPanel
           inherited cConsultaGrade: TCard
             object sbConsultaGrade: TScrollBox
@@ -17,6 +22,8 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
               BevelOuter = bvNone
               BorderStyle = bsNone
               TabOrder = 0
+              ExplicitWidth = 830
+              ExplicitHeight = 433
             end
           end
         end
@@ -38,7 +45,7 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
             Action = aTransferenciaPortador
             Align = alLeft
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clHighlightText
+            Font.Color = clWindowText
             Font.Height = -16
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -48,9 +55,15 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
         end
       end
       inherited cCadastro: TCard
+        Width = 820
+        Height = 515
+        inherited pRodapeBotoesCad: TPanel
+          Top = 447
+          Width = 820
+        end
         inherited pCadastro: TPanel
-          ExplicitLeft = 48
-          ExplicitTop = 96
+          Width = 820
+          Height = 447
           object tIdSaldoPortador: TDBText
             Left = 195
             Top = 32
@@ -143,10 +156,7 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
       end
     end
     inherited pCabecalhoGeral: TPanel
-      inherited lTitulo: TLabel
-        Width = 780
-        Height = 39
-      end
+      Width = 826
     end
   end
   inherited alAcoes: TActionList

@@ -26,6 +26,7 @@ type
     qContaPagamentosvalor: TFloatField;
     qContaPagamentossinal: TWideStringField;
     qContaPagamentosidcontapagamentos: TIntegerField;
+    qContaPagamentosidconta: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -36,6 +37,10 @@ type
 implementation
 
 uses
+  Dialogs,
+  System.Threading,
+
+
   consts.SQLs,
   lib.sql.resumomenu,
   lib.helper.querys;
@@ -47,30 +52,70 @@ uses
 { TdataMenu }
 
 procedure TdataMenu.DataModuleCreate(Sender: TObject);
+var
+//  Inicio: TDateTime;
+//  Fim: TDateTime;
+  Tasks: array [0..2] of ITask;
+
 begin
-  qMenu
-    .PrepareSQL(
-      TSQLResumoMenu.New
-        .SetEnumSQL(sqlMenuResumo)
-        .PegarSQL
-    )
-    .SetParamString('pRECEITA', 'R')
-    .SetParamString('pDESPESA', 'P');
 
-  qSaldoFolha
-    .PrepareSQL(
-      TSQLResumoMenu.New
-        .SetEnumSQL(sqlMenuSaldoFolha)
-        .PegarSQL
-    );
+//  Inicio := Now;
 
-  qContaPagamentos
-    .PrepareSQL(
-      TSQLResumoMenu.New
-        .SetEnumSQL(sqlMenuContaPagamentos)
-        .PegarSQL
-    )
-    .SetParamString('pTIPOCONTA', 'P');
+  Tasks[0] := TTask.Create(
+    procedure
+    begin
+      qMenu
+        .PrepareSQL(
+          TSQLResumoMenu.New
+            .SetEnumSQL(sqlMenuResumo)
+            .PegarSQL
+        )
+        .SetParamString('pRECEITA', 'R')
+        .SetParamString('pDESPESA', 'P');
+
+//        sleep(2000);
+    end
+  );
+  Tasks[0].Start;
+
+  Tasks[1] := TTask.Create(
+    procedure
+    begin
+      qSaldoFolha
+        .PrepareSQL(
+          TSQLResumoMenu.New
+            .SetEnumSQL(sqlMenuSaldoFolha)
+            .PegarSQL
+        );
+
+//        sleep(3000);
+
+    end
+  );
+  Tasks[1].Start;
+
+  Tasks[2] := TTask.Create(
+    procedure
+    begin
+      qContaPagamentos
+        .PrepareSQL(
+          TSQLResumoMenu.New
+            .SetEnumSQL(sqlMenuContaPagamentos)
+            .PegarSQL
+        )
+        .SetParamString('pTIPOCONTA', 'P');
+
+//        sleep(1000);
+    end
+  );
+  Tasks[2].Start;
+
+  TTask.WaitForAll(Tasks);
+
+//  Fim := Now;
+
+//  ShowMessage(Format('Consultas realizadas em %s segundos.', [FormatDateTime('ss', Fim - Inicio)]));
+
 end;
 
 end.

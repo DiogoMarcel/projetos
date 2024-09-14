@@ -1,6 +1,5 @@
 inherited formCadContaReceber: TformCadContaReceber
   Caption = 'formCadContaReceber'
-  PixelsPerInch = 96
   TextHeight = 13
   inherited pGeral: TPanel
     inherited cpCadastros: TCardPanel

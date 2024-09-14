@@ -1,11 +1,25 @@
 inherited formCadCartao: TformCadCartao
-  PixelsPerInch = 96
+  ClientHeight = 577
+  ClientWidth = 828
   TextHeight = 13
   inherited pGeral: TPanel
+    Width = 828
+    Height = 577
     inherited cpCadastros: TCardPanel
-      ActiveCard = cCadastro
       inherited cCadastro: TCard
+        ExplicitWidth = 824
+        ExplicitHeight = 523
+        inherited pRodapeBotoesCad: TPanel
+          Top = 451
+          Width = 822
+          ExplicitTop = 455
+          ExplicitWidth = 824
+        end
         inherited pCadastro: TPanel
+          Width = 822
+          Height = 451
+          ExplicitWidth = 824
+          ExplicitHeight = 455
           object tIdCartao: TDBText
             Left = 195
             Top = 28
@@ -96,6 +110,12 @@ inherited formCadCartao: TformCadCartao
             TabOrder = 3
           end
         end
+      end
+    end
+    inherited pCabecalhoGeral: TPanel
+      inherited lTitulo: TLabel
+        Width = 776
+        Height = 39
       end
     end
   end

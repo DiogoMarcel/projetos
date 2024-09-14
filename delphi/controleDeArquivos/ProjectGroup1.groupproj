@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CAEA695A-AA43-4262-8EC9-B3D4B10E4FD8}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="controleArquivos.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\conexaoBancos\conexaoBancos.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="controleArquivos">
+        <MSBuild Projects="controleArquivos.dproj"/>
+    </Target>
+    <Target Name="controleArquivos:Clean">
+        <MSBuild Projects="controleArquivos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="controleArquivos:Make">
+        <MSBuild Projects="controleArquivos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="conexaoBancos">
+        <MSBuild Projects="..\conexaoBancos\conexaoBancos.dproj"/>
+    </Target>
+    <Target Name="conexaoBancos:Clean">
+        <MSBuild Projects="..\conexaoBancos\conexaoBancos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="conexaoBancos:Make">
+        <MSBuild Projects="..\conexaoBancos\conexaoBancos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="controleArquivos;conexaoBancos"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="controleArquivos:Clean;conexaoBancos:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="controleArquivos:Make;conexaoBancos:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

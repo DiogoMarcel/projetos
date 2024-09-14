@@ -83,6 +83,8 @@ type
     {Execuções na View}
     function ExecutarBeforePostNaView: boolean;
 
+    procedure DoAfterApplyUpdateAbstract(Sender: TObject; var OwnerData: OleVariant);
+
   public
     class function ObterInstancia: iCadastros; virtual; abstract;
 
@@ -539,6 +541,15 @@ begin
     Result := FRecOnFormShow.FuncExecutarBeforePostNaView;
 end;
 
+procedure TModelCadAbstractTofolo.DoAfterApplyUpdateAbstract(Sender: TObject; var OwnerData: OleVariant);
+begin
+
+  if Assigned(FRecOnFormShow.FuncExecutarAfterPostNaView) then
+    FRecOnFormShow.FuncExecutarAfterPostNaView;
+
+  inherited;
+end;
+
 function TModelCadAbstractTofolo.GravarCadastro: iCadastros;
 begin
   case PegarCDSCadastro.State of
@@ -549,6 +560,8 @@ begin
 
       if (not ModelBeforePost) then
         Abort;
+
+      PegarCDSCadastro.AfterApplyUpdates := DoAfterApplyUpdateAbstract;
 
       PegarCDSCadastro.Post;
       PegarCDSCadastro.ApplyUpdates(0);

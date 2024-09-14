@@ -1,0 +1,25 @@
+program controleArquivos;
+
+uses
+  Vcl.Themes,
+  Vcl.Styles,
+  System.SysUtils,
+  Vcl.Forms,
+  view.main in 'view.main.pas' {Form1},
+  view.default.others in 'view.default.others.pas' {Form2},
+  view.cadastro.versoes in 'view.cadastro.versoes.pas' {Form3};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  {$IFDEF DEBUG}
+    ReportMemoryLeaksOnShutdown := True;
+  {$ENDIF}
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Controle de arquivos';
+  TStyleManager.TrySetStyle('Smokey Quartz Kamri');
+
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

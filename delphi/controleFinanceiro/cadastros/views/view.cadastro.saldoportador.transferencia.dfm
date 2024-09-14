@@ -5,15 +5,14 @@ inherited formSaldoPortadorTransferencia: TformSaldoPortadorTransferencia
   ClientHeight = 304
   ClientWidth = 626
   Visible = False
-  ExplicitWidth = 632
-  ExplicitHeight = 333
-  PixelsPerInch = 96
+  ExplicitWidth = 640
+  ExplicitHeight = 339
   TextHeight = 21
   inherited pGeral: TPanel
     Width = 626
     Height = 304
-    ExplicitWidth = 626
-    ExplicitHeight = 304
+    ExplicitWidth = 624
+    ExplicitHeight = 300
     object lId_Portador_Origem: TLabel
       Left = 29
       Top = 60
@@ -70,6 +69,8 @@ inherited formSaldoPortadorTransferencia: TformSaldoPortadorTransferencia
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 3
+      ExplicitTop = 228
+      ExplicitWidth = 620
       object sbCancelarCadastro: TSpeedButton
         AlignWithMargins = True
         Left = 457
@@ -84,7 +85,7 @@ inherited formSaldoPortadorTransferencia: TformSaldoPortadorTransferencia
         Images = dataImages.il40
         Flat = True
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHighlightText
+        Font.Color = clWindowText
         Font.Height = -17
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -106,7 +107,7 @@ inherited formSaldoPortadorTransferencia: TformSaldoPortadorTransferencia
         Images = dataImages.il40
         Flat = True
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHighlightText
+        Font.Color = clWindowText
         Font.Height = -17
         Font.Name = 'Tahoma'
         Font.Style = []

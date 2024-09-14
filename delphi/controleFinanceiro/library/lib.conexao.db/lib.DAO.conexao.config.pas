@@ -145,7 +145,7 @@ begin
 
   LStrings := TStringList.Create;
   try
-    LStrings.Loadfromfile('.\config.base.DB.txt');
+    LStrings.Loadfromfile('.\config.base.DB.txt');   {Debug: DataBase:!:contasanonimo  / Release: DataBase:!:contasfamilia}
 
     for AString in LStrings do
     begin

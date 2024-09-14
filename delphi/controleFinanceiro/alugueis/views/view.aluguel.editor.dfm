@@ -6,7 +6,6 @@ inherited formAluguelEditor: TformAluguelEditor
   OnShow = FormShow
   ExplicitWidth = 518
   ExplicitHeight = 379
-  PixelsPerInch = 96
   TextHeight = 21
   inherited pGeral: TPanel
     Width = 518
@@ -116,7 +115,7 @@ inherited formAluguelEditor: TformAluguelEditor
         ImageIndex = 0
         Images = dataImages.il40
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHighlightText
+        Font.Color = clWindowText
         Font.Height = -17
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -138,7 +137,7 @@ inherited formAluguelEditor: TformAluguelEditor
         ImageIndex = 1
         Images = dataImages.il40
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHighlightText
+        Font.Color = clWindowText
         Font.Height = -17
         Font.Name = 'Tahoma'
         Font.Style = []

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/07/08 10:37:06.000.094,=rtl.dcp</Transaction>
+    <Transaction>2022/07/08 10:37:12.000.788,=vcl.dcp</Transaction>
+    <Transaction>2022/07/08 10:37:12.000.776,=C:\Users\diogo\OneDrive\Documentos\Projetos\Delphi\FinancasZeroUm\componentesExternos\DBRadioGroupSimNao.pas</Transaction>
+    <Transaction>2022/07/08 10:37:12.000.832,=dbrtl.dcp</Transaction>
+    <Transaction>2022/07/08 10:37:12.000.846,=vclwinx.dcp</Transaction>
+    <Transaction>2022/07/08 10:37:12.000.876,=bindengine.dcp</Transaction>
+    <Transaction>2022/07/08 10:37:12.000.859,=vclimg.dcp</Transaction>
+    <Transaction>2022/07/08 10:37:12.000.808,=vcldb.dcp</Transaction>
+    <Transaction>2023/06/11 00:39:56.000.076,=F:\Projetos\gitHub\Delphi\FinancasZeroUm\componentesExternos\Unit1.pas</Transaction>
+    <Transaction>2023/06/11 00:44:54.000.717,F:\Projetos\gitHub\Delphi\FinancasZeroUm\componentesExternos\EditMaskMDS.pas=F:\Projetos\gitHub\Delphi\FinancasZeroUm\componentesExternos\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

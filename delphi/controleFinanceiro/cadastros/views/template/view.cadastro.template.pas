@@ -133,6 +133,7 @@ type
     procedure SetIControllerCadastros; virtual; abstract;
     function MontarGradeConsulta: boolean; virtual;
     function ExecutarBeforePostNaView: boolean; virtual;
+    procedure ExecutarAfterPostNaView; virtual;
 
     function AdicionarObserver(_AObserver: iMenuObserver): iMenuSubjectObserver;
     function RemoverObserver(_AObserver: iMenuObserver): iMenuSubjectObserver;
@@ -162,6 +163,7 @@ uses
 
 function TformCadastroTemplate.MontarGradeConsulta: boolean; begin Result := False; end;
 function TformCadastroTemplate.ExecutarBeforePostNaView: boolean; begin Result := True; end;
+procedure TformCadastroTemplate.ExecutarAfterPostNaView; begin {} end;
 procedure TformCadastroTemplate.AbrirConsultasLookup; begin {} end;
 procedure TformCadastroTemplate.AtualizarConsultaGrade; begin {} end;
 procedure TformCadastroTemplate.AjustarCombosSemConexao; begin {} end;
@@ -207,6 +209,7 @@ begin
   Result.qConsultaGrade               := FdmCadastro.PegarQConsultaGrade;
   Result.ProcAtualizarConsultaGrade   := AtualizarConsultaGrade;
   Result.FuncExecutarBeforePostNaView := ExecutarBeforePostNaView;
+  Result.FuncExecutarAfterPostNaView  := ExecutarAfterPostNaView;
 end;
 
 procedure TformCadastroTemplate.SetControllerCadastros(const Value: iControllerCadastros);
@@ -257,7 +260,7 @@ begin
     if (Components[I] is TSpeedButton) then
     begin
       (Components[I] as TSpeedButton).Flat := True;
-      (Components[I] as TSpeedButton).Font.Color := clWindow;
+//      (Components[I] as TSpeedButton).Font.Color := clWindow;
     end
     else if (Components[I] is TCard) then
     begin

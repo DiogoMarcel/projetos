@@ -25,6 +25,7 @@ type
     qConsultaGrade: TFDQuery;
     ProcAtualizarConsultaGrade: TAtualizarConsultaGrade;
     FuncExecutarBeforePostNaView: TExecutarBeforePostNaView;
+    FuncExecutarAfterPostNaView: TExecutarAfterPostNaView;
 
   end;
 

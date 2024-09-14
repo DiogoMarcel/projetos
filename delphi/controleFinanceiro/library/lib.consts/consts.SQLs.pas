@@ -23,10 +23,13 @@ type
     {Relatórios}
     ,sqlSaldoDetalhadoPortador
     ,sqlSaldoDetalhadoPortadorGrafico
+    ,sqlSaldoExtrato
 
     {Conta Pagamentos - Comandos}
     ,sqlContaPgtoUpdateBaixaEfetuada
     ,sqlContaPgtoExcRegAuxContaPagamentos
+    ,sqlContaPgtoUpdateSaldoExtrato
+    ,sqlContaPgtoInsertSaldoExtratoConta
 
     {Aluguel}
     ,sqlAluguelHistorico

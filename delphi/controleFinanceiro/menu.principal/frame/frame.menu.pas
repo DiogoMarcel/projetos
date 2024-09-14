@@ -164,22 +164,33 @@ end;
 procedure TframeMenu.clContaPagamentosDblClick(Sender: TObject);
 var
   AIdContaPagamentos: Integer;
+  AIdConta: integer;
 begin
   if (not TLibMessages.New.Confirmar('Confirmar o pagamento da conta?')) then
     Exit;
 
   FdmMenu.qContaPagamentos.RecNo := clContaPagamentos.ItemIndex+1;
   AIdContaPagamentos := FdmMenu.qContaPagamentos.FieldByName('IDCONTAPAGAMENTOS').AsInteger;
+  AIdConta := FdmMenu.qContaPagamentos.FieldByName('IDCONTA').AsInteger;
+
+  TdmCmdTransacao.New
+    .AddCommand(
+        TSQLContaPagamentos.New
+          .SetEnumSQL(sqlContaPgtoUpdateBaixaEfetuada)
+          .PegarSQL()
+        )
+      .SetParamDateTime('pDATABAIXA', Now())
+      .SetParamInteger('pIDCONTAPAGAMENTOS', AIdContaPagamentos)
+        .Executar;
 
   TdmCmdTransacao.New
     .AddCommand(
       TSQLContaPagamentos.New
-        .SetEnumSQL(sqlContaPgtoUpdateBaixaEfetuada)
-        .PegarSQL()
-      )
-    .SetParamDateTime('pDATABAIXA', Now())
-    .SetParamInteger('pIDCONTAPAGAMENTOS', AIdContaPagamentos)
-      .Executar;
+          .SetEnumSQL(sqlContaPgtoInsertSaldoExtratoConta)
+          .PegarSQL()
+        )
+      .SetParamInteger('pIDCONTA', AIdConta)
+        .Executar;
 
   FdmMenu.qContaPagamentos.AtivarQuery;
   ConfigurarControlsList;

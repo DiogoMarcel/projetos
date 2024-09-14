@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/06/14 14:35:07.000.880,=F:\Projetos\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 14:35:37.000.437,F:\Projetos\Delphi\caixaJuninoEscola\view.principal.dfm=F:\Projetos\Delphi\Unit1.dfm</Transaction>
+    <Transaction>2023/06/14 14:35:37.000.437,F:\Projetos\Delphi\caixaJuninoEscola\view.principal.pas=F:\Projetos\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 14:35:43.000.984,F:\Projetos\Delphi\caixaJuninoEscola\caixaJunino.dproj=F:\Projetos\Delphi\Project1.dproj</Transaction>
+    <Transaction>2023/06/14 15:21:44.000.758,=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 15:22:03.000.228,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.fichas.pas</Transaction>
+    <Transaction>2023/06/14 15:22:03.000.228,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.dfm=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.fichas.dfm</Transaction>
+    <Transaction>2023/06/14 15:22:42.000.051,=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 15:22:52.000.593,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas=F:\Projetos\Delphi\caixaJuninoEscola\data.geral.pas</Transaction>
+    <Transaction>2023/06/14 15:22:52.000.593,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.dfm=F:\Projetos\Delphi\caixaJuninoEscola\data.geral.dfm</Transaction>
+    <Transaction>2023/06/14 17:38:51.000.321,=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 17:39:08.000.148,F:\Projetos\Delphi\caixaJuninoEscola\view.cad.fichas.pas=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.padrao.pas</Transaction>
+    <Transaction>2023/06/14 17:39:08.000.148,F:\Projetos\Delphi\caixaJuninoEscola\view.cad.fichas.dfm=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.padrao.dfm</Transaction>
+    <Transaction>2023/06/14 17:41:07.000.913,=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 17:42:03.000.277,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.fichas.pas</Transaction>
+    <Transaction>2023/06/14 17:42:03.000.277,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.dfm=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.fichas.dfm</Transaction>
+    <Transaction>2023/06/14 17:56:34.000.342,=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 17:57:00.000.612,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.caixas.pas</Transaction>
+    <Transaction>2023/06/14 17:57:00.000.612,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.dfm=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.caixas.dfm</Transaction>
+    <Transaction>2023/06/14 18:01:59.000.415,=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 18:02:23.000.517,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.retiradas.pas</Transaction>
+    <Transaction>2023/06/14 18:02:23.000.517,F:\Projetos\Delphi\caixaJuninoEscola\Unit1.dfm=F:\Projetos\Delphi\caixaJuninoEscola\view.cad.retiradas.dfm</Transaction>
+    <Transaction>2023/06/16 18:54:42.000.489,=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/16 19:00:47.000.429,F:\Projetos\Delphi\caixaJuninoEscola\view.report.pas=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.pas</Transaction>
+    <Transaction>2023/06/16 19:00:47.000.429,F:\Projetos\Delphi\caixaJuninoEscola\view.report.dfm=F:\Projetos\Delphi\caixaJuninoEscola\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

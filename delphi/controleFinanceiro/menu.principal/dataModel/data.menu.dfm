@@ -1,5 +1,4 @@
 object dataMenu: TdataMenu
-  OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 271
   Width = 223
@@ -78,6 +77,9 @@ object dataMenu: TdataMenu
       FieldName = 'idcontapagamentos'
       Origin = 'idcontapagamentos'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qContaPagamentosidconta: TIntegerField
+      FieldName = 'idconta'
     end
   end
   object dsContaPagamentos: TDataSource

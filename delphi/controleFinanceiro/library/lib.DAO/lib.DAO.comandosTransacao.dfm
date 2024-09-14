@@ -1,5 +1,4 @@
 object dmCmdTransacao: TdmCmdTransacao
-  OldCreateOrder = False
   Height = 108
   Width = 222
   object daoCommand: TFDCommand

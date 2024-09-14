@@ -34,6 +34,7 @@ type
     relSaldoDetalhadoGrafico: TAction;
     algCasa: TAction;
     aAbrirAluguel: TAction;
+    relSaldoExtrato: TAction;
     procedure aAbrirCadastrosExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -154,7 +155,8 @@ const
   ITEM_MENU_CREDOR          = 07; ITEM_MENU_MEMBROFAMILIA   = 08;
   ITEM_MENU_SALDOFGTS       = 09; ITEM_MENU_TAGS            = 10;
   {Relatórios}
-  ITEM_MENU_REL_SALDO_DETAL = 01; ITEM_MENU_REL_SALDO_DETAL_GRAFICO = 02;
+  ITEM_MENU_REL_SALDO_DETAL   = 01; ITEM_MENU_REL_SALDO_DETAL_GRAFICO = 02;
+  ITEM_MENU_REL_SALDO_EXTRATO = 03;
   {Aluguel}
   ITEM_MENU_ALUGUEL = 01;
 begin
@@ -182,6 +184,7 @@ begin
   begin
     Items[ITEM_MENU_REL_SALDO_DETAL -1].ImageIndex        := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
     Items[ITEM_MENU_REL_SALDO_DETAL_GRAFICO-1].ImageIndex := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
+    Items[ITEM_MENU_REL_SALDO_EXTRATO-1].ImageIndex       := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
   end;
 
   with cbMenu.Categories[2] do
@@ -211,10 +214,6 @@ begin
   AEnumValue := GetEnumValue(ATypeInfo, AComponentName);
 
   Result := TTypeCadastros(AEnumValue);
-
-
-
-
 end;
 
 end.
