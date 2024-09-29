@@ -1,5 +1,5 @@
 inherited formSaldoExtrato: TformSaldoExtrato
-  BorderStyle = bsSingle
+  BorderStyle = bsSizeable
   Caption = 'Saldo Extrato'
   ClientHeight = 569
   ClientWidth = 1072
@@ -45,49 +45,76 @@ inherited formSaldoExtrato: TformSaldoExtrato
         ParentColor = False
         TabOrder = 0
         OnBeforeDrawItem = clSaldosBeforeDrawItem
-        ExplicitWidth = 1070
-        ExplicitHeight = 502
+        ExplicitWidth = 506
+        ExplicitHeight = 1072
         object dbtData: TDBText
           AlignWithMargins = True
           Left = 5
-          Top = 3
+          Top = 2
           Width = 180
-          Height = 24
+          Height = 26
           Margins.Left = 5
-          Margins.Right = 0
+          Margins.Top = 2
+          Margins.Right = 5
+          Margins.Bottom = 2
           Align = alLeft
           Alignment = taCenter
+          Color = clMoneyGreen
           DataField = 'datalancamento'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentColor = False
+          ParentFont = False
+          ExplicitTop = 3
+          ExplicitHeight = 24
         end
         object dbtValor: TDBText
           AlignWithMargins = True
-          Left = 644
-          Top = 3
+          Left = 655
+          Top = 2
           Width = 198
-          Height = 24
+          Height = 26
+          Margins.Left = 5
+          Margins.Top = 2
+          Margins.Right = 5
+          Margins.Bottom = 2
           Align = alLeft
           Alignment = taRightJustify
           DataField = 'valor'
           ExplicitLeft = 590
           ExplicitTop = -5
+          ExplicitHeight = 24
         end
         object dbtDescricao: TDBText
           AlignWithMargins = True
-          Left = 188
-          Top = 3
+          Left = 195
+          Top = 2
           Width = 450
-          Height = 24
+          Height = 26
+          Margins.Left = 5
+          Margins.Top = 2
+          Margins.Right = 5
+          Margins.Bottom = 2
           Align = alLeft
           DataField = 'descricao'
           WordWrap = True
           ExplicitLeft = 106
           ExplicitTop = -5
+          ExplicitHeight = 24
         end
         object iPositivo: TImage
-          Left = 893
-          Top = 0
+          AlignWithMargins = True
+          Left = 906
+          Top = 2
           Width = 24
-          Height = 30
+          Height = 26
+          Margins.Left = 0
+          Margins.Top = 2
+          Margins.Right = 0
+          Margins.Bottom = 2
           Align = alLeft
           Center = True
           Picture.Data = {
@@ -111,12 +138,18 @@ inherited formSaldoExtrato: TformSaldoExtrato
           Visible = False
           ExplicitLeft = 199
           ExplicitTop = 3
+          ExplicitHeight = 30
         end
         object iNegativo: TImage
-          Left = 869
-          Top = 0
+          AlignWithMargins = True
+          Left = 882
+          Top = 2
           Width = 24
-          Height = 30
+          Height = 26
+          Margins.Left = 0
+          Margins.Top = 2
+          Margins.Right = 0
+          Margins.Bottom = 2
           Align = alLeft
           Center = True
           Picture.Data = {
@@ -140,12 +173,18 @@ inherited formSaldoExtrato: TformSaldoExtrato
           Visible = False
           ExplicitLeft = 175
           ExplicitTop = 3
+          ExplicitHeight = 30
         end
         object iEquals: TImage
-          Left = 845
-          Top = 0
+          AlignWithMargins = True
+          Left = 858
+          Top = 2
           Width = 24
-          Height = 30
+          Height = 26
+          Margins.Left = 0
+          Margins.Top = 2
+          Margins.Right = 0
+          Margins.Bottom = 2
           Align = alLeft
           Center = True
           Picture.Data = {
@@ -158,19 +197,25 @@ inherited formSaldoExtrato: TformSaldoExtrato
           Visible = False
           ExplicitLeft = 151
           ExplicitTop = 3
+          ExplicitHeight = 30
         end
         object dbtSaldo: TDBText
           AlignWithMargins = True
-          Left = 920
-          Top = 3
-          Width = 149
-          Height = 24
+          Left = 935
+          Top = 2
+          Width = 132
+          Height = 26
+          Margins.Left = 5
+          Margins.Top = 2
+          Margins.Right = 5
+          Margins.Bottom = 2
           Align = alClient
           Alignment = taRightJustify
           DataField = 'saldo'
           ExplicitLeft = 590
           ExplicitTop = -5
           ExplicitWidth = 198
+          ExplicitHeight = 24
         end
       end
       object pCabecalho: TPanel
@@ -190,7 +235,7 @@ inherited formSaldoExtrato: TformSaldoExtrato
           Height = 30
           Margins.Left = 5
           Margins.Top = 0
-          Margins.Right = 0
+          Margins.Right = 5
           Margins.Bottom = 0
           Align = alLeft
           Alignment = taCenter
@@ -207,10 +252,12 @@ inherited formSaldoExtrato: TformSaldoExtrato
         end
         object lValor: TLabel
           AlignWithMargins = True
-          Left = 644
+          Left = 655
           Top = 33
           Width = 222
           Height = 24
+          Margins.Left = 5
+          Margins.Right = 5
           Align = alLeft
           Alignment = taRightJustify
           AutoSize = False
@@ -227,10 +274,12 @@ inherited formSaldoExtrato: TformSaldoExtrato
         end
         object lSaldoDisponivel: TLabel
           AlignWithMargins = True
-          Left = 188
+          Left = 195
           Top = 33
           Width = 450
           Height = 24
+          Margins.Left = 5
+          Margins.Right = 5
           Align = alLeft
           AutoSize = False
           Caption = 'Descri'#231#227'o'
@@ -247,11 +296,11 @@ inherited formSaldoExtrato: TformSaldoExtrato
         end
         object lAcumulado: TLabel
           AlignWithMargins = True
-          Left = 869
+          Left = 887
           Top = 30
-          Width = 198
+          Width = 180
           Height = 30
-          Margins.Left = 0
+          Margins.Left = 5
           Margins.Top = 0
           Margins.Right = 5
           Margins.Bottom = 0
@@ -286,7 +335,7 @@ inherited formSaldoExtrato: TformSaldoExtrato
           ExplicitWidth = 1070
           object lblSaldoFinal: TLabel
             AlignWithMargins = True
-            Left = 750
+            Left = 954
             Top = 3
             Width = 103
             Height = 24
@@ -303,22 +352,24 @@ inherited formSaldoExtrato: TformSaldoExtrato
             Layout = tlCenter
             ExplicitHeight = 25
           end
-          object dbtSaldoFinal: TDBText
+          object lblSaldoFinalTitulo: TLabel
             AlignWithMargins = True
-            Left = 871
+            Left = 833
             Top = 3
-            Width = 198
+            Width = 103
             Height = 24
+            Margins.Right = 15
             Align = alRight
             Alignment = taRightJustify
-            DataField = 'SALDO'
+            Caption = 'Saldo Final:'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -19
             Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
+            Font.Style = [fsBold, fsItalic]
             ParentFont = False
-            ExplicitLeft = 920
+            Layout = tlCenter
+            ExplicitHeight = 25
           end
         end
       end

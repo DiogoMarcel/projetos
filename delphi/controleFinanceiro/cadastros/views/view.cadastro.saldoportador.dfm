@@ -1,33 +1,57 @@
 inherited formCadSaldoPortador: TformCadSaldoPortador
-  ExplicitWidth = 840
-  ExplicitHeight = 608
+  ClientHeight = 573
+  ClientWidth = 826
   TextHeight = 13
   inherited pGeral: TPanel
+    Width = 826
+    Height = 573
+    ExplicitWidth = 824
+    ExplicitHeight = 569
     inherited cpCadastros: TCardPanel
       Width = 826
       Height = 528
+      ExplicitWidth = 824
+      ExplicitHeight = 524
       inherited cConsulta: TCard
         Width = 826
         Height = 528
+        ExplicitWidth = 824
+        ExplicitHeight = 524
         inherited cpConsultas: TCardPanel
+          Width = 826
+          Height = 425
+          ExplicitWidth = 824
+          ExplicitHeight = 421
+          inherited cConsultaLista: TCard
+            Width = 826
+            Height = 425
+            ExplicitWidth = 826
+            ExplicitHeight = 425
+          end
           inherited cConsultaGrade: TCard
+            Width = 826
+            Height = 425
+            ExplicitWidth = 824
+            ExplicitHeight = 421
             object sbConsultaGrade: TScrollBox
               Left = 0
               Top = 0
-              Width = 832
-              Height = 437
+              Width = 826
+              Height = 425
               HorzScrollBar.Visible = False
               Align = alClient
               BevelInner = bvNone
               BevelOuter = bvNone
               BorderStyle = bsNone
               TabOrder = 0
-              ExplicitWidth = 830
-              ExplicitHeight = 433
+              ExplicitWidth = 824
+              ExplicitHeight = 421
             end
           end
         end
         inherited pCabecalhoConsulta: TPanel
+          Width = 826
+          ExplicitWidth = 824
           inherited sbVisualizarConsulta: TSpeedButton
             ExplicitLeft = 3
             ExplicitHeight = 31
@@ -53,17 +77,41 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
             StyleElements = [seClient, seBorder]
           end
         end
+        inherited pConsulta: TPanel
+          Top = 460
+          Width = 826
+          ExplicitTop = 456
+          ExplicitWidth = 824
+          inherited sbExcluirCadastro: TSpeedButton
+            Left = 673
+            ExplicitLeft = 673
+          end
+          inherited sbIncluirCadastro: TSpeedButton
+            Left = 361
+            ExplicitLeft = 361
+          end
+          inherited sbEditarCadastro: TSpeedButton
+            Left = 517
+            ExplicitLeft = 517
+          end
+        end
       end
       inherited cCadastro: TCard
         Width = 820
         Height = 515
+        ExplicitWidth = 820
+        ExplicitHeight = 515
         inherited pRodapeBotoesCad: TPanel
           Top = 447
           Width = 820
+          ExplicitTop = 447
+          ExplicitWidth = 820
         end
         inherited pCadastro: TPanel
           Width = 820
           Height = 447
+          ExplicitWidth = 820
+          ExplicitHeight = 447
           object tIdSaldoPortador: TDBText
             Left = 195
             Top = 32
@@ -157,6 +205,15 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
     end
     inherited pCabecalhoGeral: TPanel
       Width = 826
+      ExplicitWidth = 824
+      inherited lTitulo: TLabel
+        Width = 774
+        Height = 39
+      end
+      inherited sbSair: TSpeedButton
+        Left = 783
+        ExplicitLeft = 783
+      end
     end
   end
   inherited alAcoes: TActionList

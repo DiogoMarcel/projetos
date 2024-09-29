@@ -62,7 +62,6 @@ procedure TdataCadastroTemplate.dspCadastroAfterApplyUpdates(
   Sender: TObject; var OwnerData: OleVariant);
 begin
   //
-  showMessage('aqui');
 end;
 
 function TdataCadastroTemplate.PegarCDSCadastro: TClientDataSet;      begin Result := cdsCadastro; end;

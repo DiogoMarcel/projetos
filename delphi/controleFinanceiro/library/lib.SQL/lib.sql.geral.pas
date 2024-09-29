@@ -190,6 +190,9 @@ begin
             '     , SE.TIPOSALDO                                                   '+
             '     , SE.VALOR                                                       '+
             '     , SE.SALDO                                                       '+
+            '     , ROW_NUMBER() OVER(                                             '+
+            '       PARTITION BY SE.DATALANCAMENTO                                 '+
+            '       ORDER BY SE.DATALANCAMENTO DESC) EXIBIRDATA                    '+
             ' FROM SALDOEXTRATO SE                                                 '+
             ' ORDER BY SE.IDSALDOEXTRATO DESC                                      ';
 end;

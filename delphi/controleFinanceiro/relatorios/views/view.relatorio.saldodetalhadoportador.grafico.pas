@@ -11,12 +11,12 @@ uses
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   Datasnap.Provider, model.relatorio.saldodetalhadoportador.grafico,
-  VCLTee.TeeDBCrossTab;
+  VCLTee.TeeDBCrossTab, VCLTee.GanttCh;
 
 type
   TformSaldoDetalhadoPortadorGrafico = class(TformTemplate)
-    DBChart1: TDBChart;
-    Series1: TBarSeries;
+    DBChart2: TDBChart;
+    Series2: TBarSeries;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

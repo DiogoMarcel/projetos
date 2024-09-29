@@ -44,14 +44,12 @@ object frameMenu: TframeMenu
     object lResumo: TLabel
       Left = 0
       Top = 0
-      Width = 397
-      Height = 29
+      Width = 60
+      Height = 21
       Align = alClient
       Alignment = taCenter
       Caption = 'Resumo'
       Layout = tlCenter
-      ExplicitWidth = 60
-      ExplicitHeight = 21
     end
   end
   object clResumo: TControlList
@@ -155,12 +153,11 @@ object frameMenu: TframeMenu
     object lAdicionais: TLabel
       Left = 0
       Top = 1
-      Width = 397
+      Width = 75
       Height = 21
       Align = alTop
       Alignment = taCenter
       Caption = 'Adicionais'
-      ExplicitWidth = 75
     end
     object sDivAdicionais: TShape
       Left = 0
@@ -197,17 +194,14 @@ object frameMenu: TframeMenu
       end
       object lValorSaldoGeral: TLabel
         AlignWithMargins = True
-        Left = 239
+        Left = 273
         Top = 3
-        Width = 155
-        Height = 24
+        Width = 121
+        Height = 21
         Align = alClient
         Alignment = taRightJustify
         Caption = 'lValorSaldoGeral'
         Layout = tlCenter
-        ExplicitLeft = 273
-        ExplicitWidth = 121
-        ExplicitHeight = 21
       end
     end
   end
@@ -345,7 +339,7 @@ object frameMenu: TframeMenu
       Left = 5
       Top = 5
       Width = 80
-      Height = 21
+      Height = 18
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 0
@@ -361,7 +355,6 @@ object frameMenu: TframeMenu
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitHeight = 18
     end
   end
   object pContaPagamentos: TPanel
@@ -398,14 +391,12 @@ object frameMenu: TframeMenu
     object lContaPagamentos: TLabel
       Left = 0
       Top = 1
-      Width = 397
-      Height = 28
+      Width = 191
+      Height = 21
       Align = alClient
       Alignment = taCenter
       Caption = 'Contas Pendentes no M'#234's'
       Layout = tlCenter
-      ExplicitWidth = 191
-      ExplicitHeight = 21
     end
     object sDivContaPagamentos: TShape
       Left = 0

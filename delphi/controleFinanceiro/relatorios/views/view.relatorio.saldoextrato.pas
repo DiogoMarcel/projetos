@@ -26,7 +26,7 @@ type
     pnlSaldoInicial: TPanel;
     lblSaldoFinal: TLabel;
     dbtSaldo: TDBText;
-    dbtSaldoFinal: TDBText;
+    lblSaldoFinalTitulo: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure clSaldosBeforeDrawItem(AIndex: Integer; ACanvas: TCanvas;
@@ -76,6 +76,15 @@ begin
   iEquals.Visible   := (dmSaldoExtrato.cdsSaldoExtrato.FieldByName('TIPOSALDO').AsString.Equals('='));
   iNegativo.Visible := (dmSaldoExtrato.cdsSaldoExtrato.FieldByName('TIPOSALDO').AsString.Equals('P'));
 
+  if (dmSaldoExtrato.cdsSaldoExtrato.FieldByName('EXIBIRDATA').AsInteger.ToString.Equals('1')) then
+  begin
+    dbtData.DataField := 'datalancamento';
+  end
+  else
+  begin
+    dbtData.DataField := '';
+  end;
+
   if iPositivo.Visible then
     dbtvalor.Alignment := taRightJustify
   else if iEquals.Visible then
@@ -83,38 +92,6 @@ begin
   else if iNegativo.Visible then
     dbtvalor.Alignment := taLeftJustify;
 end;
-
-{procedure TformSaldoExtrato.EditarSaldosExtrato;
-var
-  AProximoValor: Currency;
-  AValorSaldoCalculado: Currency;
-begin
-  AProximoValor := 0.0;
-  AValorSaldoCalculado := dmSaldoExtrato.cdsSaldoExtratoFinal.Fields[0].AsCurrency;
-
-  with dmSaldoExtrato.cdsSaldoExtrato do
-  begin
-    First;
-    while not Eof do
-    begin
-      Edit;
-
-      FieldByName('SALDO').AsCurrency := AValorSaldoCalculado + (AProximoValor * (-1));
-
-      if not FieldByName('TIPOSALDO').AsString.Equals('=') then
-      begin
-        AValorSaldoCalculado := FieldByName('SALDO').AsCurrency;
-        AProximoValor := FieldByName('VALOR').AsCurrency;
-      end;
-
-      if FieldByName('TIPOSALDO').AsString.Equals('P') then
-        AProximoValor := AProximoValor * (-1);
-
-      Post;
-      Next;
-    end;
-  end;
-end;}
 
 procedure TformSaldoExtrato.FormCreate(Sender: TObject);
 begin
@@ -133,14 +110,15 @@ begin
   dbtDescricao.DataSource := dmSaldoExtrato.dsSaldoExtrato;
   dbtValor.DataSource := dmSaldoExtrato.dsSaldoExtrato;
   dbtSaldo.DataSource := dmSaldoExtrato.dsSaldoExtrato;
-  dbtSaldoFinal.DataSource := dmSaldoExtrato.dsSaldoExtrato;
-
+  
   dmSaldoExtrato.cdsSaldoExtrato.Active := True;
 
   clSaldos.ItemCount := dmSaldoExtrato.cdsSaldoExtrato.RecordCount;
 
   TCurrencyField(dmSaldoExtrato.cdsSaldoExtrato.FieldByName('VALOR')).Currency := True;
   TCurrencyField(dmSaldoExtrato.cdsSaldoExtrato.FieldByName('SALDO')).Currency := True;
+
+  lblSaldoFinal.Caption := FormatFloat('R$ #,0.00', dmSaldoExtrato.cdsSaldoExtrato.FieldByName('SALDO').AsCurrency);
 end;
 
 procedure TformSaldoExtrato.FormDestroy(Sender: TObject);

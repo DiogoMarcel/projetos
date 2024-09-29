@@ -134,7 +134,8 @@ uses
   view.calcular in 'cadastros\views\view.calcular\view.calcular.pas' {formCalcular},
   view.aluguel.editor in 'alugueis\views\view.aluguel.editor.pas' {formAluguelEditor},
   view.relatorio.saldoextrato in 'relatorios\views\view.relatorio.saldoextrato.pas' {formSaldoExtrato},
-  model.relatorio.saldoextrato in 'relatorios\models\model.relatorio.saldoextrato.pas' {dmSaldoExtrato: TDataModule};
+  model.relatorio.saldoextrato in 'relatorios\models\model.relatorio.saldoextrato.pas' {dmSaldoExtrato: TDataModule},
+  lib.enum.tipoconta in 'library\lib.enums\lib.enum.tipoconta.pas';
 
 {$R *.res}
 

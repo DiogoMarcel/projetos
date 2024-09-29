@@ -67,8 +67,16 @@ end;
 
 function TSQLContaPagamentos.PegarSQLContaPgtoUpdateSaldoExtrato: string;
 begin
-  Result := ' INSERT INTO SALDOEXTRATO(  TIPOSALDO,   VALOR,   SALDO,   DESCRICAO) '+
-                             ' VALUES (:pTIPOSALDO, :pVALOR, :pSALDO, :pDESCRICAO) ';
+  Result := ' INSERT INTO SALDOEXTRATO('+
+                'TIPOSALDO, VALOR, SALDO, DESCRICAO) '+
+            ' VALUES (:pTIPOSALDO'+
+                   ', :pVALOR'+
+                   ', :pSALDO + '+
+                       ' (SELECT SALDO '+
+                       '    FROM public.saldoextrato '+
+                       '   ORDER BY IDSALDOEXTRATO DESC '+
+                       '   LIMIT 1) '+
+                   ', :pDESCRICAO) ';
 end;
 
 function TSQLContaPagamentos.PegarSQLContaPgtoInsertSaldoExtratoConta: string;

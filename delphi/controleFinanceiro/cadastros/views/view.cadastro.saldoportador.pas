@@ -65,12 +65,14 @@ type
 implementation
 
 uses
+  Dialogs,
   view.cadastro.saldoportador.transferencia,
   lib.helper.querys,
   System.SysUtils,
   System.StrUtils,
   lib.sql.lookup,
   consts.SQLs,
+  lib.enum.tipoconta,
   lib.sql.contapagamento,
   lib.DAO.comandosTransacao,
   data.cadastro.template.interfaces,
@@ -141,7 +143,27 @@ begin
 end;
 
 procedure TformCadSaldoPortador.ExecutarAfterPostNaView;
+var
+  ATipoSaldo: TTypeLibEnumTipoconta;
+  ADiferenca: Currency;
+  ADiferencaOriginal: Currency;
 begin
+  ADiferencaOriginal := FdmCadastro.PegarCDSCadastro.FieldByName('VALOR').NewValue -
+                        FdmCadastro.PegarCDSCadastro.FieldByName('VALOR').OldValue;
+
+  ADiferenca := ADiferencaOriginal;
+
+  ATipoSaldo := letNull;
+  if ADiferencaOriginal > 0 then
+    ATipoSaldo := letReceber
+  else if ADiferencaOriginal < 0 then
+  begin
+    ATipoSaldo := letPagar;
+
+    ADiferenca := ADiferenca * (-1);
+  end
+  else if ADiferencaOriginal = 0 then
+    ATipoSaldo := letIgual;
 
   TdmCmdTransacao.New
     .AddCommand(
@@ -149,12 +171,11 @@ begin
           .SetEnumSQL(sqlContaPgtoUpdateSaldoExtrato)
           .PegarSQL()
         )
-      .SetParamString('pTIPOSALDO', '=')
-      .SetParamFloat('pVALOR', 0.0)
-      .SetParamFloat('pSALDO', 0.0)
-      .SetParamString('pDESCRICAO', 'AFTER')
+      .SetParamString('pTIPOSALDO', TLibEnumTipoconta.GetName(ATipoSaldo))
+      .SetParamFloat('pVALOR', ADiferenca)
+      .SetParamFloat('pSALDO', ADiferencaOriginal)
+      .SetParamString('pDESCRICAO', string(FdmCadastro.PegarCDSCadastro.FieldByName('ID_PORTADOR').AsInteger.ToString +' - '+ FdmCadastro.PegarCDSCadastro.FieldByName('NOMEPORTADOR_PORTADOR').AsString).Substring(0, 50))
         .Executar;
-
 
   inherited;
 end;

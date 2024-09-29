@@ -1,5 +1,4 @@
 object dmSaldoDetalhadoPortadorGrafico: TdmSaldoDetalhadoPortadorGrafico
-  OldCreateOrder = False
   Height = 78
   Width = 622
   object qSaldoDetalhadoPortador: TFDQuery
@@ -9,8 +8,11 @@ object dmSaldoDetalhadoPortadorGrafico: TdmSaldoDetalhadoPortadorGrafico
       
         'SELECT CAST(TRIM(TO_CHAR(DATAALTERACAO, '#39'TMMONTH'#39')) || '#39' / '#39' || ' +
         'TRIM(TO_CHAR(DATAALTERACAO, '#39'YYYY'#39')) AS VARCHAR(30)) AS DATAALTE' +
-        'RACAO'#13#10#9',SALDOTOTAL'#13#10'FROM SALDODETALHADOPORTADOR'#13#10'ORDER BY IDSAL' +
-        'DODETALHADOPORTADOR DESC'#13#10)
+        'RACAO'
+      #9',SALDOTOTAL'
+      'FROM SALDODETALHADOPORTADOR'
+      'ORDER BY IDSALDODETALHADOPORTADOR DESC'
+      'limit 10')
     Left = 64
     Top = 16
   end

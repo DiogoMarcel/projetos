@@ -2,6 +2,8 @@ inherited formCadPortador: TformCadPortador
   Caption = 'formCadPortador'
   ClientHeight = 577
   ClientWidth = 828
+  ExplicitWidth = 842
+  ExplicitHeight = 612
   TextHeight = 13
   inherited pGeral: TPanel
     Width = 828

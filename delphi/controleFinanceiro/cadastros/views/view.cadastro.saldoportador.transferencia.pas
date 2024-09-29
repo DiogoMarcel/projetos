@@ -40,6 +40,7 @@ uses
   consts.nomeCadastros,
   data.cadastro.template.factory,
   lib.DAO.comandosTransacao,
+  lib.sql.contapagamento,
   lib.sql.lookup,
   consts.SQLs;
 
@@ -74,6 +75,30 @@ begin
   TdmCmdTransacao.New
     .AddCommand(aSQLDestino)
     .Executar;
+
+  TdmCmdTransacao.New
+    .AddCommand(
+      TSQLContaPagamentos.New
+          .SetEnumSQL(sqlContaPgtoUpdateSaldoExtrato)
+          .PegarSQL()
+        )
+      .SetParamString('pTIPOSALDO', '=')
+      .SetParamFloat('pVALOR', String(eValorTransferencia.Text).Replace('.', '', [rfReplaceAll]))
+      .SetParamFloat('pSALDO', 0.0)
+      .SetParamString('pDESCRICAO', string('Transf.: '+ Integer(lcbId_Portador_Origem.KeyValue).ToString +' - '+ lcbId_Portador_Origem.Text).Substring(0, 50))
+        .Executar;
+
+  TdmCmdTransacao.New
+    .AddCommand(
+      TSQLContaPagamentos.New
+          .SetEnumSQL(sqlContaPgtoUpdateSaldoExtrato)
+          .PegarSQL()
+        )
+      .SetParamString('pTIPOSALDO', '=')
+      .SetParamFloat('pVALOR', String(eValorTransferencia.Text).Replace('.', '', [rfReplaceAll]))
+      .SetParamFloat('pSALDO', 0.0)
+      .SetParamString('pDESCRICAO', string('Transf.: '+ Integer(lcbId_Portador_Destino.KeyValue).ToString +' - '+ lcbId_Portador_Destino.Text).Substring(0, 50))
+        .Executar;
 
   TLibMessages.New.Informar('Transferência concluída!');
 
