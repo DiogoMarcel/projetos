@@ -30,11 +30,12 @@ type
     svMenu: TSplitView;
     cbMenu: TCategoryButtons;
     frameMenu: TframeMenu;
-    relSaldoDetalhado: TAction;
+    relSaldoDetalhadoPortador: TAction;
     relSaldoDetalhadoGrafico: TAction;
     algCasa: TAction;
     aAbrirAluguel: TAction;
     relSaldoExtrato: TAction;
+    relSaldoDetalhes: TAction;
     procedure aAbrirCadastrosExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -183,8 +184,8 @@ begin
   with cbMenu.Categories[1] do
   begin
     Items[ITEM_MENU_REL_SALDO_DETAL -1].ImageIndex        := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
-    Items[ITEM_MENU_REL_SALDO_DETAL_GRAFICO-1].ImageIndex := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
-    Items[ITEM_MENU_REL_SALDO_EXTRATO-1].ImageIndex       := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
+//    Items[ITEM_MENU_REL_SALDO_DETAL_GRAFICO-1].ImageIndex := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
+//    Items[ITEM_MENU_REL_SALDO_EXTRATO-1].ImageIndex       := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
   end;
 
   with cbMenu.Categories[2] do

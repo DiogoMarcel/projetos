@@ -1,7 +1,7 @@
-object dataMenu: TdataMenu
+object dataMenuSaldoDetalhe: TdataMenuSaldoDetalhe
   OnCreate = DataModuleCreate
-  Height = 271
-  Width = 223
+  Height = 288
+  Width = 238
   object qMenu: TFDQuery
     Connection = dmConexaoDB.FDConexao
     Left = 48

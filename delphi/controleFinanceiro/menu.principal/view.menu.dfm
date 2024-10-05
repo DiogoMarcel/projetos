@@ -82,13 +82,8 @@ object formMenu: TformMenu
           Collapsed = False
           Items = <
             item
-              Action = relSaldoDetalhado
-            end
-            item
-              Action = relSaldoDetalhadoGrafico
-            end
-            item
-              Action = relSaldoExtrato
+              Action = relSaldoDetalhes
+              Caption = 'Saldo Detalhes'
             end>
         end
         item
@@ -120,7 +115,7 @@ object formMenu: TformMenu
     ParentFont = False
     TabOrder = 1
     ExplicitLeft = 150
-    ExplicitHeight = 597
+    ExplicitHeight = 601
   end
   object aListaAcoes: TActionList
     Left = 656
@@ -196,7 +191,7 @@ object formMenu: TformMenu
       Caption = 'Contas Receber'
       OnExecute = aAbrirCadastrosExecute
     end
-    object relSaldoDetalhado: TAction
+    object relSaldoDetalhadoPortador: TAction
       Category = 'Relat'#243'rios'
       Caption = 'Saldo Detalhado'
       OnExecute = aAbrirRelatoriosExecute
@@ -219,6 +214,11 @@ object formMenu: TformMenu
     object relSaldoExtrato: TAction
       Category = 'Relat'#243'rios'
       Caption = 'Saldo - Extrato'
+      OnExecute = aAbrirRelatoriosExecute
+    end
+    object relSaldoDetalhes: TAction
+      Category = 'Relat'#243'rios'
+      Caption = 'Saldo Detalhado'
       OnExecute = aAbrirRelatoriosExecute
     end
   end

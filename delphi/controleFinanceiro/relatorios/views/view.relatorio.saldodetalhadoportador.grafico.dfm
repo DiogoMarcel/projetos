@@ -14,7 +14,7 @@ inherited formSaldoDetalhadoPortadorGrafico: TformSaldoDetalhadoPortadorGrafico
     Width = 1328
     Height = 665
     ExplicitWidth = 1326
-    ExplicitHeight = 249
+    ExplicitHeight = 661
     object DBChart2: TDBChart
       Left = 0
       Top = 0
@@ -101,10 +101,8 @@ inherited formSaldoDetalhadoPortadorGrafico: TformSaldoDetalhadoPortadorGrafico
       BevelOuter = bvNone
       ParentColor = True
       TabOrder = 0
-      ExplicitLeft = 96
-      ExplicitTop = 193
-      ExplicitWidth = 1328
-      ExplicitHeight = 416
+      ExplicitWidth = 1322
+      ExplicitHeight = 657
       DefaultCanvas = 'TTeeCanvas3D'
       ColorPaletteIndex = 3
       object Series2: TBarSeries

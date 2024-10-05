@@ -1,4 +1,4 @@
-unit data.menu;
+unit data.menu.saldodetalhado;
 
 interface
 
@@ -11,22 +11,22 @@ uses
   Datasnap.Provider, lib.proc.objects;
 
 type
-  TdataMenu = class(TDataModule)
+  TdataMenuSaldoDetalhe = class(TDataModule)
     qMenu: TFDQuery;
-    dsMenu: TDataSource;
     qMenuvalor: TFloatField;
     qMenutitulo: TWideStringField;
+    dsMenu: TDataSource;
     qSaldoFolha: TFDQuery;
-    dsSaldoFolha: TDataSource;
     qSaldoFolhavalorfolhamembro: TFloatField;
     qSaldoFolhanome: TWideStringField;
+    dsSaldoFolha: TDataSource;
     qContaPagamentos: TFDQuery;
-    dsContaPagamentos: TDataSource;
     qContaPagamentosdescricao: TWideStringField;
     qContaPagamentosvalor: TFloatField;
     qContaPagamentossinal: TWideStringField;
     qContaPagamentosidcontapagamentos: TIntegerField;
     qContaPagamentosidconta: TIntegerField;
+    dsContaPagamentos: TDataSource;
     qProjecao: TFDQuery;
     qProjecaovalor: TFloatField;
     qProjecaotitulo: TWideStringField;
@@ -56,16 +56,14 @@ uses
 
 {$R *.dfm}
 
-{ TdataMenu }
-
-constructor TdataMenu.Create(AOwner: TComponent; _APegarValorEditorFrameMenu: TPegarValorEditorFrameMenu);
+constructor TdataMenuSaldoDetalhe.Create(AOwner: TComponent; _APegarValorEditorFrameMenu: TPegarValorEditorFrameMenu);
 begin
   inherited Create(AOwner);
 
   FPegarValorEditorFrameMenu := _APegarValorEditorFrameMenu;
 end;
 
-procedure TdataMenu.DataModuleCreate(Sender: TObject);
+procedure TdataMenuSaldoDetalhe.DataModuleCreate(Sender: TObject);
 var
 //  Inicio: TDateTime;
 //  Fim: TDateTime;
@@ -134,14 +132,14 @@ begin
 //  ShowMessage(Format('Consultas realizadas em %s segundos.', [FormatDateTime('ss', Fim - Inicio)]));
 end;
 
-function TdataMenu.PegarValorEditorFrame: integer;
+function TdataMenuSaldoDetalhe.PegarValorEditorFrame: integer;
 begin
   Result := 0;
   if Assigned(FPegarValorEditorFrameMenu) then
     Result := FPegarValorEditorFrameMenu;
 end;
 
-procedure TdataMenu.CalcularProjecao;
+procedure TdataMenuSaldoDetalhe.CalcularProjecao;
 begin
   if (qProjecao.Active) then
     qProjecao.Active := False;

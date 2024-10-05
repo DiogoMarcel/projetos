@@ -135,7 +135,10 @@ uses
   view.aluguel.editor in 'alugueis\views\view.aluguel.editor.pas' {formAluguelEditor},
   view.relatorio.saldoextrato in 'relatorios\views\view.relatorio.saldoextrato.pas' {formSaldoExtrato},
   model.relatorio.saldoextrato in 'relatorios\models\model.relatorio.saldoextrato.pas' {dmSaldoExtrato: TDataModule},
-  lib.enum.tipoconta in 'library\lib.enums\lib.enum.tipoconta.pas';
+  lib.enum.tipoconta in 'library\lib.enums\lib.enum.tipoconta.pas',
+  view.relatorio.saldodetalhes in 'relatorios\views\view.relatorio.saldodetalhes.pas' {formSaldoDetalhes},
+  data.menu.saldodetalhado in 'menu.principal\dataModel\data.menu.saldodetalhado.pas' {dataMenuSaldoDetalhe: TDataModule},
+  frame.menu.saldodetalhado in 'menu.principal\frame\frame.menu.saldodetalhado.pas' {frameMenuSaldoDetalhado: TFrame};
 
 {$R *.res}
 

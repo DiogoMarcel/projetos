@@ -10,6 +10,7 @@ type
     ,sqlMenuResumo
     ,sqlMenuSaldoFolha
     ,sqlMenuContaPagamentos
+    ,sqlMenuProjecao
 
     {Splash - Início Sistema}
     ,sqlSplashContaPagamentosPendentes

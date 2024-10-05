@@ -1,17 +1,15 @@
-unit frame.menu;
+unit frame.menu.saldodetalhado;
 
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, lib.observer,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.DBCGrids, data.menu, FireDAC.Comp.Client,
-  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.CategoryButtons, Vcl.ControlList,
-  System.Actions, Vcl.ActnList, data.images;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, lib.observer,
+  Vcl.DBCtrls, Vcl.ControlList, Vcl.ExtCtrls, data.menu.saldodetalhado,
+  System.Actions, Vcl.ActnList;
 
 type
-  TframeMenu = class(TFrame, iMenuObserver)
-    ActionList: TActionList;
-    aCalcularProjecao: TAction;
+  TframeMenuSaldoDetalhado = class(TFrame)
     sbFrame: TScrollBox;
     pResumo: TPanel;
     sResumo: TShape;
@@ -47,18 +45,20 @@ type
     clProjecao: TControlList;
     dbtValorProjecao: TDBText;
     dbtTituloProjecao: TDBText;
+    ActionList: TActionList;
+    aCalcularProjecao: TAction;
+    procedure aCalcularProjecaoExecute(Sender: TObject);
     procedure clResumoBeforeDrawItem(AIndex: Integer; ACanvas: TCanvas;
+      ARect: TRect; AState: TOwnerDrawState);
+    procedure clProjecaoBeforeDrawItem(AIndex: Integer; ACanvas: TCanvas;
       ARect: TRect; AState: TOwnerDrawState);
     procedure clSaldoFolhaBeforeDrawItem(AIndex: Integer; ACanvas: TCanvas;
       ARect: TRect; AState: TOwnerDrawState);
     procedure clContaPagamentosBeforeDrawItem(AIndex: Integer;
       ACanvas: TCanvas; ARect: TRect; AState: TOwnerDrawState);
     procedure clContaPagamentosDblClick(Sender: TObject);
-    procedure clProjecaoBeforeDrawItem(AIndex: Integer; ACanvas: TCanvas;
-      ARect: TRect; AState: TOwnerDrawState);
-    procedure aCalcularProjecaoExecute(Sender: TObject);
   private
-    FdmMenuModulo: TdataMenu;
+    FdmMenuModulo: TdataMenuSaldoDetalhe;
     FValorSaldoGeral: currency;
     procedure ConfigurarControlsList;
     procedure AdicionarTotalSaldoFolha;
@@ -86,8 +86,8 @@ uses
 
 {$R *.dfm}
 
-{ TframeMenu }
-procedure TframeMenu.AtualizarObserver(_ANotificacao: TNotificacao);
+{ TframeMenuSaldoDetalhado }
+procedure TframeMenuSaldoDetalhado.AtualizarObserver(_ANotificacao: TNotificacao);
 begin
   case _ANotificacao.TypeCadastros of
     cadConta,
@@ -104,7 +104,7 @@ begin
   end;
 end;
 
-procedure TframeMenu.VisualizarPaineis;
+procedure TframeMenuSaldoDetalhado.VisualizarPaineis;
 begin
   pResumo.Visible := (clResumo.ItemCount > 0);
   pAdicionais.Visible := (clSaldoFolha.ItemCount > 0);
@@ -117,7 +117,7 @@ begin
                   pProjecao.Visible;
 end;
 
-procedure TframeMenu.ConfigurarControlsList;
+procedure TframeMenuSaldoDetalhado.ConfigurarControlsList;
 const
   IHEIGHT_RESUMO = 30;
 begin
@@ -138,7 +138,7 @@ begin
   clProjecao.Height := clProjecao.ItemCount * IHEIGHT_RESUMO;
 end;
 
-procedure TframeMenu.aCalcularProjecaoExecute(Sender: TObject);
+procedure TframeMenuSaldoDetalhado.aCalcularProjecaoExecute(Sender: TObject);
 begin
   FdmMenuModulo.CalcularProjecao;
 
@@ -148,7 +148,7 @@ begin
   VisualizarPaineis;
 end;
 
-procedure TframeMenu.AdicionarTotalSaldoFolha;
+procedure TframeMenuSaldoDetalhado.AdicionarTotalSaldoFolha;
 begin
   FdmMenuModulo.qSaldoFolha.First;
   while (not FdmMenuModulo.qSaldoFolha.Eof) do
@@ -161,7 +161,7 @@ begin
   lValorSaldoGeral.Caption := FormatFloat('R$ ,0.00', FValorSaldoGeral);
 end;
 
-procedure TframeMenu.clContaPagamentosBeforeDrawItem(AIndex: Integer;
+procedure TframeMenuSaldoDetalhado.clContaPagamentosBeforeDrawItem(AIndex: Integer;
                                                      ACanvas: TCanvas;
                                                      ARect: TRect;
                                                      AState: TOwnerDrawState);
@@ -169,7 +169,7 @@ begin
   FdmMenuModulo.qContaPagamentos.RecNo := AIndex +1;
 end;
 
-procedure TframeMenu.clResumoBeforeDrawItem(AIndex: Integer;
+procedure TframeMenuSaldoDetalhado.clResumoBeforeDrawItem(AIndex: Integer;
                                             ACanvas: TCanvas;
                                             ARect: TRect;
                                             AState: TOwnerDrawState);
@@ -177,13 +177,13 @@ begin
   FdmMenuModulo.qMenu.RecNo := AIndex +1;
 end;
 
-procedure TframeMenu.clProjecaoBeforeDrawItem(AIndex: Integer;
+procedure TframeMenuSaldoDetalhado.clProjecaoBeforeDrawItem(AIndex: Integer;
   ACanvas: TCanvas; ARect: TRect; AState: TOwnerDrawState);
 begin
   FdmMenuModulo.qProjecao.RecNo := AIndex +1;
 end;
 
-procedure TframeMenu.clSaldoFolhaBeforeDrawItem(AIndex: Integer;
+procedure TframeMenuSaldoDetalhado.clSaldoFolhaBeforeDrawItem(AIndex: Integer;
                                                 ACanvas: TCanvas;
                                                 ARect: TRect;
                                                 AState: TOwnerDrawState);
@@ -191,11 +191,11 @@ begin
   FdmMenuModulo.qSaldoFolha.RecNo := AIndex +1;
 end;
 
-procedure TframeMenu.onCreateMenu;
+procedure TframeMenuSaldoDetalhado.onCreateMenu;
 begin
   FValorSaldoGeral := 0;
 
-  FdmMenuModulo := TdataMenu.Create(Self, PegarValorEditorFrameMenu);
+  FdmMenuModulo := TdataMenuSaldoDetalhe.Create(Self, PegarValorEditorFrameMenu);
 
   FdmMenuModulo.qMenu.AtivarQuery;
   FdmMenuModulo.qSaldoFolha.AtivarQuery;
@@ -209,12 +209,12 @@ begin
   clResumo.Repaint;
 end;
 
-function TframeMenu.PegarValorEditorFrameMenu: integer;
+function TframeMenuSaldoDetalhado.PegarValorEditorFrameMenu: integer;
 begin
   Result := StrToIntDef(eQtdMeses.Text, 0);
 end;
 
-procedure TframeMenu.clContaPagamentosDblClick(Sender: TObject);
+procedure TframeMenuSaldoDetalhado.clContaPagamentosDblClick(Sender: TObject);
 var
   AIdContaPagamentos: Integer;
 //  AIdConta: integer;
@@ -251,4 +251,3 @@ begin
 end;
 
 end.
-

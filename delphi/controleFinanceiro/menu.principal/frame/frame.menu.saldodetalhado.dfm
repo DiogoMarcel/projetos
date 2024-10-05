@@ -1,8 +1,8 @@
-object frameMenu: TframeMenu
+object frameMenuSaldoDetalhado: TframeMenuSaldoDetalhado
   Left = 0
   Top = 0
-  Width = 397
-  Height = 491
+  Width = 418
+  Height = 480
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clFuchsia
   Font.Height = -11
@@ -13,8 +13,8 @@ object frameMenu: TframeMenu
   object sbFrame: TScrollBox
     Left = 0
     Top = 0
-    Width = 397
-    Height = 491
+    Width = 418
+    Height = 480
     Align = alClient
     BevelInner = bvNone
     BevelOuter = bvNone
@@ -24,7 +24,7 @@ object frameMenu: TframeMenu
       AlignWithMargins = True
       Left = 0
       Top = 5
-      Width = 397
+      Width = 418
       Height = 30
       Margins.Left = 0
       Margins.Top = 5
@@ -44,30 +44,37 @@ object frameMenu: TframeMenu
       object sResumo: TShape
         Left = 0
         Top = 29
-        Width = 397
+        Width = 418
         Height = 1
         Align = alBottom
         Brush.Color = clGray
         Pen.Color = clGray
         ExplicitTop = 0
+        ExplicitWidth = 397
       end
       object lResumo: TLabel
         Left = 0
         Top = 0
-        Width = 397
+        Width = 418
         Height = 29
         Align = alClient
         Alignment = taCenter
         Caption = 'Resumo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         Layout = tlCenter
-        ExplicitWidth = 60
-        ExplicitHeight = 21
+        ExplicitWidth = 46
+        ExplicitHeight = 16
       end
     end
     object clResumo: TControlList
       Left = 0
       Top = 35
-      Width = 397
+      Width = 418
       Height = 38
       Align = alTop
       BorderStyle = bsNone
@@ -83,7 +90,7 @@ object frameMenu: TframeMenu
       OnBeforeDrawItem = clResumoBeforeDrawItem
       object dbtValor: TDBText
         AlignWithMargins = True
-        Left = 235
+        Left = 256
         Top = 5
         Width = 157
         Height = 21
@@ -94,10 +101,10 @@ object frameMenu: TframeMenu
         Align = alRight
         Alignment = taRightJustify
         DataField = 'valor'
-        DataSource = dataMenu.dsMenu
+        DataSource = dataMenuSaldoDetalhe.dsMenu
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -109,7 +116,7 @@ object frameMenu: TframeMenu
         AlignWithMargins = True
         Left = 5
         Top = 5
-        Width = 230
+        Width = 251
         Height = 21
         Margins.Left = 5
         Margins.Top = 5
@@ -118,10 +125,10 @@ object frameMenu: TframeMenu
         Align = alClient
         Alignment = taRightJustify
         DataField = 'titulo'
-        DataSource = dataMenu.dsMenu
+        DataSource = dataMenuSaldoDetalhe.dsMenu
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -135,7 +142,7 @@ object frameMenu: TframeMenu
       AlignWithMargins = True
       Left = 0
       Top = 151
-      Width = 397
+      Width = 418
       Height = 62
       Margins.Left = 0
       Margins.Top = 5
@@ -155,37 +162,45 @@ object frameMenu: TframeMenu
       object sAdicionais: TShape
         Left = 0
         Top = 61
-        Width = 397
+        Width = 418
         Height = 1
         Align = alBottom
         Brush.Color = clGray
         Pen.Color = clGray
         ExplicitTop = 22
+        ExplicitWidth = 397
       end
       object lAdicionais: TLabel
         Left = 0
         Top = 1
-        Width = 397
-        Height = 21
+        Width = 418
+        Height = 16
         Align = alTop
         Alignment = taCenter
         Caption = 'Adicionais'
-        ExplicitWidth = 75
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ExplicitWidth = 57
       end
       object sDivAdicionais: TShape
         Left = 0
         Top = 0
-        Width = 397
+        Width = 418
         Height = 1
         Align = alTop
         Brush.Color = clGray
         Pen.Color = clGray
         ExplicitTop = 1
+        ExplicitWidth = 397
       end
       object pSaldoGeralMembros: TPanel
         Left = 0
         Top = 31
-        Width = 397
+        Width = 418
         Height = 30
         Align = alBottom
         BevelOuter = bvNone
@@ -201,6 +216,12 @@ object frameMenu: TframeMenu
           Align = alLeft
           AutoSize = False
           Caption = 'Saldo em Folha por membro'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           ExplicitLeft = 91
           ExplicitTop = 0
           ExplicitHeight = 28
@@ -209,22 +230,28 @@ object frameMenu: TframeMenu
           AlignWithMargins = True
           Left = 239
           Top = 3
-          Width = 155
+          Width = 176
           Height = 24
           Align = alClient
           Alignment = taRightJustify
           Caption = 'lValorSaldoGeral'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           Layout = tlCenter
-          ExplicitLeft = 269
-          ExplicitWidth = 121
-          ExplicitHeight = 21
+          ExplicitLeft = 316
+          ExplicitWidth = 95
+          ExplicitHeight = 16
         end
       end
     end
     object clSaldoFolha: TControlList
       Left = 0
       Top = 213
-      Width = 397
+      Width = 418
       Height = 38
       Align = alTop
       BorderStyle = bsNone
@@ -242,7 +269,7 @@ object frameMenu: TframeMenu
         AlignWithMargins = True
         Left = 5
         Top = 5
-        Width = 230
+        Width = 251
         Height = 21
         Margins.Left = 5
         Margins.Top = 5
@@ -251,10 +278,10 @@ object frameMenu: TframeMenu
         Align = alClient
         Alignment = taRightJustify
         DataField = 'NOME'
-        DataSource = dataMenu.dsSaldoFolha
+        DataSource = dataMenuSaldoDetalhe.dsSaldoFolha
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -263,7 +290,7 @@ object frameMenu: TframeMenu
       end
       object dbtSaldoFolhaVALOR: TDBText
         AlignWithMargins = True
-        Left = 235
+        Left = 256
         Top = 5
         Width = 157
         Height = 21
@@ -274,10 +301,10 @@ object frameMenu: TframeMenu
         Align = alRight
         Alignment = taRightJustify
         DataField = 'VALORFOLHAMEMBRO'
-        DataSource = dataMenu.dsSaldoFolha
+        DataSource = dataMenuSaldoDetalhe.dsSaldoFolha
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -288,7 +315,7 @@ object frameMenu: TframeMenu
     object clContaPagamentos: TControlList
       Left = 0
       Top = 286
-      Width = 397
+      Width = 418
       Height = 38
       Align = alTop
       BorderStyle = bsNone
@@ -305,9 +332,9 @@ object frameMenu: TframeMenu
       OnDblClick = clContaPagamentosDblClick
       object dbtDESCRICAO: TDBText
         AlignWithMargins = True
-        Left = 90
+        Left = 74
         Top = 5
-        Width = 145
+        Width = 182
         Height = 21
         Margins.Left = 5
         Margins.Top = 5
@@ -316,10 +343,10 @@ object frameMenu: TframeMenu
         Align = alClient
         Alignment = taRightJustify
         DataField = 'DESCRICAO'
-        DataSource = dataMenu.dsContaPagamentos
+        DataSource = dataMenuSaldoDetalhe.dsContaPagamentos
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -329,7 +356,7 @@ object frameMenu: TframeMenu
       end
       object dbtVALORcp: TDBText
         AlignWithMargins = True
-        Left = 235
+        Left = 256
         Top = 5
         Width = 157
         Height = 21
@@ -340,10 +367,10 @@ object frameMenu: TframeMenu
         Align = alRight
         Alignment = taRightJustify
         DataField = 'VALOR'
-        DataSource = dataMenu.dsContaPagamentos
+        DataSource = dataMenuSaldoDetalhe.dsContaPagamentos
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -354,7 +381,7 @@ object frameMenu: TframeMenu
         AlignWithMargins = True
         Left = 5
         Top = 5
-        Width = 80
+        Width = 64
         Height = 21
         Margins.Left = 5
         Margins.Top = 5
@@ -364,21 +391,21 @@ object frameMenu: TframeMenu
         Alignment = taRightJustify
         AutoSize = True
         DataField = 'sinal'
-        DataSource = dataMenu.dsContaPagamentos
+        DataSource = dataMenuSaldoDetalhe.dsContaPagamentos
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Courier New'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitHeight = 18
+        ExplicitHeight = 16
       end
     end
     object pContaPagamentos: TPanel
       AlignWithMargins = True
       Left = 0
       Top = 256
-      Width = 397
+      Width = 418
       Height = 30
       Margins.Left = 0
       Margins.Top = 5
@@ -398,41 +425,49 @@ object frameMenu: TframeMenu
       object sContaPagamentos: TShape
         Left = 0
         Top = 29
-        Width = 397
+        Width = 418
         Height = 1
         Align = alBottom
         Brush.Color = clGray
         Pen.Color = clGray
         ExplicitTop = 0
+        ExplicitWidth = 397
       end
       object lContaPagamentos: TLabel
         Left = 0
         Top = 1
-        Width = 397
+        Width = 418
         Height = 28
         Align = alClient
         Alignment = taCenter
         Caption = 'Contas Pendentes no M'#234's'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         Layout = tlCenter
-        ExplicitWidth = 191
-        ExplicitHeight = 21
+        ExplicitWidth = 147
+        ExplicitHeight = 16
       end
       object sDivContaPagamentos: TShape
         Left = 0
         Top = 0
-        Width = 397
+        Width = 418
         Height = 1
         Align = alTop
         Brush.Color = clGray
         Pen.Color = clGray
         ExplicitTop = 8
+        ExplicitWidth = 397
       end
     end
     object pProjecao: TPanel
       AlignWithMargins = True
       Left = 0
       Top = 78
-      Width = 397
+      Width = 418
       Height = 30
       Margins.Left = 0
       Margins.Top = 5
@@ -452,27 +487,34 @@ object frameMenu: TframeMenu
       object sProjecao: TShape
         Left = 0
         Top = 29
-        Width = 397
+        Width = 418
         Height = 1
         Align = alBottom
         Brush.Color = clGray
         Pen.Color = clGray
         ExplicitTop = 0
+        ExplicitWidth = 397
       end
       object lProjecao: TLabel
         Left = 0
         Top = 0
-        Width = 128
+        Width = 149
         Height = 29
         Align = alClient
         Alignment = taCenter
         Caption = 'Proje'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         Layout = tlCenter
-        ExplicitWidth = 64
-        ExplicitHeight = 21
+        ExplicitWidth = 50
+        ExplicitHeight = 16
       end
       object pQtdMeses: TPanel
-        Left = 128
+        Left = 149
         Top = 0
         Width = 269
         Height = 29
@@ -489,9 +531,15 @@ object frameMenu: TframeMenu
           Height = 23
           Align = alClient
           Caption = 'Meses'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           Layout = tlCenter
-          ExplicitWidth = 47
-          ExplicitHeight = 21
+          ExplicitWidth = 36
+          ExplicitHeight = 16
         end
         object eQtdMeses: TEdit
           Left = 0
@@ -521,7 +569,7 @@ object frameMenu: TframeMenu
     object clProjecao: TControlList
       Left = 0
       Top = 108
-      Width = 397
+      Width = 418
       Height = 38
       Align = alTop
       BorderStyle = bsNone
@@ -537,7 +585,7 @@ object frameMenu: TframeMenu
       OnBeforeDrawItem = clProjecaoBeforeDrawItem
       object dbtValorProjecao: TDBText
         AlignWithMargins = True
-        Left = 235
+        Left = 256
         Top = 5
         Width = 157
         Height = 21
@@ -548,10 +596,10 @@ object frameMenu: TframeMenu
         Align = alRight
         Alignment = taRightJustify
         DataField = 'valor'
-        DataSource = dataMenu.dsProjecao
+        DataSource = dataMenuSaldoDetalhe.dsProjecao
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -563,7 +611,7 @@ object frameMenu: TframeMenu
         AlignWithMargins = True
         Left = 5
         Top = 5
-        Width = 230
+        Width = 251
         Height = 21
         Margins.Left = 5
         Margins.Top = 5
@@ -572,10 +620,10 @@ object frameMenu: TframeMenu
         Align = alClient
         Alignment = taRightJustify
         DataField = 'titulo'
-        DataSource = dataMenu.dsProjecao
+        DataSource = dataMenuSaldoDetalhe.dsProjecao
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
