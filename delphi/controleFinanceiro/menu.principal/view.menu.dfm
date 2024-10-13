@@ -74,6 +74,9 @@ object formMenu: TformMenu
             end
             item
               Action = cadTags
+            end
+            item
+              Action = cadAbastecimentos
             end>
         end
         item
@@ -116,6 +119,51 @@ object formMenu: TformMenu
     TabOrder = 1
     ExplicitLeft = 150
     ExplicitHeight = 601
+    inherited sbFrame: TScrollBox
+      Height = 601
+      ExplicitHeight = 597
+      inherited pResumo: TPanel
+        inherited lResumo: TLabel
+          Width = 397
+          Height = 29
+        end
+      end
+      inherited pAdicionais: TPanel
+        inherited lAdicionais: TLabel
+          Width = 397
+        end
+        inherited pSaldoGeralMembros: TPanel
+          inherited lValorSaldoGeral: TLabel
+            Left = 239
+            Width = 155
+            Height = 24
+          end
+        end
+      end
+      inherited clContaPagamentos: TControlList
+        inherited dbtSINAL: TDBText
+          Height = 21
+        end
+      end
+      inherited pContaPagamentos: TPanel
+        inherited lContaPagamentos: TLabel
+          Width = 397
+          Height = 28
+        end
+      end
+      inherited pProjecao: TPanel
+        inherited lProjecao: TLabel
+          Width = 128
+          Height = 29
+        end
+        inherited pQtdMeses: TPanel
+          inherited lMeses: TLabel
+            Width = 70
+            Height = 23
+          end
+        end
+      end
+    end
   end
   object aListaAcoes: TActionList
     Left = 656
@@ -220,6 +268,11 @@ object formMenu: TformMenu
       Category = 'Relat'#243'rios'
       Caption = 'Saldo Detalhado'
       OnExecute = aAbrirRelatoriosExecute
+    end
+    object cadAbastecimentos: TAction
+      Category = 'Cadastros'
+      Caption = 'Abastecimentos'
+      OnExecute = aAbrirCadastrosExecute
     end
   end
 end

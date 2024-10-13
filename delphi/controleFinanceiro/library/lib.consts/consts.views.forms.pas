@@ -16,6 +16,7 @@ const
   NOME_CADASTRO_CARTAO          = 'TformCadCartao';
   NOME_CADASTRO_DESPESACARTAO   = 'TformCadDespesaCartao';
   NOME_CADASTRO_SALDOPORTADOR   = 'TformCadSaldoPortador';
+  NOME_CADASTRO_ABASTECIMENTOS  = 'TformCadAbastecimentos';
 
 implementation
 

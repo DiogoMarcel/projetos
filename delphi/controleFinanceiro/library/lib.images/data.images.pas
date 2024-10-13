@@ -51,6 +51,7 @@ interface
   <a target="_blank" href="https://icons8.com/icon/qo7esl2zl10N/calculadora">Calculadora</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/GyuoaT16DkxZ/m">M</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/11849/selecionado">Selecionado</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+  <a target="_blank" href="https://icons8.com/icon/53084/gas-station">Posto de gasolina</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
 
 }
 

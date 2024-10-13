@@ -6,7 +6,6 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
   Visible = False
   WindowState = wsMaximized
   OnDestroy = FormDestroy
-  ExplicitLeft = -66
   ExplicitWidth = 1153
   ExplicitHeight = 690
   TextHeight = 21
@@ -55,134 +54,122 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
           ExplicitWidth = 349
           ExplicitHeight = 641
           inherited pResumo: TPanel
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited sResumo: TShape
-              Width = 345
+              Width = 349
               ExplicitWidth = 345
             end
             inherited lResumo: TLabel
-              Width = 345
-              Height = 29
+              Width = 349
               Font.Style = [fsBold]
               ExplicitWidth = 51
             end
           end
           inherited clResumo: TControlList
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited dbtValor: TDBText
-              Left = 183
+              Left = 187
               ExplicitLeft = 183
             end
             inherited dbtTitulo: TDBText
-              Width = 178
+              Width = 182
               ExplicitWidth = 178
             end
           end
           inherited pAdicionais: TPanel
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited sAdicionais: TShape
-              Width = 345
+              Width = 349
               ExplicitWidth = 345
             end
             inherited lAdicionais: TLabel
-              Width = 345
+              Width = 349
               Font.Style = [fsBold]
               ExplicitWidth = 65
             end
             inherited sDivAdicionais: TShape
-              Width = 345
+              Width = 349
               ExplicitWidth = 345
             end
             inherited pSaldoGeralMembros: TPanel
-              Width = 345
-              ExplicitWidth = 345
+              Width = 349
+              ExplicitWidth = 349
               inherited lValorSaldoGeral: TLabel
-                Left = 239
-                Width = 103
-                Height = 24
-                ExplicitLeft = 324
+                Width = 107
+                ExplicitLeft = 247
               end
             end
           end
           inherited clSaldoFolha: TControlList
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited dbtSaldoFolhaNOME: TDBText
-              Width = 178
+              Width = 182
               ExplicitWidth = 178
             end
             inherited dbtSaldoFolhaVALOR: TDBText
-              Left = 183
+              Left = 187
               ExplicitLeft = 183
             end
           end
           inherited clContaPagamentos: TControlList
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited dbtDESCRICAO: TDBText
-              Width = 109
+              Width = 113
               ExplicitWidth = 93
             end
             inherited dbtVALORcp: TDBText
-              Left = 183
+              Left = 187
               ExplicitLeft = 183
-            end
-            inherited dbtSINAL: TDBText
-              Height = 21
             end
           end
           inherited pContaPagamentos: TPanel
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited sContaPagamentos: TShape
-              Width = 345
+              Width = 349
               ExplicitWidth = 345
             end
             inherited lContaPagamentos: TLabel
-              Width = 345
-              Height = 28
+              Width = 349
               Font.Style = [fsBold]
               ExplicitWidth = 168
             end
             inherited sDivContaPagamentos: TShape
-              Width = 345
+              Width = 349
               ExplicitWidth = 345
             end
           end
           inherited pProjecao: TPanel
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited sProjecao: TShape
-              Width = 345
+              Width = 349
               ExplicitWidth = 345
             end
             inherited lProjecao: TLabel
-              Width = 76
-              Height = 29
+              Width = 80
               Font.Style = [fsBold]
               ExplicitWidth = 57
             end
             inherited pQtdMeses: TPanel
-              Left = 76
-              ExplicitLeft = 76
-              inherited lMeses: TLabel
-                Width = 70
-                Height = 23
-              end
+              Left = 80
+              ExplicitLeft = 80
             end
           end
           inherited clProjecao: TControlList
-            Width = 345
-            ExplicitWidth = 345
+            Width = 349
+            ExplicitWidth = 349
             inherited dbtValorProjecao: TDBText
-              Left = 183
+              Left = 187
               ExplicitLeft = 183
             end
             inherited dbtTituloProjecao: TDBText
-              Width = 178
+              Width = 182
               ExplicitWidth = 178
             end
           end
@@ -207,7 +194,7 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
         Left = 0
         Top = 0
         Width = 770
-        Height = 253
+        Height = 245
         Align = alTop
         BevelOuter = bvNone
         ParentColor = True
@@ -216,7 +203,7 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
           Left = 0
           Top = 0
           Width = 770
-          Height = 253
+          Height = 245
           Margins.Left = 10
           Margins.Top = 10
           Margins.Right = 10
@@ -232,12 +219,12 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
           ParentFont = False
           TabOrder = 0
           ExplicitWidth = 768
-          ExplicitHeight = 192
+          ExplicitHeight = 253
           object clSaldos: TControlList
             Left = 0
             Top = 60
             Width = 770
-            Height = 193
+            Height = 185
             Align = alClient
             BorderStyle = bsNone
             Color = clBtnFace
@@ -250,7 +237,7 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
             TabOrder = 0
             OnBeforeDrawItem = clSaldosBeforeDrawItem
             ExplicitWidth = 768
-            ExplicitHeight = 132
+            ExplicitHeight = 193
             object dbtData: TDBText
               AlignWithMargins = True
               Left = 5
@@ -514,35 +501,37 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
               ExplicitWidth = 768
               object lblSaldoFinal: TLabel
                 AlignWithMargins = True
-                Left = 683
+                Left = 99
                 Top = 3
-                Width = 72
+                Width = 93
                 Height = 24
                 Margins.Right = 15
-                Align = alRight
+                Align = alLeft
                 Alignment = taRightJustify
                 Caption = 'Saldo Final:'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
-                Font.Height = -13
+                Font.Height = -17
                 Font.Name = 'Segoe UI'
                 Font.Style = [fsBold]
                 ParentFont = False
                 Layout = tlCenter
-                ExplicitHeight = 17
+                ExplicitLeft = 108
+                ExplicitHeight = 23
               end
               object lblSaldoFinalTitulo: TLabel
                 AlignWithMargins = True
-                Left = 599
+                Left = 15
                 Top = 3
                 Width = 66
                 Height = 24
+                Margins.Left = 15
                 Margins.Right = 15
-                Align = alRight
+                Align = alLeft
                 Alignment = taRightJustify
                 Caption = 'Saldo Final:'
                 Layout = tlCenter
-                ExplicitLeft = 605
+                ExplicitLeft = 599
                 ExplicitHeight = 17
               end
             end
@@ -552,9 +541,9 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
       object DBChart2: TDBChart
         AlignWithMargins = True
         Left = 3
-        Top = 256
+        Top = 248
         Width = 764
-        Height = 386
+        Height = 394
         BackWall.Transparent = False
         BackWall.Visible = False
         BackWall.Emboss.Smooth = False
@@ -636,10 +625,9 @@ inherited formSaldoDetalhes: TformSaldoDetalhes
         BevelOuter = bvNone
         ParentColor = True
         TabOrder = 1
-        ExplicitLeft = 0
-        ExplicitTop = 232
-        ExplicitWidth = 770
-        ExplicitHeight = 413
+        ExplicitTop = 256
+        ExplicitWidth = 762
+        ExplicitHeight = 382
         DefaultCanvas = 'TTeeCanvas3D'
         ColorPaletteIndex = 3
         object Series2: TBarSeries

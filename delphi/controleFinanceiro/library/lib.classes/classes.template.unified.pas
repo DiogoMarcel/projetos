@@ -17,7 +17,8 @@ uses
   classes.template.saldofgts,
   classes.template.cartao,
   classes.template.despesacartao,
-  classes.template.saldoportador;
+  classes.template.saldoportador,
+  classes.template.abastecimentos;
 
 type
   TUnifiedClasses = class(TJsonPkgTemplate, IUnifiedClass)
@@ -69,6 +70,11 @@ type
     [TGenericListReflect]
     FSaldoPortador: TObjectList<TSaldoPortador>;
 
+    [JSONName('abastecimentos')]
+    FAbastecimentosArray: TArray<TAbastecimentos>;
+    [TGenericListReflect]
+    FAbastecimentos: TObjectList<TAbastecimentos>;
+
     function GetPortadores: TObjectList<TPortador>;
     function GetMembroFamilia: TObjectList<TMembroFamilia>;
     function GetConta: TObjectList<TConta>;
@@ -78,6 +84,7 @@ type
     function GetCartao: TObjectList<TCartao>;
     function GetDespesaCartao: TObjectList<TDespesaCartao>;
     function GetSaldoPortador: TObjectList<TSaldoPortador>;
+    function GetAbastecimentos: TObjectList<TAbastecimentos>;
 
   public
     destructor Destroy; override;
@@ -97,6 +104,7 @@ type
     property Cartao: TObjectList<TCartao> read GetCartao;
     property DespesaCartao: TObjectList<TDespesaCartao> read GetDespesaCartao;
     property SaldoPortador: TObjectList<TSaldoPortador> read GetSaldoPortador;
+    property Abastecimentos: TObjectList<TAbastecimentos> read GetAbastecimentos;
 
   end;
 
@@ -281,6 +289,18 @@ begin
   end;
 
   Result := FSaldoPortador;
+end;
+
+function TUnifiedClasses.GetAbastecimentos: TObjectList<TAbastecimentos>;
+begin
+  if not Assigned(FAbastecimentos) then
+  begin
+    FAbastecimentos := TObjectList<TAbastecimentos>.Create;
+    FAbastecimentos.AddRange(FAbastecimentosArray);
+    SetLength(FAbastecimentosArray, 0);
+  end;
+
+  Result := FAbastecimentos;
 end;
 
 initialization

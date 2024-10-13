@@ -19,6 +19,7 @@ type
 implementation
 
 uses
+  System.SysUtils,
   model.cadastro.portador,
   model.cadastro.membrofamilia,
   model.cadastro.conta,
@@ -30,7 +31,7 @@ uses
   model.cadastro.cartao,
   model.cadastro.despesacartao,
   model.cadastro.saldoportador,
-  System.SysUtils;
+  model.cadastro.abastecimentos;
 
 { TModelCadastroFactory }
 
@@ -55,6 +56,7 @@ begin
     cadCartao         : Result := TCadastroCartao.ObterInstancia;
     cadDespesaCartao  : Result := TCadastroDespesaCartao.ObterInstancia;
     cadSaldoPortador  : Result := TCadastroSaldoPortador.ObterInstancia;
+    cadAbastecimentos : Result := TCadastroAbastecimentos.ObterInstancia;
     else
       raise Exception.Create('Gerar cadastro factory: TypeCadastro não informado corretamente!');
   end;

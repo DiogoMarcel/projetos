@@ -27,6 +27,14 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
             Height = 425
             ExplicitWidth = 826
             ExplicitHeight = 425
+            inherited dbgConsulta: TDBGrid
+              Width = 826
+              Height = 392
+            end
+            inherited sbPesquisaConsulta: TSearchBox
+              Width = 786
+              ExplicitWidth = 786
+            end
           end
           inherited cConsultaGrade: TCard
             Width = 826
@@ -106,6 +114,12 @@ inherited formCadSaldoPortador: TformCadSaldoPortador
           Width = 820
           ExplicitTop = 447
           ExplicitWidth = 820
+          inherited sbCancelarCadastro: TSpeedButton
+            Left = 655
+          end
+          inherited sbSalvarCadastro: TSpeedButton
+            Left = 475
+          end
         end
         inherited pCadastro: TPanel
           Width = 820

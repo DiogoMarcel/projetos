@@ -1,19 +1,68 @@
 inherited formCadTags: TformCadTags
-  ExplicitWidth = 840
-  ExplicitHeight = 608
+  ClientHeight = 573
+  ClientWidth = 826
   TextHeight = 13
   inherited pGeral: TPanel
+    Width = 826
+    Height = 573
     ExplicitWidth = 824
     ExplicitHeight = 569
     inherited cpCadastros: TCardPanel
       Width = 826
       Height = 528
-      ActiveCard = cCadastro
       ExplicitWidth = 824
       ExplicitHeight = 524
       inherited cConsulta: TCard
         Width = 826
         Height = 528
+        ExplicitWidth = 824
+        ExplicitHeight = 524
+        inherited cpConsultas: TCardPanel
+          Width = 826
+          Height = 425
+          ExplicitWidth = 824
+          ExplicitHeight = 421
+          inherited cConsultaLista: TCard
+            Width = 826
+            Height = 425
+            inherited dbgConsulta: TDBGrid
+              Width = 828
+              Height = 396
+            end
+            inherited sbPesquisaConsulta: TSearchBox
+              Width = 788
+              ExplicitWidth = 788
+            end
+          end
+          inherited cConsultaGrade: TCard
+            Width = 826
+            Height = 425
+            ExplicitWidth = 824
+            ExplicitHeight = 421
+          end
+        end
+        inherited pCabecalhoConsulta: TPanel
+          Width = 826
+          ExplicitWidth = 824
+        end
+        inherited pConsulta: TPanel
+          Top = 460
+          Width = 826
+          ExplicitTop = 456
+          ExplicitWidth = 824
+          inherited sbExcluirCadastro: TSpeedButton
+            Left = 673
+            ExplicitLeft = 673
+          end
+          inherited sbIncluirCadastro: TSpeedButton
+            Left = 361
+            ExplicitLeft = 361
+          end
+          inherited sbEditarCadastro: TSpeedButton
+            Left = 517
+            ExplicitLeft = 517
+          end
+        end
       end
       inherited cCadastro: TCard
         Width = 820
@@ -27,9 +76,11 @@ inherited formCadTags: TformCadTags
           ExplicitWidth = 818
           inherited sbCancelarCadastro: TSpeedButton
             Left = 655
+            ExplicitLeft = 655
           end
           inherited sbSalvarCadastro: TSpeedButton
             Left = 475
+            ExplicitLeft = 475
           end
         end
         inherited pCadastro: TPanel
@@ -83,6 +134,7 @@ inherited formCadTags: TformCadTags
       end
       inherited sbSair: TSpeedButton
         Left = 783
+        ExplicitLeft = 783
       end
     end
   end

@@ -1,0 +1,2 @@
+inherited dataCadastroAbastecimentos: TdataCadastroAbastecimentos
+end

@@ -139,6 +139,7 @@
         </DelphiCompile>
         <DCCReference Include="library\lib.attributes\attributes.custom.pas"/>
         <DCCReference Include="library\lib.attributes\attributes.custom.interfaces.pas"/>
+        <DCCReference Include="library\lib.classes\classes.template.abastecimentos.pas"/>
         <DCCReference Include="library\lib.classes\classes.template.cartao.pas"/>
         <DCCReference Include="library\lib.classes\classes.template.conta.pas"/>
         <DCCReference Include="library\lib.classes\classes.template.credor.pas"/>
@@ -150,6 +151,7 @@
         <DCCReference Include="library\lib.classes\classes.template.saldoportador.pas"/>
         <DCCReference Include="library\lib.classes\classes.template.tags.pas"/>
         <DCCReference Include="library\lib.classes\classes.template.unified.pas"/>
+        <DCCReference Include="library\lib.consts\consts.imagens.pas"/>
         <DCCReference Include="library\lib.consts\consts.nomeCadastros.pas"/>
         <DCCReference Include="library\lib.consts\consts.SQLs.pas"/>
         <DCCReference Include="library\lib.consts\consts.styles.pas"/>
@@ -158,12 +160,30 @@
         <DCCReference Include="cadastros\controllers\controller.cadastro.interfaces.pas"/>
         <DCCReference Include="library\lib.controllers\controller.lib.pas"/>
         <DCCReference Include="library\lib.controllers\controller.lib.interfaces.pas"/>
+        <DCCReference Include="alugueis\dataModel\data.aluguel.lancamento.pas">
+            <Form>dataAluguel</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\dataModels\data.cadastro.abastecimentos.pas">
+            <Form>dataCadastroAbastecimentos</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <DCCReference Include="cadastros\dataModels\data.cadastro.cartao.pas">
             <Form>dataCadastroCartao</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="cadastros\dataModels\data.cadastro.conta.pas">
             <Form>dataCadastroConta</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\dataModels\data.cadastro.conta.pagar.pas">
+            <Form>dataCadastroContaPagar</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\dataModels\data.cadastro.conta.receber.pas">
+            <Form>dataCadastroContaReceber</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="cadastros\dataModels\data.cadastro.credor.pas">
@@ -190,6 +210,10 @@
             <Form>dataCadastroSaldoPortador</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="cadastros\dataModels\data.cadastro.saldoportador.transferencia.pas">
+            <Form>dataCadastroSaldoPortadorTransferencia</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <DCCReference Include="cadastros\dataModels\data.cadastro.tags.pas">
             <Form>dataCadastroTags</Form>
             <DesignClass>TDataModule</DesignClass>
@@ -198,12 +222,31 @@
             <Form>dataCadastroTemplate</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="cadastros\dataModels\template\data.cadastro.template.factory.pas"/>
+        <DCCReference Include="cadastros\dataModels\template\data.cadastro.template.interfaces.pas"/>
+        <DCCReference Include="cadastros\dataModels\frames\data.frame.cadastro.conta.pas">
+            <Form>dmFrameConta</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\dataModels\frames\data.frame.cadastro.saldoportador.pas">
+            <Form>dmFrameSaldoPortador</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\dataModels\frames\data.frame.cadastro.template.pas">
+            <Form>dmFrameGrade</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <DCCReference Include="library\lib.images\data.images.pas">
             <Form>dataImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="library\lib.images\data.images.interfaces.pas"/>
         <DCCReference Include="menu.principal\dataModel\data.menu.pas">
             <Form>dataMenu</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="menu.principal\dataModel\data.menu.saldodetalhado.pas">
+            <Form>dataMenuSaldoDetalhe</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="cadastros\dataModels\template\data.realtime.template.pas">
@@ -215,30 +258,79 @@
         <DCCReference Include="library\lib.Firebase\Firebase.Interfaces.pas"/>
         <DCCReference Include="library\lib.Firebase\Firebase.Request.pas"/>
         <DCCReference Include="library\lib.Firebase\Firebase.Response.pas"/>
+        <DCCReference Include="alugueis\frame\frame.aluguel.lancamento.pas">
+            <Form>frameAluguelLancamento</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\views\frames\frame.cadastro.conta.pas">
+            <Form>frameCadConta</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\views\frames\frame.cadastro.conta.imgs.pas">
+            <Form>frameCadContaImagens</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="cadastros\views\frames\frame.cadastro.saldoportador.pas">
+            <Form>frameCadSaldoPortador</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="menu.principal\frame\frame.menu.pas">
+            <Form>frameMenu</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="menu.principal\frame\frame.menu.saldodetalhado.pas">
+            <Form>frameMenuSaldoDetalhado</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <DCCReference Include="library\lib.conexao.db\lib.conexao.db.interfaces.pas"/>
         <DCCReference Include="library\lib.conexao.db\lib.conexao.factory.pas"/>
+        <DCCReference Include="library\lib.DAO\lib.DAO.comandosTransacao.pas">
+            <Form>dmCmdTransacao</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <DCCReference Include="library\lib.conexao.db\lib.DAO.conexao.pas"/>
         <DCCReference Include="library\lib.conexao.db\lib.DAO.conexao.config.pas"/>
         <DCCReference Include="library\lib.DAO\lib.DAO.dataModel.pas">
             <Form>dmConexaoDB</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="library\lib.DAO\lib.DAO.interfaces.pas"/>
+        <DCCReference Include="library\lib.splash\lib.data.splash.pas">
+            <Form>dataSplash</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="library\lib.enums\lib.enum.tipoconta.pas"/>
+        <DCCReference Include="library\lib.helpers\lib.helper.dictionary.pas"/>
         <DCCReference Include="library\lib.helpers\lib.helper.querys.pas"/>
         <DCCReference Include="library\lib.conexao.db\lib.login.realtimedb.pas"/>
         <DCCReference Include="library\lib.conexao.db\lib.login.realtimedb.config.pas"/>
         <DCCReference Include="library\lib.login\lib.login.view.pas">
             <Form>fLoginView</Form>
         </DCCReference>
+        <DCCReference Include="library\lib.messages\lib.messages.pas"/>
+        <DCCReference Include="library\lib.messages\lib.messages.interfaces.pas"/>
         <DCCReference Include="library\lib.observer\lib.observer.pas"/>
         <DCCReference Include="library\lib.proc.objects\lib.proc.objects.pas"/>
+        <DCCReference Include="library\lib.records\lib.records.pas"/>
         <DCCReference Include="library\lib.conexao.db\lib.RT.conexao.pas"/>
+        <DCCReference Include="library\lib.SQL\lib.sql.alugueis.pas"/>
+        <DCCReference Include="library\lib.SQL\lib.sql.contapagamento.pas"/>
+        <DCCReference Include="library\lib.SQL\lib.sql.geral.pas"/>
         <DCCReference Include="library\lib.SQL\lib.sql.interfaces.pas"/>
+        <DCCReference Include="library\lib.SQL\lib.sql.lookup.pas"/>
         <DCCReference Include="library\lib.SQL\lib.sql.resumomenu.pas"/>
+        <DCCReference Include="library\lib.SQL\lib.sql.splash.pas"/>
         <DCCReference Include="library\lib.types\lib.types.enum.pas"/>
+        <DCCReference Include="library\lib.splash\lib.view.splash.pas">
+            <Form>formSplash</Form>
+        </DCCReference>
+        <DCCReference Include="cadastros\models\model.cadastro.abastecimentos.pas"/>
         <DCCReference Include="cadastros\models\template\model.cadastro.abstract.pas"/>
         <DCCReference Include="cadastros\models\template\model.cadastro.campos.pas"/>
         <DCCReference Include="cadastros\models\model.cadastro.cartao.pas"/>
         <DCCReference Include="cadastros\models\model.cadastro.conta.pas"/>
+        <DCCReference Include="cadastros\models\model.cadastro.conta.pagar.pas"/>
+        <DCCReference Include="cadastros\models\model.cadastro.conta.receber.pas"/>
         <DCCReference Include="cadastros\models\model.cadastro.credor.pas"/>
         <DCCReference Include="cadastros\models\model.cadastro.despesacartao.pas"/>
         <DCCReference Include="cadastros\models\template\model.cadastro.factory.pas"/>
@@ -252,16 +344,44 @@
         <DCCReference Include="library\lib.models\model.lib.pas"/>
         <DCCReference Include="library\lib.models\model.lib.aguarde.pas"/>
         <DCCReference Include="library\lib.models\model.lib.interfaces.pas"/>
+        <DCCReference Include="relatorios\models\model.relatorio.saldodetalhadoportador.pas">
+            <Form>dmSaldoDetalhadoPortador</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="relatorios\models\model.relatorio.saldodetalhadoportador.grafico.pas">
+            <Form>dmSaldoDetalhadoPortadorGrafico</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="relatorios\models\model.relatorio.saldoextrato.pas">
+            <Form>dmSaldoExtrato</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <DCCReference Include="library\lib.pkg.JSON\pkg.json.interfaces.pas"/>
         <DCCReference Include="library\lib.pkg.JSON\pkg.json.template.pas"/>
         <DCCReference Include="library\lib.view.geral\view.aguarde.pas">
             <Form>formLibAguarde</Form>
+        </DCCReference>
+        <DCCReference Include="alugueis\views\view.aluguel.editor.pas">
+            <Form>formAluguelEditor</Form>
+        </DCCReference>
+        <DCCReference Include="alugueis\views\view.aluguel.factory.pas"/>
+        <DCCReference Include="alugueis\views\view.aluguel.lancamento.pas">
+            <Form>formAluguelLancamento</Form>
+        </DCCReference>
+        <DCCReference Include="cadastros\views\view.cadastro.abastecimentos.pas">
+            <Form>formCadAbastecimentos</Form>
         </DCCReference>
         <DCCReference Include="cadastros\views\view.cadastro.cartao.pas">
             <Form>formCadCartao</Form>
         </DCCReference>
         <DCCReference Include="cadastros\views\view.cadastro.conta.pas">
             <Form>formCadConta</Form>
+        </DCCReference>
+        <DCCReference Include="cadastros\views\view.cadastro.conta.pagar.pas">
+            <Form>formCadContaPagar</Form>
+        </DCCReference>
+        <DCCReference Include="cadastros\views\view.cadastro.conta.receber.pas">
+            <Form>formCadContaReceber</Form>
         </DCCReference>
         <DCCReference Include="cadastros\views\view.cadastro.credor.pas">
             <Form>formCadCredor</Form>
@@ -272,11 +392,17 @@
         <DCCReference Include="cadastros\views\view.cadastro.membrofamilia.pas">
             <Form>formCadMembroFamilia</Form>
         </DCCReference>
+        <DCCReference Include="cadastros\views\view.cadastro.portador.pas">
+            <Form>formCadPortador</Form>
+        </DCCReference>
         <DCCReference Include="cadastros\views\view.cadastro.saldofgts.pas">
             <Form>formCadSaldoFGTS</Form>
         </DCCReference>
         <DCCReference Include="cadastros\views\view.cadastro.saldoportador.pas">
             <Form>formCadSaldoPortador</Form>
+        </DCCReference>
+        <DCCReference Include="cadastros\views\view.cadastro.saldoportador.transferencia.pas">
+            <Form>formSaldoPortadorTransferencia</Form>
         </DCCReference>
         <DCCReference Include="cadastros\views\view.cadastro.tags.pas">
             <Form>formCadTags</Form>
@@ -284,172 +410,27 @@
         <DCCReference Include="cadastros\views\template\view.cadastro.template.pas">
             <Form>formCadastroTemplate</Form>
         </DCCReference>
+        <DCCReference Include="cadastros\views\view.calcular\view.calcular.pas">
+            <Form>formCalcular</Form>
+        </DCCReference>
         <DCCReference Include="library\lib.view.geral\view.geral.pas">
             <Form>formTemplate</Form>
         </DCCReference>
         <DCCReference Include="menu.principal\view.menu.pas">
             <Form>formMenu</Form>
         </DCCReference>
-        <DCCReference Include="library\lib.records\lib.records.pas"/>
-        <DCCReference Include="cadastros\models\model.cadastro.conta.pagar.pas"/>
-        <DCCReference Include="cadastros\views\view.cadastro.conta.pagar.pas">
-            <Form>formCadContaPagar</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="cadastros\dataModels\data.cadastro.conta.pagar.pas">
-            <Form>dataCadastroContaPagar</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="cadastros\models\model.cadastro.conta.receber.pas"/>
-        <DCCReference Include="cadastros\dataModels\data.cadastro.conta.receber.pas">
-            <Form>dataCadastroContaReceber</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="library\lib.consts\consts.imagens.pas"/>
-        <DCCReference Include="cadastros\views\view.cadastro.conta.receber.pas">
-            <Form>formCadContaReceber</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="library\lib.images\data.images.interfaces.pas"/>
-        <DCCReference Include="library\lib.helpers\lib.helper.dictionary.pas"/>
-        <DCCReference Include="menu.principal\frame\frame.menu.pas">
-            <Form>frameMenu</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="cadastros\dataModels\template\data.cadastro.template.interfaces.pas"/>
-        <DCCReference Include="library\lib.messages\lib.messages.pas"/>
-        <DCCReference Include="library\lib.messages\lib.messages.interfaces.pas"/>
-        <DCCReference Include="cadastros\dataModels\template\data.cadastro.template.factory.pas"/>
-        <DCCReference Include="cadastros\views\view.cadastro.portador.pas">
-            <Form>formCadPortador</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="cadastros\views\frames\frame.cadastro.conta.pas">
-            <Form>frameCadConta</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="library\lib.SQL\lib.sql.geral.pas"/>
-        <DCCReference Include="cadastros\views\frames\frame.cadastro.saldoportador.pas">
-            <Form>frameCadSaldoPortador</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="cadastros\dataModels\frames\data.frame.cadastro.template.pas">
-            <Form>dmFrameGrade</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="cadastros\dataModels\frames\data.frame.cadastro.conta.pas">
-            <Form>dmFrameConta</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="cadastros\dataModels\frames\data.frame.cadastro.saldoportador.pas">
-            <Form>dmFrameSaldoPortador</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="relatorios\views\view.relatorio.factory.pas"/>
         <DCCReference Include="relatorios\views\view.relatorio.saldodetalhadoportador.pas">
             <Form>formSaldoDetalhadoPortador</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="relatorios\models\model.relatorio.saldodetalhadoportador.pas">
-            <Form>dmSaldoDetalhadoPortador</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="cadastros\views\frames\frame.cadastro.conta.imgs.pas">
-            <Form>frameCadContaImagens</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="library\lib.splash\lib.view.splash.pas">
-            <Form>formSplash</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="library\lib.SQL\lib.sql.splash.pas"/>
-        <DCCReference Include="library\lib.splash\lib.data.splash.pas">
-            <Form>dataSplash</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="library\lib.DAO\lib.DAO.comandosTransacao.pas">
-            <Form>dmCmdTransacao</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="library\lib.DAO\lib.DAO.interfaces.pas"/>
-        <DCCReference Include="library\lib.SQL\lib.sql.contapagamento.pas"/>
-        <DCCReference Include="cadastros\views\view.cadastro.saldoportador.transferencia.pas">
-            <Form>formSaldoPortadorTransferencia</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="library\lib.SQL\lib.sql.lookup.pas"/>
-        <DCCReference Include="cadastros\dataModels\data.cadastro.saldoportador.transferencia.pas">
-            <Form>dataCadastroSaldoPortadorTransferencia</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="relatorios\views\view.relatorio.saldodetalhadoportador.grafico.pas">
             <Form>formSaldoDetalhadoPortadorGrafico</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="relatorios\models\model.relatorio.saldodetalhadoportador.grafico.pas">
-            <Form>dmSaldoDetalhadoPortadorGrafico</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="alugueis\views\view.aluguel.factory.pas"/>
-        <DCCReference Include="alugueis\views\view.aluguel.lancamento.pas">
-            <Form>formAluguelLancamento</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="alugueis\frame\frame.aluguel.lancamento.pas">
-            <Form>frameAluguelLancamento</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="alugueis\dataModel\data.aluguel.lancamento.pas">
-            <Form>dataAluguel</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="library\lib.SQL\lib.sql.alugueis.pas"/>
-        <DCCReference Include="cadastros\views\view.calcular\view.calcular.pas">
-            <Form>formCalcular</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="alugueis\views\view.aluguel.editor.pas">
-            <Form>formAluguelEditor</Form>
-            <FormType>dfm</FormType>
+        <DCCReference Include="relatorios\views\view.relatorio.saldodetalhes.pas">
+            <Form>formSaldoDetalhes</Form>
         </DCCReference>
         <DCCReference Include="relatorios\views\view.relatorio.saldoextrato.pas">
             <Form>formSaldoExtrato</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="relatorios\models\model.relatorio.saldoextrato.pas">
-            <Form>dmSaldoExtrato</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="library\lib.enums\lib.enum.tipoconta.pas"/>
-        <DCCReference Include="relatorios\views\view.relatorio.saldodetalhes.pas">
-            <Form>formSaldoDetalhes</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="menu.principal\dataModel\data.menu.saldodetalhado.pas">
-            <Form>dataMenuSaldoDetalhe</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="menu.principal\frame\frame.menu.saldodetalhado.pas">
-            <Form>frameMenuSaldoDetalhado</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

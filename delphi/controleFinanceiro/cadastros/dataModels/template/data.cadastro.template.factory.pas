@@ -20,6 +20,7 @@ type
 implementation
 
 uses
+  System.SysUtils,
   data.cadastro.cartao,
   data.cadastro.conta.pagar,
   data.cadastro.conta,
@@ -30,7 +31,8 @@ uses
   data.cadastro.portador,
   data.cadastro.saldoFGTS,
   data.cadastro.saldoportador,
-  data.cadastro.tags;
+  data.cadastro.tags,
+  data.cadastro.abastecimentos;
 
 { TdataCadastroFactory }
 
@@ -48,7 +50,10 @@ begin
     cadCartao:        Result := TdataCadastroCartao.Create(Application);
     cadDespesaCartao: Result := TdataCadastroDespesaCartao.Create(Application);
     cadSaldoPortador: Result := TdataCadastroSaldoPortador.Create(Application);
-   end;
+    cadAbastecimentos:Result := TdataCadastroAbastecimentos.Create(Application);
+  else
+    raise Exception.Create('TdataCadastroFactory.GerarDataCadastro - Não identificado o tipo do cadastro informado!');
+  end;
 end;
 
 class function TdataCadastroFactory.New: idataCadastroFactory;
