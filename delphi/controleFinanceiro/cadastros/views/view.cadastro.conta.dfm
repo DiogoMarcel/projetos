@@ -1,31 +1,50 @@
 inherited formCadConta: TformCadConta
   ClientHeight = 735
   ClientWidth = 832
+  ExplicitWidth = 846
   ExplicitHeight = 770
   TextHeight = 13
   inherited pGeral: TPanel
     Width = 832
     Height = 735
+    ExplicitWidth = 830
     ExplicitHeight = 731
     inherited cpCadastros: TCardPanel
+      Width = 832
       Height = 690
+      ActiveCard = cConsulta
+      ExplicitWidth = 830
       ExplicitHeight = 686
       inherited cConsulta: TCard
+        Width = 832
         Height = 690
-        ExplicitHeight = 686
+        ExplicitWidth = 832
+        ExplicitHeight = 690
         inherited cpConsultas: TCardPanel
+          Width = 832
           Height = 587
-          ExplicitHeight = 583
+          ActiveCard = cConsultaGrade
+          ExplicitWidth = 832
+          ExplicitHeight = 587
           inherited cConsultaLista: TCard
+            Width = 832
             Height = 587
+            ExplicitWidth = 832
             ExplicitHeight = 587
             inherited dbgConsulta: TDBGrid
+              Width = 832
               Height = 554
+            end
+            inherited sbPesquisaConsulta: TSearchBox
+              Width = 792
+              ExplicitWidth = 792
             end
           end
           inherited cConsultaGrade: TCard
+            Width = 832
             Height = 587
-            ExplicitHeight = 583
+            ExplicitWidth = 832
+            ExplicitHeight = 587
             object sbConsultaGrade: TScrollBox
               Left = 0
               Top = 0
@@ -40,8 +59,6 @@ inherited formCadConta: TformCadConta
               BevelOuter = bvNone
               BorderStyle = bsNone
               TabOrder = 0
-              ExplicitWidth = 830
-              ExplicitHeight = 548
             end
             object pLegendaFrames: TPanel
               Left = 0
@@ -53,8 +70,6 @@ inherited formCadConta: TformCadConta
               Caption = 'pLegendaFrames'
               ShowCaption = False
               TabOrder = 1
-              ExplicitTop = 548
-              ExplicitWidth = 830
               inline frameCadContaImagens1: TframeCadContaImagens
                 Left = 0
                 Top = 0
@@ -62,7 +77,7 @@ inherited formCadConta: TformCadConta
                 Height = 35
                 Align = alClient
                 TabOrder = 0
-                ExplicitWidth = 830
+                ExplicitWidth = 832
                 ExplicitHeight = 35
                 inherited iPagamentoManual: TImage
                   Left = 507
@@ -85,6 +100,7 @@ inherited formCadConta: TformCadConta
                 inherited iDebidaCartao: TImage
                   Left = 295
                   Height = 35
+                  Proportional = True
                   ExplicitLeft = 295
                   ExplicitHeight = 35
                 end
@@ -139,25 +155,52 @@ inherited formCadConta: TformCadConta
           end
         end
         inherited pCabecalhoConsulta: TPanel
+          Width = 832
+          ExplicitWidth = 832
           inherited sbVisualizarConsulta: TSpeedButton
             ExplicitLeft = 1
           end
         end
         inherited pConsulta: TPanel
           Top = 622
-          ExplicitTop = 618
+          Width = 832
+          ExplicitTop = 622
+          ExplicitWidth = 832
+          inherited sbExcluirCadastro: TSpeedButton
+            Left = 679
+          end
+          inherited sbIncluirCadastro: TSpeedButton
+            Left = 367
+          end
+          inherited sbEditarCadastro: TSpeedButton
+            Left = 523
+          end
         end
       end
       inherited cCadastro: TCard
+        Width = 826
         Height = 677
-        ExplicitHeight = 677
+        ExplicitWidth = 824
+        ExplicitHeight = 673
         inherited pRodapeBotoesCad: TPanel
           Top = 609
-          ExplicitTop = 609
+          Width = 826
+          ExplicitTop = 605
+          ExplicitWidth = 824
+          inherited sbCancelarCadastro: TSpeedButton
+            Left = 661
+            ExplicitLeft = 661
+          end
+          inherited sbSalvarCadastro: TSpeedButton
+            Left = 481
+            ExplicitLeft = 481
+          end
         end
         inherited pCadastro: TPanel
+          Width = 826
           Height = 609
-          ExplicitHeight = 609
+          ExplicitWidth = 824
+          ExplicitHeight = 605
           object tIDConta: TDBText
             Left = 195
             Top = 5
@@ -344,9 +387,14 @@ inherited formCadConta: TformCadConta
       end
     end
     inherited pCabecalhoGeral: TPanel
+      Width = 832
+      ExplicitWidth = 830
       inherited lTitulo: TLabel
         Width = 780
-        Height = 39
+      end
+      inherited sbSair: TSpeedButton
+        Left = 789
+        ExplicitLeft = 789
       end
     end
   end

@@ -26,15 +26,17 @@ uses
   view.relatorio.saldoextrato,
   view.relatorio.saldodetalhes,
   view.relatorio.saldodetalhadoportador.grafico,
-  view.relatorio.saldodetalhadoportador;
+  view.relatorio.saldodetalhadoportador,
+  view.relatorio.abastecimentos;
 
 { TAbrirRelatoriosFactory }
 
 const
-  RELATORIO_SALDO_DETALHADO = 'relSaldoDetalhadoPortador';
+  RELATORIO_SALDO_DETALHADO         = 'relSaldoDetalhadoPortador';
   RELATORIO_SALDO_DETALHADO_GRAFICO = 'relSaldoDetalhadoGrafico';
-  RELATORIO_SALDO_EXTRATO = 'relSaldoExtrato';
-  RELATORIO_SALDO_DETALHE = 'relSaldoDetalhes';
+  RELATORIO_SALDO_EXTRATO           = 'relSaldoExtrato';
+  RELATORIO_SALDO_DETALHE           = 'relSaldoDetalhes';
+  RELATORIO_ABASTECIMENTOS          = 'relAbastecimentos';
 
 class function TAbrirRelatoriosFactory.New: iAbrirRelatorios;
 begin
@@ -43,14 +45,11 @@ end;
 
 procedure TAbrirRelatoriosFactory.AbrirRelatorio(_AAction: TAction);
 begin
-  if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHADO) then
-    TformSaldoDetalhadoPortador.AbrirRelatorio
-  else if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHADO_GRAFICO) then
-    TformSaldoDetalhadoPortadorGrafico.AbrirRelatorio
-  else if String(_AAction.Name).Equals(RELATORIO_SALDO_EXTRATO) then
-    TformSaldoExtrato.AbrirRelatorio
-  else if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHE) then
-    TformSaldoDetalhes.AbrirRelatorio;
+       if String(_AAction.Name).Equals(RELATORIO_ABASTECIMENTOS)          then TformRelAbastecimentos.AbrirRelatorio
+  else if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHADO)         then TformSaldoDetalhadoPortador.AbrirRelatorio
+  else if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHADO_GRAFICO) then TformSaldoDetalhadoPortadorGrafico.AbrirRelatorio
+  else if String(_AAction.Name).Equals(RELATORIO_SALDO_EXTRATO)           then TformSaldoExtrato.AbrirRelatorio
+  else if String(_AAction.Name).Equals(RELATORIO_SALDO_DETALHE)           then TformSaldoDetalhes.AbrirRelatorio;
 end;
 
 end.

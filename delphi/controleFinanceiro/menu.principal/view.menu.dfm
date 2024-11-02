@@ -87,6 +87,9 @@ object formMenu: TformMenu
             item
               Action = relSaldoDetalhes
               Caption = 'Saldo Detalhes'
+            end
+            item
+              Action = relAbastecimentos
             end>
         end
         item
@@ -273,6 +276,11 @@ object formMenu: TformMenu
       Category = 'Cadastros'
       Caption = 'Abastecimentos'
       OnExecute = aAbrirCadastrosExecute
+    end
+    object relAbastecimentos: TAction
+      Category = 'Relat'#243'rios'
+      Caption = 'Abastecimentos'
+      OnExecute = aAbrirRelatoriosExecute
     end
   end
 end

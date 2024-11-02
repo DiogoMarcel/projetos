@@ -45,8 +45,8 @@ inherited formSaldoExtrato: TformSaldoExtrato
         ParentColor = False
         TabOrder = 0
         OnBeforeDrawItem = clSaldosBeforeDrawItem
-        ExplicitWidth = 1070
-        ExplicitHeight = 502
+        ExplicitLeft = 195
+        ExplicitTop = 92
         object dbtData: TDBText
           AlignWithMargins = True
           Left = 5

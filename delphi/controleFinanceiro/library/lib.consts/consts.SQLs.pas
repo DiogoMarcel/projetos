@@ -25,6 +25,7 @@ type
     ,sqlSaldoDetalhadoPortador
     ,sqlSaldoDetalhadoPortadorGrafico
     ,sqlSaldoExtrato
+    ,sqlRelatorioAbastecimentos
 
     {Conta Pagamentos - Comandos}
     ,sqlContaPgtoUpdateBaixaEfetuada

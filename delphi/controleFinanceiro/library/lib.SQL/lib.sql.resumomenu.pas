@@ -180,7 +180,6 @@ begin
             ' JOIN ('+ SQL_SaldoTotal +') T ON TRUE                                                     ';
 end;
 
-
 function TSQLResumoMenu.PegarSQLMenuResumo: string;
 begin
   Result :=          SQL_SaldoBancario  + SQL_UNION;
@@ -194,7 +193,7 @@ begin
   Result := Result + SQL_SaldoTotal     + SQL_UNION;
   Result := Result + SQL_SaldoGeralTot;
 
-  Result := 'SELECT TITULO,VALOR,ORDEM FROM ('+ Result +') S WHERE (VALOR>0.0) ORDER BY 3 ';
+  Result := 'SELECT TITULO,(CASE WHEN :pANONIMO = 1 THEN 0.00 ELSE VALOR END) VALOR,ORDEM FROM ('+ Result +') S WHERE (VALOR>0.0) ORDER BY 3 ';
 end;
 
 function TSQLResumoMenu.PegarSQLProjecao: string;
@@ -255,7 +254,7 @@ begin
             ' WHERE C.TIPOCONTA = :pDESPESA                                             '+
             '   AND COALESCE(C.CONTAANUAL, FALSE)                                       ';
 
-  Result := 'SELECT TITULO,VALOR,ORDEM FROM ('+ Result +') S WHERE (VALOR>0.0) ORDER BY 3 ';
+  Result := 'SELECT TITULO,(CASE WHEN :pANONIMO = 1 THEN 0.00 ELSE VALOR END) VALOR ,ORDEM FROM ('+ Result +') S WHERE (VALOR>0.0) ORDER BY 3 ';
 end;
 
 function TSQLResumoMenu.PegarSQLSaldoFolhaMenu: string;
@@ -276,12 +275,14 @@ begin
             ' ) C                                                          '+
             ' JOIN MEMBROFAMILIA M ON M.IDMEMBROFAMILIA=C.ID_MEMBROFAMILIA '+
             ' GROUP BY M.NOME                                              ';
+
+  Result := 'SELECT (CASE WHEN :pANONIMO = 1 THEN 0.00 ELSE VALORFOLHAMEMBRO END) VALORFOLHAMEMBRO,NOME FROM ('+ Result +') S ';
 end;
 
 function TSQLResumoMenu.PegarSQLContaPagamentos: string;
 begin
   Result := 'SELECT C.DESCRICAO                         '+
-            '      ,C.VALOR                             '+
+            '      ,(CASE WHEN :pANONIMO = 1 THEN 0.00 ELSE C.VALOR END) VALOR '+
             '      ,CAST(                               '+
             '         CASE WHEN C.TIPOCONTA= :pTIPOCONTA'+
             '              THEN ''-''                   '+

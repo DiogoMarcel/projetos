@@ -55,7 +55,7 @@ object frameMenuSaldoDetalhado: TframeMenuSaldoDetalhado
       object lResumo: TLabel
         Left = 0
         Top = 0
-        Width = 418
+        Width = 343
         Height = 29
         Align = alClient
         Alignment = taCenter
@@ -69,6 +69,21 @@ object frameMenuSaldoDetalhado: TframeMenuSaldoDetalhado
         Layout = tlCenter
         ExplicitWidth = 46
         ExplicitHeight = 16
+      end
+      object btnAnonimo: TButton
+        Tag = 1
+        Left = 343
+        Top = 0
+        Width = 75
+        Height = 29
+        Align = alRight
+        ImageAlignment = iaCenter
+        ImageIndex = 16
+        Images = dataImages.il24
+        TabOrder = 0
+        OnClick = btnAnonimoClick
+        ExplicitLeft = 312
+        ExplicitHeight = 25
       end
     end
     object clResumo: TControlList
@@ -242,7 +257,7 @@ object frameMenuSaldoDetalhado: TframeMenuSaldoDetalhado
           Font.Style = []
           ParentFont = False
           Layout = tlCenter
-          ExplicitLeft = 316
+          ExplicitLeft = 320
           ExplicitWidth = 95
           ExplicitHeight = 16
         end

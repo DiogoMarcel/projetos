@@ -20,6 +20,7 @@ type
     function PegarSQLSaldoDetalhadoPortador: string;
     function PegarSQLSaldoDetalhadoPortadorGrafico: string;
     function PegarSQLSaldoExtrato: string;
+    function PegarSQLRelatorioAbastecimentos: string;
 
   public
     function SetEnumSQL(_ASQLEnum: TSQLEnum): iSQLResultado;
@@ -42,6 +43,7 @@ begin
     sqlSaldoDetalhadoPortador        : Result := PegarSQLSaldoDetalhadoPortador;
     sqlSaldoDetalhadoPortadorGrafico : Result := PegarSQLSaldoDetalhadoPortadorGrafico;
     sqlSaldoExtrato                  : Result := PegarSQLSaldoExtrato;
+    sqlRelatorioAbastecimentos       : Result := PegarSQLRelatorioAbastecimentos;
     else
       raise Exception.Create('SQL Inválido para a classe Geral!');
   end;
@@ -195,6 +197,93 @@ begin
             '       ORDER BY SE.DATALANCAMENTO DESC) EXIBIRDATA                    '+
             ' FROM SALDOEXTRATO SE                                                 '+
             ' ORDER BY SE.IDSALDOEXTRATO DESC                                      ';
+end;
+
+function TSQLGeral.PegarSQLRelatorioAbastecimentos: string;
+begin
+  Result := ' SELECT SQLUN.IDABASTECIMENTO '+
+            '    ,SQLUN.OBSERVACAO '+
+            '    ,CAST(CASE WHEN ORIGEMDADO = 1 '+
+            '               THEN CAST(TRIM(TO_CHAR(SQLUN.DATAABASTECIMENTO, ''TMMonth'')) || '' / '' || ' +
+            '                         TRIM(TO_CHAR(SQLUN.DATAABASTECIMENTO, ''YYYY'')) AS VARCHAR(30)) '+
+            '               ELSE CAST(TO_CHAR(SQLUN.DATAABASTECIMENTO, ''DD-MM-YYYY'') AS VARCHAR(30)) '+
+            '          END AS VARCHAR(30)) AS DATAABASTECIMENTO ' +
+            '    ,SQLUN.TOTALABASTECIMENTO ' +
+            '    ,SQLUN.DIFTOTALABASTECIMENTO ' +
+            '    ,SQLUN.KMCARRO ' +
+            '    ,SQLUN.DIFKMCARRO ' +
+            '    ,SQLUN.QUANTIDADELITROS ' +
+            '    ,SQLUN.DIFQUANTIDADELITROS ' +
+            '    ,SQLUN.MEDIA ' +
+            '    ,SQLUN.VALORLITRO ' +
+            '    ,SQLUN.ANO ' +
+            '    ,SQLUN.MES ' +
+            '    ,SQLUN.ORIGEMDADO ' +
+            '  FROM ( ' +
+            '    SELECT A1.IDABASTECIMENTO ' +
+            '      ,A1.OBSERVACAO ' +
+            '      ,A1.DATAABASTECIMENTO ' +
+            '      ,A1.TOTALABASTECIMENTO ' +
+            '      ,CAST(A1.TOTALABASTECIMENTO - A2.TOTALABASTECIMENTO AS NUMERIC(18, 4)) AS DIFTOTALABASTECIMENTO ' +
+            '      ,A1.KMCARRO ' +
+            '      ,CAST(A1.KMCARRO - A2.KMCARRO AS NUMERIC(18, 4)) AS DIFKMCARRO ' +
+            '      ,A1.QUANTIDADELITROS ' +
+            '      ,CAST(A1.QUANTIDADELITROS - A2.QUANTIDADELITROS AS NUMERIC(18, 4)) AS DIFQUANTIDADELITROS ' +
+            '      ,CAST(((A1.KMCARRO - A2.KMCARRO) / A1.QUANTIDADELITROS) AS NUMERIC(18, 4)) AS MEDIA ' +
+            '      ,CAST(A1.TOTALABASTECIMENTO / A1.QUANTIDADELITROS AS NUMERIC(18, 4)) AS VALORLITRO ' +
+            '      ,CAST(EXTRACT(YEAR FROM A1.DATAABASTECIMENTO) AS INTEGER) ANO ' +
+            '      ,CAST(EXTRACT(MONTH FROM A1.DATAABASTECIMENTO) AS INTEGER) MES ' +
+            '      ,CAST(0 AS SMALLINT) ORIGEMDADO ' +
+            '    FROM ( ' +
+            '      SELECT *,ROW_NUMBER() OVER (ORDER BY 1) AS SERIAL_NUMBER ' +
+            '      FROM ( ' +
+            '        SELECT IDABASTECIMENTO ' +
+            '              ,OBSERVACAO ' +
+            '              ,DATAABASTECIMENTO ' +
+            '              ,TOTALABASTECIMENTO ' +
+            '              ,KMCARRO ' +
+            '              ,QUANTIDADELITROS ' +
+            '        FROM ABASTECIMENTOS ' +
+            '        ORDER BY IDABASTECIMENTO ' +
+            '        ) SQ ' +
+            '      ) A1 ' +
+            '    LEFT JOIN ( ' +
+            '      SELECT *,(ROW_NUMBER() OVER (ORDER BY 1) + 1) AS SERIAL_NUMBER ' +
+            '      FROM ( ' +
+            '        SELECT IDABASTECIMENTO ' +
+            '              ,OBSERVACAO ' +
+            '              ,DATAABASTECIMENTO ' +
+            '              ,TOTALABASTECIMENTO ' +
+            '              ,KMCARRO ' +
+            '              ,QUANTIDADELITROS ' +
+            '        FROM ABASTECIMENTOS ' +
+            '        ORDER BY IDABASTECIMENTO ' +
+            '        ) SQ ' +
+            '      ) A2 ON A1.SERIAL_NUMBER = A2.SERIAL_NUMBER ' +
+            '    UNION ALL ' +
+            '    SELECT CAST(0 AS BIGINT) IDABASTECIMENTO ' +
+            '          ,CAST('' - Totais mensal'' AS VARCHAR(80)) OBSERVACAO ' +
+            '          ,CAST(TO_DATE(EXTRACT(YEAR  FROM DATAABASTECIMENTO) || ''-'' || ' +
+            '                        EXTRACT(MONTH FROM DATAABASTECIMENTO) || ' +
+            '                        ''-01'', ''YYYY-MM-DD'') AS DATE) DATAABASTECIMENTO ' +
+            '          ,SUM(TOTALABASTECIMENTO) AS TOTALABASTECIMENTO ' +
+            '          ,CAST(NULL AS NUMERIC(18, 4)) DIFTOTALABASTECIMENTO ' +
+            '          ,CAST(NULL AS INTEGER) KMCARRO ' +
+            '          ,CAST(NULL AS NUMERIC(18, 4)) DIFKMCARRO ' +
+            '          ,SUM(QUANTIDADELITROS) AS QUANTIDADELITROS ' +
+            '          ,CAST(NULL AS NUMERIC(18, 4)) DIFQUANTIDADELITROS ' +
+            '          ,CAST(NULL AS NUMERIC(18, 4)) MEDIA ' +
+            '          ,CAST(NULL AS NUMERIC(18, 4)) VALORLITRO ' +
+            '          ,CAST(EXTRACT(YEAR FROM DATAABASTECIMENTO) AS INTEGER) ANO ' +
+            '          ,CAST(EXTRACT(MONTH FROM DATAABASTECIMENTO) AS INTEGER) MES ' +
+            '          ,CAST(1 AS SMALLINT) ORIGEMDADO ' +
+            '    FROM ABASTECIMENTOS ' +
+            '    GROUP BY EXTRACT(YEAR FROM DATAABASTECIMENTO) ' +
+            '            ,EXTRACT(MONTH FROM DATAABASTECIMENTO) ' +
+            '    ORDER BY ANO DESC ' +
+            '            ,MES DESC ' +
+            '            ,IDABASTECIMENTO DESC ' +
+            ' ) SQLUN ' ;
 end;
 
 end.

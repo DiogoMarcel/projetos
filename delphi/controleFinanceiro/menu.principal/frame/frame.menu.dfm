@@ -215,7 +215,7 @@ object frameMenu: TframeMenu
           Alignment = taRightJustify
           Caption = 'lValorSaldoGeral'
           Layout = tlCenter
-          ExplicitLeft = 269
+          ExplicitLeft = 273
           ExplicitWidth = 121
           ExplicitHeight = 21
         end

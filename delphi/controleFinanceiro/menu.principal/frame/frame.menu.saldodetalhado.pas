@@ -47,6 +47,7 @@ type
     dbtTituloProjecao: TDBText;
     ActionList: TActionList;
     aCalcularProjecao: TAction;
+    btnAnonimo: TButton;
     procedure aCalcularProjecaoExecute(Sender: TObject);
     procedure clResumoBeforeDrawItem(AIndex: Integer; ACanvas: TCanvas;
       ARect: TRect; AState: TOwnerDrawState);
@@ -57,6 +58,7 @@ type
     procedure clContaPagamentosBeforeDrawItem(AIndex: Integer;
       ACanvas: TCanvas; ARect: TRect; AState: TOwnerDrawState);
     procedure clContaPagamentosDblClick(Sender: TObject);
+    procedure btnAnonimoClick(Sender: TObject);
   private
     FdmMenuModulo: TdataMenuSaldoDetalhe;
     FValorSaldoGeral: currency;
@@ -80,6 +82,7 @@ uses
   lib.DAO.comandosTransacao,
   consts.nomeCadastros,
   lib.sql.contapagamento,
+  data.images,
   consts.SQLs,
   lib.messages,
   lib.helper.querys;
@@ -102,6 +105,37 @@ begin
       clProjecao.Repaint;
     end;
   end;
+end;
+
+procedure TframeMenuSaldoDetalhado.btnAnonimoClick(Sender: TObject);
+begin
+  if btnAnonimo.Tag = 0 then
+  begin
+    btnAnonimo.ImageIndex := 16;
+    btnAnonimo.Tag := 1;
+  end
+  else
+  begin
+    btnAnonimo.ImageIndex := 15;
+    btnAnonimo.Tag := 0;
+  end;
+
+  FdmMenuModulo.Anonimo := btnAnonimo.Tag;
+
+  FdmMenuModulo.AtualizarDataResumo;
+  FdmMenuModulo.AtualizarMenuSaldoFolha;
+  FdmMenuModulo.AtualizarMenuContaPagamentos;
+  FdmMenuModulo.CalcularProjecao;
+                
+  FdmMenuModulo.qMenu.AtivarQuery;
+  FdmMenuModulo.qSaldoFolha.AtivarQuery;
+  FdmMenuModulo.qContaPagamentos.AtivarQuery;
+  FdmMenuModulo.qProjecao.AtivarQuery;
+
+  clResumo.Repaint;
+  clSaldoFolha.Repaint;
+  clContaPagamentos.Repaint;
+  clProjecao.Repaint;
 end;
 
 procedure TframeMenuSaldoDetalhado.VisualizarPaineis;

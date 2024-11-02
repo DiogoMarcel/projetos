@@ -3,6 +3,27 @@ inherited formCadContaReceber: TformCadContaReceber
   TextHeight = 13
   inherited pGeral: TPanel
     inherited cpCadastros: TCardPanel
+      inherited cConsulta: TCard
+        inherited cpConsultas: TCardPanel
+          inherited cConsultaLista: TCard
+            Width = 832
+          end
+          inherited cConsultaGrade: TCard
+            Width = 832
+          end
+        end
+        inherited pConsulta: TPanel
+          inherited sbExcluirCadastro: TSpeedButton
+            Left = 679
+          end
+          inherited sbIncluirCadastro: TSpeedButton
+            Left = 367
+          end
+          inherited sbEditarCadastro: TSpeedButton
+            Left = 523
+          end
+        end
+      end
       inherited cCadastro: TCard
         inherited pCadastro: TPanel
           inherited rgContaAnual: TDBRadioGroupSimNao

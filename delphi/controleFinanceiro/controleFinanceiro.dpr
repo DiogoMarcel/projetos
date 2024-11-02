@@ -142,7 +142,9 @@ uses
   view.relatorio.saldodetalhadoportador in 'relatorios\views\view.relatorio.saldodetalhadoportador.pas' {formSaldoDetalhadoPortador},
   view.relatorio.saldodetalhadoportador.grafico in 'relatorios\views\view.relatorio.saldodetalhadoportador.grafico.pas' {formSaldoDetalhadoPortadorGrafico},
   view.relatorio.saldodetalhes in 'relatorios\views\view.relatorio.saldodetalhes.pas' {formSaldoDetalhes},
-  view.relatorio.saldoextrato in 'relatorios\views\view.relatorio.saldoextrato.pas' {formSaldoExtrato};
+  view.relatorio.saldoextrato in 'relatorios\views\view.relatorio.saldoextrato.pas' {formSaldoExtrato},
+  view.relatorio.abastecimentos in 'relatorios\views\view.relatorio.abastecimentos.pas' {formRelAbastecimentos},
+  model.relatorio.abastecimentos in 'relatorios\models\model.relatorio.abastecimentos.pas' {dmAbastecimentos: TDataModule};
 
 {$R *.res}
 

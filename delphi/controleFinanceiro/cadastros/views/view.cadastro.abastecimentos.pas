@@ -17,7 +17,7 @@ type
     etotalabastecimento: TDBEdit;
     eObservacao: TDBEdit;
     Label1: TLabel;
-    DateTimePicker1: TDateTimePicker;
+    dtpDataAbastecimento: TDateTimePicker;
     Label3: TLabel;
     ekmcarro: TDBEdit;
     Label4: TLabel;
@@ -28,6 +28,7 @@ type
   protected
     procedure SetIControllerCadastros; override;
     function ExecutarBeforePostNaView: boolean; override;
+    procedure AjustarCombosSemConexao; override;
   public
     { Public declarations }
   end;
@@ -42,10 +43,18 @@ uses
 
 { TformCadAbastecimentos }
 
+procedure TformCadAbastecimentos.AjustarCombosSemConexao;
+begin
+  inherited;
+  dtpDataAbastecimento.DateTime := Now();
+  if (FdmCadastro.PegarCDSCadastro.State in [dsEdit]) then
+    dtpDataAbastecimento.DateTime := FdmCadastro.PegarCDSCadastro.FieldByName('dataabastecimento').AsDateTime;
+end;
+
 function TformCadAbastecimentos.ExecutarBeforePostNaView: boolean;
 begin
   Result := True;
-  FdmCadastro.PegarCDSCadastro.FieldByName('dataabastecimento').AsDateTime := DateTimePicker1.DateTime;
+  FdmCadastro.PegarCDSCadastro.FieldByName('dataabastecimento').AsDateTime := dtpDataAbastecimento.DateTime;
 end;
 
 procedure TformCadAbastecimentos.SetIControllerCadastros;
@@ -59,6 +68,5 @@ initialization
 
 finalization
   UnRegisterClass(TformCadAbastecimentos);
-
 
 end.

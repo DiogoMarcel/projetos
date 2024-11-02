@@ -319,12 +319,12 @@ begin
   if (sbVisualizarConsulta.Action = aAbrirLista) then
   begin
     cpConsultas.ActiveCard := cConsultaLista;
-    AConstImagens24 := ci24GradeBranco;
+    AConstImagens24 := ci24GradeNormal;
   end
   else
   begin
     cpConsultas.ActiveCard := cConsultaGrade;
-    AConstImagens24 := ci24ListaBranco;
+    AConstImagens24 := ci24ListaNormal;
   end;
 
   TdataImages

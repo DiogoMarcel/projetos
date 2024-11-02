@@ -51,8 +51,6 @@ inherited formCadastroTemplate: TformCadastroTemplate
         ParentColor = True
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 824
-        ExplicitHeight = 524
         object cpConsultas: TCardPanel
           Left = 0
           Top = 35
@@ -63,8 +61,6 @@ inherited formCadastroTemplate: TformCadastroTemplate
           BevelOuter = bvNone
           Caption = 'cpConsultas'
           TabOrder = 0
-          ExplicitWidth = 824
-          ExplicitHeight = 421
           object cConsultaLista: TCard
             Left = 0
             Top = 0
@@ -132,8 +128,6 @@ inherited formCadastroTemplate: TformCadastroTemplate
             Caption = 'cConsultaGrade'
             CardIndex = 1
             TabOrder = 1
-            ExplicitWidth = 824
-            ExplicitHeight = 421
           end
         end
         object pCabecalhoConsulta: TPanel
@@ -145,7 +139,6 @@ inherited formCadastroTemplate: TformCadastroTemplate
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 824
           object sbVisualizarConsulta: TSpeedButton
             AlignWithMargins = True
             Left = 1
@@ -158,7 +151,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             Margins.Bottom = 2
             Action = aAbrirLista
             Align = alLeft
-            ImageIndex = 2
+            ImageIndex = 0
             Images = dataImages.il24
             ExplicitLeft = 774
             ExplicitHeight = 27
@@ -172,8 +165,6 @@ inherited formCadastroTemplate: TformCadastroTemplate
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 2
-          ExplicitTop = 456
-          ExplicitWidth = 824
           object sbExcluirCadastro: TSpeedButton
             AlignWithMargins = True
             Left = 673
@@ -183,7 +174,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             Action = aExcluirCad
             Align = alRight
             DisabledImageIndex = 17
-            ImageIndex = 14
+            ImageIndex = 23
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -206,7 +197,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             Action = aIncluirCad
             Align = alRight
             DisabledImageIndex = 18
-            ImageIndex = 15
+            ImageIndex = 21
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -228,7 +219,7 @@ inherited formCadastroTemplate: TformCadastroTemplate
             Action = aEditarCad
             Align = alRight
             DisabledImageIndex = 16
-            ImageIndex = 13
+            ImageIndex = 22
             Images = dataImages.il40
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -259,6 +250,8 @@ inherited formCadastroTemplate: TformCadastroTemplate
         Font.Style = []
         ParentFont = False
         TabOrder = 1
+        ExplicitWidth = 818
+        ExplicitHeight = 511
         object pRodapeBotoesCad: TPanel
           Left = 0
           Top = 447
@@ -267,6 +260,8 @@ inherited formCadastroTemplate: TformCadastroTemplate
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitTop = 443
+          ExplicitWidth = 818
           object sbCancelarCadastro: TSpeedButton
             AlignWithMargins = True
             Left = 655
@@ -321,6 +316,8 @@ inherited formCadastroTemplate: TformCadastroTemplate
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 818
+          ExplicitHeight = 443
         end
       end
     end

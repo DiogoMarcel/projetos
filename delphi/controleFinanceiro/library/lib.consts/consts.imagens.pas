@@ -52,6 +52,7 @@ type
                     ,ci32RelSaldoDetalhado
                     ,ci32Rent
                     ,ci32Abastecimentos
+                    ,ci32RelAbastecimentos
                     );
 
 type
@@ -123,7 +124,7 @@ type
   const
     FIntImagens32: array[TConstImagens32] of integer = (-1
                                                        , 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-                                                       , 11, 12, 13, 14, 15);
+                                                       , 11, 12, 13, 14, 15, 16);
     FStrImagens32: array[TConstImagens32] of string  = ('nil'
                                                        ,'Relatórios'
                                                        ,'Sair'
@@ -141,6 +142,7 @@ type
                                                        ,'Relatório Saldo Detalhado'
                                                        ,'Alugar Casa'
                                                        ,'Abastecimentos'
+                                                       ,'Relatório Abastecimentos'
                                                        );
   protected
     class function GetArrayValues: TArrayInteger; override;
@@ -152,7 +154,7 @@ type
   const
     FIntImagens40: array[TConstImagens40] of integer = (-1
                                                        , 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-                                                       , 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+                                                       , 11, 12, 21, 22, 23 {13, 14, 15}, 16, 17, 18, 19, 20);
     FStrImagens40: array[TConstImagens40] of string  = ('nil'
                                                        ,'Salvar'
                                                        ,'Cancelar'

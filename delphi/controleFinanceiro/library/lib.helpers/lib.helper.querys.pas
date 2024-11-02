@@ -4,6 +4,7 @@ interface
 
 uses
   Data.DB,
+  lib.proc.objects,
   FireDAC.Stan.Param,
   FireDAC.Comp.Client;
 
@@ -18,7 +19,7 @@ type
     function SetParamString(_AParamName: string; _AValue: Variant): TFDQuery;
     function SetParamInteger(_AParamName: string; _AValue: Variant): TFDQuery;
     function SetParamCurrency(_AParamName: string; _AValue: Variant): TFDQuery;
-
+    function ForEach(_AProcForEach: TForEachHelperDataSet): TFDQuery;
 
   end;
 
@@ -44,6 +45,18 @@ begin
 //  ShowMessage(Self.SQL.Text);
 
   Self.Active := True;
+end;
+
+function TFDQueryHelper.ForEach(_AProcForEach: TForEachHelperDataSet): TFDQuery;
+begin
+  Result := Self;
+
+  Self.First;
+  while not Self.Eof do
+  begin
+    _AProcForEach;
+    Self.Next;
+  end;
 end;
 
 function TFDQueryHelper.PrepareSQL(_ASQL: string): TFDQuery;

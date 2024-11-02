@@ -92,19 +92,15 @@ begin
   Auth := TFirebaseAuth.Create;
 
   Auth.SetApiKey(ALoadConfig.SetApiKey);
-
   AResponse := Auth.SignInWithEmailAndPassword(ALoadConfig.Email, ALoadConfig.Password);
-
   JSONResp := TJSONObject.ParseJSONValue(AResponse.ContentAsString);
   try
     if (not Assigned(JSONResp)) or (not(JSONResp is TJSONObject)) then
     begin
       if Assigned(JSONResp) then
         JSONResp.Free;
-
       Exit;
     end;
-
     Obj := JSONResp as TJSONObject;
     Obj.Values['idToken'].Value;
     FTokenRealtime := Obj.Values['idToken'].Value;

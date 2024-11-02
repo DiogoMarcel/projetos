@@ -1,25 +1,65 @@
 inherited formCadCartao: TformCadCartao
   ClientHeight = 577
   ClientWidth = 828
+  ExplicitWidth = 842
+  ExplicitHeight = 612
   TextHeight = 13
   inherited pGeral: TPanel
     Width = 828
     Height = 577
+    ExplicitWidth = 826
+    ExplicitHeight = 573
     inherited cpCadastros: TCardPanel
+      Width = 828
+      Height = 532
+      ExplicitWidth = 826
+      ExplicitHeight = 528
+      inherited cConsulta: TCard
+        Width = 828
+        Height = 532
+        inherited cpConsultas: TCardPanel
+          Width = 828
+          Height = 429
+          inherited cConsultaLista: TCard
+            Width = 828
+            Height = 429
+            inherited dbgConsulta: TDBGrid
+              Width = 828
+              Height = 396
+            end
+            inherited sbPesquisaConsulta: TSearchBox
+              Width = 788
+            end
+          end
+          inherited cConsultaGrade: TCard
+            Width = 828
+            Height = 429
+          end
+        end
+        inherited pCabecalhoConsulta: TPanel
+          Width = 828
+        end
+        inherited pConsulta: TPanel
+          Top = 464
+          Width = 828
+        end
+      end
       inherited cCadastro: TCard
-        ExplicitWidth = 824
-        ExplicitHeight = 523
+        Width = 822
+        Height = 519
         inherited pRodapeBotoesCad: TPanel
           Top = 451
           Width = 822
-          ExplicitTop = 455
-          ExplicitWidth = 824
+          inherited sbCancelarCadastro: TSpeedButton
+            Left = 657
+          end
+          inherited sbSalvarCadastro: TSpeedButton
+            Left = 477
+          end
         end
         inherited pCadastro: TPanel
           Width = 822
           Height = 451
-          ExplicitWidth = 824
-          ExplicitHeight = 455
           object tIdCartao: TDBText
             Left = 195
             Top = 28
@@ -113,9 +153,13 @@ inherited formCadCartao: TformCadCartao
       end
     end
     inherited pCabecalhoGeral: TPanel
+      Width = 828
+      ExplicitWidth = 826
       inherited lTitulo: TLabel
         Width = 776
-        Height = 39
+      end
+      inherited sbSair: TSpeedButton
+        Left = 785
       end
     end
   end

@@ -5,6 +5,8 @@ interface
 {
   https://logospng.org/
 
+  <a target="_blank" href="https://icons8.com/icon/3Ro21LuwhVhg/invisible">Invisível</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
+  <a target="_blank" href="https://icons8.com/icon/T8KCO0TdWmpo/eye">Visível</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/pfuW6dHMyTUI/seta-para-expandir">Seta para expandir</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/32611/sinal-de-igual">Sinal de igual</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/47134/ordem-descendente">Ordem descendente</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
@@ -52,6 +54,11 @@ interface
   <a target="_blank" href="https://icons8.com/icon/GyuoaT16DkxZ/m">M</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/11849/selecionado">Selecionado</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/53084/gas-station">Posto de gasolina</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
+  <a target="_blank" href="https://icons8.com/icon/UUgYZvYwoZrF/adicionar">Adicionar</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
+  <a target="_blank" href="https://icons8.com/icon/IQwdXd0kulpV/editar">Editar</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
+  <a target="_blank" href="https://icons8.com/icon/XLYyiimvk3fV/lixo">Lixo</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
+  <a target="_blank" href="https://icons8.com/icon/kfRfIRUL7jMk/car">Carro</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
+  <a target="_blank" href="https://icons8.com/icon/7601/insert-card">Inserir cartão</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
 
 }
 

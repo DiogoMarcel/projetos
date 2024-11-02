@@ -34,13 +34,19 @@ type
     procedure DataModuleCreate(Sender: TObject);
   private
     FPegarValorEditorFrameMenu: TPegarValorEditorFrameMenu;
+    FAnonimo: byte;
 
     function PegarValorEditorFrame: integer;
 
   public
     constructor Create(AOwner: TComponent; _APegarValorEditorFrameMenu: TPegarValorEditorFrameMenu); reintroduce;
 
+    procedure AtualizarDataResumo;
+    procedure AtualizarMenuSaldoFolha;
+    procedure AtualizarMenuContaPagamentos;
     procedure CalcularProjecao;
+
+    property Anonimo: byte write FAnonimo;
   end;
 
 implementation
@@ -60,76 +66,28 @@ constructor TdataMenuSaldoDetalhe.Create(AOwner: TComponent; _APegarValorEditorF
 begin
   inherited Create(AOwner);
 
+  FAnonimo := 1;
+
   FPegarValorEditorFrameMenu := _APegarValorEditorFrameMenu;
 end;
 
 procedure TdataMenuSaldoDetalhe.DataModuleCreate(Sender: TObject);
 var
-//  Inicio: TDateTime;
-//  Fim: TDateTime;
   Tasks: array [0..3] of ITask;
-
 begin
-
-//  Inicio := Now;
-
-  Tasks[0] := TTask.Create(
-    procedure
-    begin
-      qMenu
-        .PrepareSQL(
-          TSQLResumoMenu.New
-            .SetEnumSQL(sqlMenuResumo)
-            .PegarSQL
-        )
-        .SetParamString('pRECEITA', 'R')
-        .SetParamString('pDESPESA', 'P');
-
-//        sleep(2000);
-    end
-  );
+  Tasks[0] := TTask.Create(AtualizarDataResumo);
   Tasks[0].Start;
 
-  Tasks[1] := TTask.Create(
-    procedure
-    begin
-      qSaldoFolha
-        .PrepareSQL(
-          TSQLResumoMenu.New
-            .SetEnumSQL(sqlMenuSaldoFolha)
-            .PegarSQL
-        );
-
-//        sleep(3000);
-
-    end
-  );
+  Tasks[1] := TTask.Create(AtualizarMenuSaldoFolha);
   Tasks[1].Start;
 
-  Tasks[2] := TTask.Create(
-    procedure
-    begin
-      qContaPagamentos
-        .PrepareSQL(
-          TSQLResumoMenu.New
-            .SetEnumSQL(sqlMenuContaPagamentos)
-            .PegarSQL
-        )
-        .SetParamString('pTIPOCONTA', 'P');
-
-//        sleep(1000);
-    end
-  );
+  Tasks[2] := TTask.Create(AtualizarMenuContaPagamentos);
   Tasks[2].Start;
 
   Tasks[3] := TTask.Create(CalcularProjecao);
   Tasks[3].Start;
 
   TTask.WaitForAll(Tasks);
-
-//  Fim := Now;
-
-//  ShowMessage(Format('Consultas realizadas em %s segundos.', [FormatDateTime('ss', Fim - Inicio)]));
 end;
 
 function TdataMenuSaldoDetalhe.PegarValorEditorFrame: integer;
@@ -137,6 +95,51 @@ begin
   Result := 0;
   if Assigned(FPegarValorEditorFrameMenu) then
     Result := FPegarValorEditorFrameMenu;
+end;
+
+procedure TdataMenuSaldoDetalhe.AtualizarDataResumo;
+begin
+  if (qMenu.Active) then
+    qMenu.Active := False;
+
+  qMenu
+    .PrepareSQL(
+      TSQLResumoMenu.New
+        .SetEnumSQL(sqlMenuResumo)
+        .PegarSQL
+    )
+    .SetParamString('pRECEITA', 'R')
+    .SetParamString('pDESPESA', 'P')
+    .SetParamInteger('pANONIMO', FAnonimo);
+end;
+
+procedure TdataMenuSaldoDetalhe.AtualizarMenuContaPagamentos;
+begin
+  if (qContaPagamentos.Active) then
+    qContaPagamentos.Active := False;
+
+  qContaPagamentos
+    .PrepareSQL(
+      TSQLResumoMenu.New
+        .SetEnumSQL(sqlMenuContaPagamentos)
+        .PegarSQL
+    )
+    .SetParamString('pTIPOCONTA', 'P')
+    .SetParamInteger('pANONIMO', FAnonimo);
+end;
+
+procedure TdataMenuSaldoDetalhe.AtualizarMenuSaldoFolha;
+begin
+  if (qSaldoFolha.Active) then
+    qSaldoFolha.Active := False;
+
+  qSaldoFolha
+    .PrepareSQL(
+      TSQLResumoMenu.New
+        .SetEnumSQL(sqlMenuSaldoFolha)
+        .PegarSQL
+    )
+    .SetParamInteger('pANONIMO', FAnonimo);
 end;
 
 procedure TdataMenuSaldoDetalhe.CalcularProjecao;
@@ -152,7 +155,8 @@ begin
     )
     .SetParamInteger('pMULTIPLICAR', PegarValorEditorFrame)
     .SetParamString('pRECEITA', 'R')
-    .SetParamString('pDESPESA', 'P');
+    .SetParamString('pDESPESA', 'P')
+    .SetParamInteger('pANONIMO', FAnonimo);
 end;
 
 end.

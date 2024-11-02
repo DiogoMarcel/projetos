@@ -1,83 +1,23 @@
 inherited formCadAbastecimentos: TformCadAbastecimentos
   Caption = 'formCadAbastecimentos'
-  ExplicitWidth = 838
-  ExplicitHeight = 604
   TextHeight = 13
   inherited pGeral: TPanel
-    ExplicitWidth = 822
-    ExplicitHeight = 565
     inherited cpCadastros: TCardPanel
-      Width = 824
-      Height = 524
-      ActiveCard = cCadastro
-      ExplicitWidth = 822
-      ExplicitHeight = 520
       inherited cConsulta: TCard
-        Width = 824
-        Height = 524
-        ExplicitWidth = 822
-        ExplicitHeight = 520
-        inherited cpConsultas: TCardPanel
-          Width = 824
-          Height = 421
-          ExplicitWidth = 822
-          ExplicitHeight = 417
-          inherited cConsultaLista: TCard
-            Width = 824
-            Height = 421
-            ExplicitWidth = 822
-            ExplicitHeight = 417
-            inherited dbgConsulta: TDBGrid
-              Width = 824
-              Height = 388
-            end
-            inherited sbPesquisaConsulta: TSearchBox
-              Width = 784
-              ExplicitWidth = 782
-            end
-          end
-          inherited cConsultaGrade: TCard
-            Width = 824
-            Height = 421
-          end
-        end
-        inherited pCabecalhoConsulta: TPanel
-          Width = 824
-          ExplicitWidth = 822
-        end
         inherited pConsulta: TPanel
-          Top = 456
-          Width = 824
-          ExplicitTop = 452
-          ExplicitWidth = 822
           inherited sbExcluirCadastro: TSpeedButton
-            Left = 671
             ExplicitLeft = 671
           end
           inherited sbIncluirCadastro: TSpeedButton
-            Left = 359
             ExplicitLeft = 359
           end
           inherited sbEditarCadastro: TSpeedButton
-            Left = 515
             ExplicitLeft = 515
           end
         end
       end
       inherited cCadastro: TCard
-        Width = 818
-        Height = 511
-        ExplicitWidth = 818
-        inherited pRodapeBotoesCad: TPanel
-          Top = 443
-          Width = 818
-        end
         inherited pCadastro: TPanel
-          Width = 818
-          Height = 443
-          ExplicitTop = -3
-          ExplicitWidth = 818
-          ExplicitHeight = 443
           object tidabastecimento: TDBText
             Left = 195
             Top = 29
@@ -153,12 +93,11 @@ inherited formCadAbastecimentos: TformCadAbastecimentos
             DataSource = dataCadastroAbastecimentos.dsCadastro
             TabOrder = 0
           end
-          object DateTimePicker1: TDateTimePicker
+          object dtpDataAbastecimento: TDateTimePicker
             Left = 195
             Top = 94
             Width = 186
             Height = 29
-            Date = 45578.000000000000000000
             Time = 0.440244837962382000
             TabOrder = 1
           end
@@ -184,14 +123,7 @@ inherited formCadAbastecimentos: TformCadAbastecimentos
       end
     end
     inherited pCabecalhoGeral: TPanel
-      Width = 824
-      ExplicitWidth = 822
-      inherited lTitulo: TLabel
-        Width = 772
-        Height = 39
-      end
       inherited sbSair: TSpeedButton
-        Left = 781
         ExplicitLeft = 781
       end
     end

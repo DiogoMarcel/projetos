@@ -2,17 +2,16 @@ inherited formCadMembroFamilia: TformCadMembroFamilia
   TextHeight = 13
   inherited pGeral: TPanel
     inherited cpCadastros: TCardPanel
-      ActiveCard = cCadastro
       inherited cCadastro: TCard
-        ExplicitWidth = 824
-        ExplicitHeight = 523
+        ExplicitWidth = 818
+        ExplicitHeight = 511
         inherited pRodapeBotoesCad: TPanel
-          ExplicitTop = 455
-          ExplicitWidth = 824
+          ExplicitTop = 443
+          ExplicitWidth = 818
         end
         inherited pCadastro: TPanel
-          ExplicitWidth = 824
-          ExplicitHeight = 455
+          ExplicitWidth = 818
+          ExplicitHeight = 443
           object tIdMembroFamilia: TDBText
             Left = 195
             Top = 32

@@ -1,5 +1,4 @@
 object dmConexaoDB: TdmConexaoDB
-  OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 151
   Width = 313

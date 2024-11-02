@@ -37,6 +37,7 @@ type
     relSaldoExtrato: TAction;
     relSaldoDetalhes: TAction;
     cadAbastecimentos: TAction;
+    relAbastecimentos: TAction;
     procedure aAbrirCadastrosExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -158,8 +159,10 @@ const
   ITEM_MENU_SALDOFGTS       = 09; ITEM_MENU_TAGS            = 10;
   ITEM_MENU_ABASTECIMENTO   = 11;
   {Relatórios}
-  ITEM_MENU_REL_SALDO_DETAL   = 01; ITEM_MENU_REL_SALDO_DETAL_GRAFICO = 02;
-  ITEM_MENU_REL_SALDO_EXTRATO = 03;
+  ITEM_MENU_REL_SALDO_DETAL         = 01;
+  ITEM_MENU_REL_ABASTECIMENTOS      = 02;
+  {ITEM_MENU_REL_SALDO_DETAL_GRAFICO = 03;
+   ITEM_MENU_REL_SALDO_EXTRATO       = 04;}
   {Aluguel}
   ITEM_MENU_ALUGUEL = 01;
 begin
@@ -186,7 +189,8 @@ begin
 
   with cbMenu.Categories[1] do
   begin
-    Items[ITEM_MENU_REL_SALDO_DETAL -1].ImageIndex        := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
+    Items[ITEM_MENU_REL_SALDO_DETAL -1].ImageIndex    := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
+    Items[ITEM_MENU_REL_ABASTECIMENTOS -1].ImageIndex := TEnumImagens32.EnumToValue(ci32RelAbastecimentos);
 //    Items[ITEM_MENU_REL_SALDO_DETAL_GRAFICO-1].ImageIndex := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
 //    Items[ITEM_MENU_REL_SALDO_EXTRATO-1].ImageIndex       := TEnumImagens32.EnumToValue(ci32RelSaldoDetalhado);
   end;

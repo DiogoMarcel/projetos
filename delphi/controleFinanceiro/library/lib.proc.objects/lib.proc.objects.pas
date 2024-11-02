@@ -9,6 +9,7 @@ type
   TExecutarAfterPostNaView = procedure of object;
   TAtualizarMensagemSplash = procedure(_AMensagem: string) of object;
   TPegarValorEditorFrameMenu = function: Integer of object;
+  TForEachHelperDataSet = procedure of object;
 
 implementation
 
