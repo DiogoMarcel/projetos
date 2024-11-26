@@ -31,7 +31,8 @@ uses
   model.cadastro.cartao,
   model.cadastro.despesacartao,
   model.cadastro.saldoportador,
-  model.cadastro.abastecimentos;
+  model.cadastro.abastecimentos,
+  model.cadastro.veiculos;
 
 { TModelCadastroFactory }
 
@@ -57,6 +58,7 @@ begin
     cadDespesaCartao  : Result := TCadastroDespesaCartao.ObterInstancia;
     cadSaldoPortador  : Result := TCadastroSaldoPortador.ObterInstancia;
     cadAbastecimentos : Result := TCadastroAbastecimentos.ObterInstancia;
+    cadVeiculos       : Result := TCadastroVeiculos.ObterInstancia;
     else
       raise Exception.Create('Gerar cadastro factory: TypeCadastro não informado corretamente!');
   end;

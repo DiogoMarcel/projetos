@@ -16,6 +16,7 @@ type
     function PegarSQLLookupCredor: string;
     function PegarSQLLookupCartao: string;
     function PegarSQLLookupSaldoPortador: string;
+    function PegarSQLLookupVeiculo: string;
 
   public
     function SetEnumSQL(_ASQLEnum: TSQLEnum): iSQLResultado;
@@ -47,6 +48,7 @@ begin
     sqlLookupCredor        : Result := PegarSQLLookupCredor;
     sqlLookupCartao        : Result := PegarSQLLookupCartao;
     sqlLookupSaldoPortador : Result := PegarSQLLookupSaldoPortador;
+    sqlLookupVeiculo       : Result := PegarSQLLookupVeiculo;
     else
       raise Exception.Create('SQL Inválido para a classe Lookup!');
   end;
@@ -81,6 +83,13 @@ begin
             ' FROM PORTADOR P '+
             ' JOIN MEMBROFAMILIA M ON P.ID_MEMBROFAMILIA = M.IDMEMBROFAMILIA '+
             ' ORDER BY 1';
+end;
+
+function TSQLLookup.PegarSQLLookupVeiculo: string;
+begin
+  Result := 'SELECT V.IDVEICULO,CAST(V.MODELO || '' - '' || V.MARCA AS VARCHAR(80)) MODELO'+
+            '  FROM VEICULOS V'+
+            ' ORDER BY V.DATACOMPRA DESC';
 end;
 
 end.

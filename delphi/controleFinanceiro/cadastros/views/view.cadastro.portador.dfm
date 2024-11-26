@@ -18,13 +18,9 @@ inherited formCadPortador: TformCadPortador
       inherited cConsulta: TCard
         Width = 828
         Height = 532
-        ExplicitWidth = 826
-        ExplicitHeight = 528
         inherited cpConsultas: TCardPanel
           Width = 828
           Height = 429
-          ExplicitWidth = 826
-          ExplicitHeight = 425
           inherited cConsultaLista: TCard
             Width = 828
             Height = 429
@@ -45,13 +41,10 @@ inherited formCadPortador: TformCadPortador
         end
         inherited pCabecalhoConsulta: TPanel
           Width = 828
-          ExplicitWidth = 826
         end
         inherited pConsulta: TPanel
           Top = 464
           Width = 828
-          ExplicitTop = 460
-          ExplicitWidth = 826
           inherited sbExcluirCadastro: TSpeedButton
             Left = 675
             ExplicitLeft = 673
@@ -249,7 +242,6 @@ inherited formCadPortador: TformCadPortador
       ExplicitWidth = 826
       inherited lTitulo: TLabel
         Width = 776
-        Height = 39
       end
       inherited sbSair: TSpeedButton
         Left = 785

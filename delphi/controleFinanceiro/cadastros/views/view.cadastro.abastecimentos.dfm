@@ -1,10 +1,28 @@
 inherited formCadAbastecimentos: TformCadAbastecimentos
-  Caption = 'formCadAbastecimentos'
+  Caption = 'Abastecimentos'
+  ClientWidth = 826
   TextHeight = 13
   inherited pGeral: TPanel
+    Width = 826
     inherited cpCadastros: TCardPanel
+      Height = 524
+      ActiveCard = cCadastro
       inherited cConsulta: TCard
+        Height = 524
+        inherited cpConsultas: TCardPanel
+          Height = 421
+          inherited cConsultaLista: TCard
+            Height = 421
+            inherited dbgConsulta: TDBGrid
+              Height = 388
+            end
+          end
+          inherited cConsultaGrade: TCard
+            Height = 421
+          end
+        end
         inherited pConsulta: TPanel
+          Top = 456
           inherited sbExcluirCadastro: TSpeedButton
             ExplicitLeft = 671
           end
@@ -17,7 +35,15 @@ inherited formCadAbastecimentos: TformCadAbastecimentos
         end
       end
       inherited cCadastro: TCard
+        Height = 511
+        inherited pRodapeBotoesCad: TPanel
+          Top = 443
+        end
         inherited pCadastro: TPanel
+          Height = 443
+          ExplicitLeft = 216
+          ExplicitTop = 56
+          ExplicitWidth = 820
           object tidabastecimento: TDBText
             Left = 195
             Top = 29
@@ -75,6 +101,14 @@ inherited formCadAbastecimentos: TformCadAbastecimentos
             Alignment = taRightJustify
             Caption = 'Quantidade Litros'
           end
+          object lId_Veiculo: TLabel
+            Left = 136
+            Top = 238
+            Width = 53
+            Height = 21
+            Alignment = taRightJustify
+            Caption = 'Ve'#237'culo'
+          end
           object etotalabastecimento: TDBEdit
             Left = 195
             Top = 129
@@ -98,6 +132,7 @@ inherited formCadAbastecimentos: TformCadAbastecimentos
             Top = 94
             Width = 186
             Height = 29
+            Date = 45621.000000000000000000
             Time = 0.440244837962382000
             TabOrder = 1
           end
@@ -119,10 +154,26 @@ inherited formCadAbastecimentos: TformCadAbastecimentos
             DataSource = dataCadastroAbastecimentos.dsCadastro
             TabOrder = 4
           end
+          object lcbId_Veiculo: TDBLookupComboBox
+            Left = 195
+            Top = 234
+            Width = 270
+            Height = 29
+            DataField = 'Id_Veiculo'
+            DataSource = dataCadastroAbastecimentos.dsCadastro
+            KeyField = 'IdVeiculo'
+            ListField = 'Modelo'
+            NullValueKey = 8
+            TabOrder = 5
+          end
         end
       end
     end
     inherited pCabecalhoGeral: TPanel
+      inherited lTitulo: TLabel
+        Width = 774
+        Height = 39
+      end
       inherited sbSair: TSpeedButton
         ExplicitLeft = 781
       end

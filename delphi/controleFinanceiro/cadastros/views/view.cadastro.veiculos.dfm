@@ -1,4 +1,5 @@
-inherited formCadSaldoFGTS: TformCadSaldoFGTS
+inherited formCadVeiculos: TformCadVeiculos
+  Caption = 'Ve'#237'culos'
   ExplicitWidth = 838
   ExplicitHeight = 604
   TextHeight = 13
@@ -8,6 +9,7 @@ inherited formCadSaldoFGTS: TformCadSaldoFGTS
     inherited cpCadastros: TCardPanel
       Width = 824
       Height = 524
+      ActiveCard = cCadastro
       ExplicitWidth = 822
       ExplicitHeight = 520
       inherited cConsulta: TCard
@@ -52,15 +54,15 @@ inherited formCadSaldoFGTS: TformCadSaldoFGTS
           ExplicitWidth = 822
           inherited sbExcluirCadastro: TSpeedButton
             Left = 671
-            ExplicitLeft = 673
+            ExplicitLeft = 671
           end
           inherited sbIncluirCadastro: TSpeedButton
             Left = 359
-            ExplicitLeft = 361
+            ExplicitLeft = 359
           end
           inherited sbEditarCadastro: TSpeedButton
             Left = 515
-            ExplicitLeft = 517
+            ExplicitLeft = 515
           end
         end
       end
@@ -82,94 +84,143 @@ inherited formCadSaldoFGTS: TformCadSaldoFGTS
         inherited pCadastro: TPanel
           Width = 818
           Height = 443
-          object tIdSaldoFGTS: TDBText
+          ExplicitLeft = -46
+          ExplicitTop = -216
+          object tidVeiculo: TDBText
             Left = 195
-            Top = 32
-            Width = 100
+            Top = 29
+            Width = 72
             Height = 21
             AutoSize = True
-            DataField = 'IdSaldoFGTS'
-            DataSource = dataCadastroSaldoFGTS.dsCadastro
+            DataField = 'idVeiculo'
+            DataSource = dataCadastroVeiculos.dsCadastro
           end
-          object lIdSaldoFGTS: TLabel
+          object lIdSaldoPortador: TLabel
             Left = 94
-            Top = 32
+            Top = 29
             Width = 95
             Height = 21
             Alignment = taRightJustify
             Caption = 'Identifica'#231#227'o'
           end
-          object lNroPIS: TLabel
-            Left = 129
-            Top = 67
-            Width = 60
+          object Label1: TLabel
+            Left = 136
+            Top = 62
+            Width = 53
             Height = 21
             Alignment = taRightJustify
-            Caption = 'Nro. PIS'
+            Caption = 'Modelo'
           end
-          object lSaldo: TLabel
-            Left = 149
-            Top = 102
-            Width = 40
+          object Label3: TLabel
+            Left = 102
+            Top = 204
+            Width = 87
             Height = 21
             Alignment = taRightJustify
-            Caption = 'Saldo'
+            Caption = 'Data Venda'
           end
-          object lSenha: TLabel
+          object lValor: TLabel
+            Left = 89
+            Top = 237
+            Width = 100
+            Height = 21
+            Alignment = taRightJustify
+            Caption = 'Valor Compra'
+          end
+          object Label2: TLabel
             Left = 144
-            Top = 137
+            Top = 97
             Width = 45
             Height = 21
             Alignment = taRightJustify
-            Caption = 'Senha'
+            Caption = 'Marca'
           end
-          object lId_MembroFamilia: TLabel
-            Left = 71
-            Top = 172
-            Width = 118
+          object Label4: TLabel
+            Left = 164
+            Top = 132
+            Width = 25
             Height = 21
             Alignment = taRightJustify
-            Caption = 'Membro Fam'#237'lia'
+            Caption = 'Cor'
           end
-          object eNroPIS: TDBEdit
+          object Label5: TLabel
+            Left = 91
+            Top = 169
+            Width = 98
+            Height = 21
+            Alignment = taRightJustify
+            Caption = 'Data Compra'
+          end
+          object Label6: TLabel
+            Left = 100
+            Top = 272
+            Width = 89
+            Height = 21
+            Alignment = taRightJustify
+            Caption = 'Valor Venda'
+          end
+          object eModelo: TDBEdit
             Left = 195
             Top = 59
-            Width = 250
+            Width = 414
             Height = 29
-            DataField = 'NroPIS'
-            DataSource = dataCadastroSaldoFGTS.dsCadastro
+            DataField = 'Modelo'
+            DataSource = dataCadastroVeiculos.dsCadastro
             TabOrder = 0
           end
-          object eSaldo: TDBEdit
+          object dtpDataVenda: TDateTimePicker
+            Left = 195
+            Top = 199
+            Width = 186
+            Height = 29
+            Date = 45621.000000000000000000
+            Time = 0.440244837962382000
+            TabOrder = 4
+          end
+          object eValorCompra: TDBEdit
+            Left = 195
+            Top = 234
+            Width = 250
+            Height = 29
+            DataField = 'ValorCompra'
+            DataSource = dataCadastroVeiculos.dsCadastro
+            TabOrder = 5
+          end
+          object eMarca: TDBEdit
             Left = 195
             Top = 94
-            Width = 166
+            Width = 414
             Height = 29
-            DataField = 'Saldo'
-            DataSource = dataCadastroSaldoFGTS.dsCadastro
+            DataField = 'Marca'
+            DataSource = dataCadastroVeiculos.dsCadastro
             TabOrder = 1
           end
-          object eSenha: TDBEdit
+          object eCor: TDBEdit
             Left = 195
             Top = 129
-            Width = 166
+            Width = 414
             Height = 29
-            DataField = 'Senha'
-            DataSource = dataCadastroSaldoFGTS.dsCadastro
-            PasswordChar = '*'
+            DataField = 'Cor'
+            DataSource = dataCadastroVeiculos.dsCadastro
             TabOrder = 2
           end
-          object lcbId_MembroFamilia: TDBLookupComboBox
+          object dtpDataCompra: TDateTimePicker
             Left = 195
             Top = 164
-            Width = 270
+            Width = 186
             Height = 29
-            DataField = 'Id_MembroFamilia'
-            DataSource = dataCadastroSaldoFGTS.dsCadastro
-            KeyField = 'IdMembroFamilia'
-            ListField = 'Nome'
-            NullValueKey = 8
+            Date = 45621.000000000000000000
+            Time = 0.440244837962382000
             TabOrder = 3
+          end
+          object eValorVenda: TDBEdit
+            Left = 195
+            Top = 269
+            Width = 250
+            Height = 29
+            DataField = 'ValorVenda'
+            DataSource = dataCadastroVeiculos.dsCadastro
+            TabOrder = 6
           end
         end
       end
@@ -183,7 +234,7 @@ inherited formCadSaldoFGTS: TformCadSaldoFGTS
       end
       inherited sbSair: TSpeedButton
         Left = 781
-        ExplicitLeft = 783
+        ExplicitLeft = 781
       end
     end
   end

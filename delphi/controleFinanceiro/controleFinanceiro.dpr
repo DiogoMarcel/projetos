@@ -144,7 +144,11 @@ uses
   view.relatorio.saldodetalhes in 'relatorios\views\view.relatorio.saldodetalhes.pas' {formSaldoDetalhes},
   view.relatorio.saldoextrato in 'relatorios\views\view.relatorio.saldoextrato.pas' {formSaldoExtrato},
   view.relatorio.abastecimentos in 'relatorios\views\view.relatorio.abastecimentos.pas' {formRelAbastecimentos},
-  model.relatorio.abastecimentos in 'relatorios\models\model.relatorio.abastecimentos.pas' {dmAbastecimentos: TDataModule};
+  model.relatorio.abastecimentos in 'relatorios\models\model.relatorio.abastecimentos.pas' {dmAbastecimentos: TDataModule},
+  model.cadastro.veiculos in 'cadastros\models\model.cadastro.veiculos.pas',
+  classes.template.veiculos in 'library\lib.classes\classes.template.veiculos.pas',
+  view.cadastro.veiculos in 'cadastros\views\view.cadastro.veiculos.pas' {formCadVeiculos},
+  data.cadastro.veiculos in 'cadastros\dataModels\data.cadastro.veiculos.pas' {dataCadastroVeiculos: TDataModule};
 
 {$R *.res}
 

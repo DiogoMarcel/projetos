@@ -32,7 +32,8 @@ uses
   data.cadastro.saldoFGTS,
   data.cadastro.saldoportador,
   data.cadastro.tags,
-  data.cadastro.abastecimentos;
+  data.cadastro.abastecimentos,
+  data.cadastro.veiculos;
 
 { TdataCadastroFactory }
 
@@ -51,6 +52,7 @@ begin
     cadDespesaCartao: Result := TdataCadastroDespesaCartao.Create(Application);
     cadSaldoPortador: Result := TdataCadastroSaldoPortador.Create(Application);
     cadAbastecimentos:Result := TdataCadastroAbastecimentos.Create(Application);
+    cadVeiculos:      Result := TdataCadastroVeiculos.Create(Application);
   else
     raise Exception.Create('TdataCadastroFactory.GerarDataCadastro - Não identificado o tipo do cadastro informado!');
   end;

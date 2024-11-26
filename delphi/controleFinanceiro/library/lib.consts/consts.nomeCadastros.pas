@@ -20,6 +20,7 @@ type
     ,cadDespesaCartao
     ,cadSaldoPortador
     ,cadAbastecimentos
+    ,cadVeiculos
   );
 
   TEnumCadastros = class(TLibEnum<TTypeCadastros>)
@@ -36,7 +37,8 @@ type
        8,
        9,
        10,
-       11);
+       11,
+       12);
     FStrCadastros: array[TTypeCadastros] of string  =
       ('Portador',
        'Conta',
@@ -49,7 +51,8 @@ type
        'Cartao',
        'DespesaCartao',
        'SaldoPortador',
-       'Abastecimentos');
+       'Abastecimentos',
+       'Veículos');
 
   protected
     class function GetArrayValues: TArrayInteger; override;

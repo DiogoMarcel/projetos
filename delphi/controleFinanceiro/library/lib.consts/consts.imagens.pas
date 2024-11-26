@@ -53,6 +53,7 @@ type
                     ,ci32Rent
                     ,ci32Abastecimentos
                     ,ci32RelAbastecimentos
+                    ,ci32Veiculos
                     );
 
 type
@@ -124,7 +125,7 @@ type
   const
     FIntImagens32: array[TConstImagens32] of integer = (-1
                                                        , 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-                                                       , 11, 12, 13, 14, 15, 16);
+                                                       , 11, 12, 13, 14, 15, 16, 17);
     FStrImagens32: array[TConstImagens32] of string  = ('nil'
                                                        ,'Relatórios'
                                                        ,'Sair'
@@ -143,6 +144,7 @@ type
                                                        ,'Alugar Casa'
                                                        ,'Abastecimentos'
                                                        ,'Relatório Abastecimentos'
+                                                       ,'Veículos'
                                                        );
   protected
     class function GetArrayValues: TArrayInteger; override;

@@ -33,7 +33,7 @@ uses
 var
   FCadastroAbastecimentos: iCadastros;
 
-{ TCadastroTags }
+{ TCadastroAbastecimentos }
 
 class function TCadastroAbastecimentos.ObterInstancia: iCadastros;
 begin

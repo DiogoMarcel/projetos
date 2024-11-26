@@ -52,6 +52,7 @@ type
     ,sqlLookupCredor
     ,sqlLookupCartao
     ,sqlLookupSaldoPortador
+    ,sqlLookupVeiculo
   );
 
 implementation

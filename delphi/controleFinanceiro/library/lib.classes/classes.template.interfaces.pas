@@ -19,6 +19,7 @@ type
   IDespesaCartao = interface ['{EB1CFBD1-B024-4265-AEE6-5ED078D8A9CF}'] end;
   ISaldoPortador = interface ['{7E86F760-2A9E-42D1-A389-EF23280743DC}'] end;
   IAbastecimentos = interface ['{AF2103D4-EAA5-4A90-B54C-7296BE12A3A6}'] end;
+  IVeiculos = interface ['{99BC6C45-08BA-441F-84F5-60E239B73983}'] end;
 
 implementation
 

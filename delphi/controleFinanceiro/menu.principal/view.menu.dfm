@@ -77,6 +77,9 @@ object formMenu: TformMenu
             end
             item
               Action = cadAbastecimentos
+            end
+            item
+              Action = cadVeiculos
             end>
         end
         item
@@ -281,6 +284,11 @@ object formMenu: TformMenu
       Category = 'Relat'#243'rios'
       Caption = 'Abastecimentos'
       OnExecute = aAbrirRelatoriosExecute
+    end
+    object cadVeiculos: TAction
+      Category = 'Cadastros'
+      Caption = 'Ve'#237'culos'
+      OnExecute = aAbrirCadastrosExecute
     end
   end
 end

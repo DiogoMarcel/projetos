@@ -441,6 +441,17 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="cadastros\models\model.cadastro.veiculos.pas"/>
+        <DCCReference Include="library\lib.classes\classes.template.veiculos.pas"/>
+        <DCCReference Include="cadastros\views\view.cadastro.veiculos.pas">
+            <Form>formCadVeiculos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="cadastros\dataModels\data.cadastro.veiculos.pas">
+            <Form>dataCadastroVeiculos</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -475,6 +486,12 @@
                 <DeployFile LocalName="Win64\Debug\bin\controleFinanceiro.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>controleFinanceiro.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\bin\controleFinanceiro.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>controleFinanceiro.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

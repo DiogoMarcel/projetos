@@ -5,6 +5,7 @@ interface
 {
   https://logospng.org/
 
+  <a target="_blank" href="https://icons8.com/icon/Kwa1bjRaYH18/car-theft">Car Theft</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/3Ro21LuwhVhg/invisible">Invisível</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/T8KCO0TdWmpo/eye">Visível</a> ícone por <a target="_blank" href="https://icons8.com">Icons8</a>
   <a target="_blank" href="https://icons8.com/icon/pfuW6dHMyTUI/seta-para-expandir">Seta para expandir</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

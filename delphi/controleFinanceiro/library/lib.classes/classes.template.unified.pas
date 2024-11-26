@@ -18,7 +18,8 @@ uses
   classes.template.cartao,
   classes.template.despesacartao,
   classes.template.saldoportador,
-  classes.template.abastecimentos;
+  classes.template.abastecimentos,
+  classes.template.veiculos;
 
 type
   TUnifiedClasses = class(TJsonPkgTemplate, IUnifiedClass)
@@ -75,6 +76,11 @@ type
     [TGenericListReflect]
     FAbastecimentos: TObjectList<TAbastecimentos>;
 
+    [JSONName('veiculos')]
+    FVeiculosArray: TArray<TVeiculos>;
+    [TGenericListReflect]
+    FVeiculos : TObjectList<TVeiculos>;
+
     function GetPortadores: TObjectList<TPortador>;
     function GetMembroFamilia: TObjectList<TMembroFamilia>;
     function GetConta: TObjectList<TConta>;
@@ -85,6 +91,7 @@ type
     function GetDespesaCartao: TObjectList<TDespesaCartao>;
     function GetSaldoPortador: TObjectList<TSaldoPortador>;
     function GetAbastecimentos: TObjectList<TAbastecimentos>;
+    function GetVeiculos: TObjectList<TVeiculos>;
 
   public
     destructor Destroy; override;
@@ -105,6 +112,7 @@ type
     property DespesaCartao: TObjectList<TDespesaCartao> read GetDespesaCartao;
     property SaldoPortador: TObjectList<TSaldoPortador> read GetSaldoPortador;
     property Abastecimentos: TObjectList<TAbastecimentos> read GetAbastecimentos;
+    property Veiculos: TObjectList<TVeiculos> read GetVeiculos;
 
   end;
 
@@ -178,6 +186,8 @@ begin
   GetCartao.Free;
   GetDespesaCartao.Free;
   GetSaldoPortador.Free;
+  GetAbastecimentos.Free;
+  GetVeiculos.Free;
 
   {TODO: [HINT - Cadastros] Adicionar liberação de memória do cadastro}
   inherited;
@@ -301,6 +311,18 @@ begin
   end;
 
   Result := FAbastecimentos;
+end;
+
+function TUnifiedClasses.GetVeiculos: TObjectList<TVeiculos>;
+begin
+  if not Assigned(FVeiculos) then
+  begin
+    FVeiculos := TObjectList<TVeiculos>.Create;
+    FVeiculos.AddRange(FVeiculosArray);
+    SetLength(FVeiculosArray, 0);
+  end;
+
+  Result := FVeiculos;
 end;
 
 initialization

@@ -5,6 +5,7 @@ interface
 uses
   Data.DB,
   attributes.custom,
+  classes.template.veiculos,
   classes.template.interfaces;
 
 type
@@ -16,6 +17,7 @@ type
     FTotalAbastecimento: currency;
     FKMCarro: integer;
     FQuantidadeLitros: double;
+    FId_Veiculo: integer;
 
   public
     [TAttributeTitulo('Id Abastecimento')]
@@ -43,6 +45,10 @@ type
     [TAttributeFieldType(ftFloat)]
     property QuantidadeLitros: Double read FQuantidadeLitros write FQuantidadeLitros;
 
+    [TAttributeTitulo('Id Veículo')]
+    [TAttributeFieldType(ftInteger)]
+    [TAttributeFK(TVeiculos)]
+    property Id_Veiculo: integer read FId_Veiculo write FId_Veiculo;
   end;
 
 implementation
